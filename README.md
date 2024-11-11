@@ -1,1 +1,1 @@
-# scout-for-lol
+# Scout for League of Legends

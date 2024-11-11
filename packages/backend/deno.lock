@@ -1,0 +1,350 @@
+{
+  "version": "4",
+  "specifiers": {
+    "jsr:@std/assert@1.0.7": "1.0.7",
+    "jsr:@std/encoding@1.0.5": "1.0.5",
+    "jsr:@std/internal@^1.0.5": "1.0.5",
+    "npm:@resvg/resvg-js@2.6.0": "2.6.0",
+    "npm:@types/node@*": "22.5.4",
+    "npm:discord.js@14.16.3": "14.16.3"
+  },
+  "jsr": {
+    "@std/assert@1.0.7": {
+      "integrity": "64ce9fac879e0b9f3042a89b3c3f8ccfc9c984391af19e2087513a79d73e28c3",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/encoding@1.0.5": {
+      "integrity": "ecf363d4fc25bd85bd915ff6733a7e79b67e0e7806334af15f4645c569fefc04"
+    },
+    "@std/internal@1.0.5": {
+      "integrity": "54a546004f769c1ac9e025abd15a76b6671ddc9687e2313b67376125650dc7ba"
+    }
+  },
+  "npm": {
+    "@discordjs/builders@1.9.0": {
+      "integrity": "sha512-0zx8DePNVvQibh5ly5kCEei5wtPBIUbSoE9n+91Rlladz4tgtFbJ36PZMxxZrTEOQ7AHMZ/b0crT/0fCy6FTKg==",
+      "dependencies": [
+        "@discordjs/formatters",
+        "@discordjs/util",
+        "@sapphire/shapeshift",
+        "discord-api-types@0.37.97",
+        "fast-deep-equal",
+        "ts-mixer",
+        "tslib"
+      ]
+    },
+    "@discordjs/collection@1.5.3": {
+      "integrity": "sha512-SVb428OMd3WO1paV3rm6tSjM4wC+Kecaa1EUGX7vc6/fddvw/6lg90z4QtCqm21zvVe92vMMDt9+DkIvjXImQQ=="
+    },
+    "@discordjs/collection@2.1.1": {
+      "integrity": "sha512-LiSusze9Tc7qF03sLCujF5iZp7K+vRNEDBZ86FT9aQAv3vxMLihUvKvpsCWiQ2DJq1tVckopKm1rxomgNUc9hg=="
+    },
+    "@discordjs/formatters@0.5.0": {
+      "integrity": "sha512-98b3i+Y19RFq1Xke4NkVY46x8KjJQjldHUuEbCqMvp1F5Iq9HgnGpu91jOi/Ufazhty32eRsKnnzS8n4c+L93g==",
+      "dependencies": [
+        "discord-api-types@0.37.97"
+      ]
+    },
+    "@discordjs/rest@2.4.0": {
+      "integrity": "sha512-Xb2irDqNcq+O8F0/k/NaDp7+t091p+acb51iA4bCKfIn+WFWd6HrNvcsSbMMxIR9NjcMZS6NReTKygqiQN+ntw==",
+      "dependencies": [
+        "@discordjs/collection@2.1.1",
+        "@discordjs/util",
+        "@sapphire/async-queue",
+        "@sapphire/snowflake",
+        "@vladfrangu/async_event_emitter",
+        "discord-api-types@0.37.97",
+        "magic-bytes.js",
+        "tslib",
+        "undici"
+      ]
+    },
+    "@discordjs/util@1.1.1": {
+      "integrity": "sha512-eddz6UnOBEB1oITPinyrB2Pttej49M9FZQY8NxgEvc3tq6ZICZ19m70RsmzRdDHk80O9NoYN/25AqJl8vPVf/g=="
+    },
+    "@discordjs/ws@1.1.1": {
+      "integrity": "sha512-PZ+vLpxGCRtmr2RMkqh8Zp+BenUaJqlS6xhgWKEZcgC/vfHLEzpHtKkB0sl3nZWpwtcKk6YWy+pU3okL2I97FA==",
+      "dependencies": [
+        "@discordjs/collection@2.1.1",
+        "@discordjs/rest",
+        "@discordjs/util",
+        "@sapphire/async-queue",
+        "@types/ws",
+        "@vladfrangu/async_event_emitter",
+        "discord-api-types@0.37.83",
+        "tslib",
+        "ws"
+      ]
+    },
+    "@resvg/resvg-js-android-arm-eabi@2.6.0": {
+      "integrity": "sha512-lJnZ/2P5aMocrFMW7HWhVne5gH82I8xH6zsfH75MYr4+/JOaVcGCTEQ06XFohGMdYRP3v05SSPLPvTM/RHjxfA=="
+    },
+    "@resvg/resvg-js-android-arm64@2.6.0": {
+      "integrity": "sha512-N527f529bjMwYWShZYfBD60dXA4Fux+D695QsHQ93BDYZSHUoOh1CUGUyICevnTxs7VgEl98XpArmUWBZQVMfQ=="
+    },
+    "@resvg/resvg-js-darwin-arm64@2.6.0": {
+      "integrity": "sha512-MabUKLVayEwlPo0mIqAmMt+qESN8LltCvv5+GLgVga1avpUrkxj/fkU1TKm8kQegutUjbP/B0QuMuUr0uhF8ew=="
+    },
+    "@resvg/resvg-js-darwin-x64@2.6.0": {
+      "integrity": "sha512-zrFetdnSw/suXjmyxSjfDV7i61hahv6DDG6kM7BYN2yJ3Es5+BZtqYZTcIWogPJedYKmzN1YTMWGd/3f0ubFiA=="
+    },
+    "@resvg/resvg-js-linux-arm-gnueabihf@2.6.0": {
+      "integrity": "sha512-sH4gxXt7v7dGwjGyzLwn7SFGvwZG6DQqLaZ11MmzbCwd9Zosy1TnmrMJfn6TJ7RHezmQMgBPi18bl55FZ1AT4A=="
+    },
+    "@resvg/resvg-js-linux-arm64-gnu@2.6.0": {
+      "integrity": "sha512-fCyMncqCJtrlANADIduYF4IfnWQ295UKib7DAxFXQhBsM9PLDTpizr0qemZcCNadcwSVHnAIzL4tliZhCM8P6A=="
+    },
+    "@resvg/resvg-js-linux-arm64-musl@2.6.0": {
+      "integrity": "sha512-ouLjTgBQHQyxLht4FdMPTvuY8xzJigM9EM2Tlu0llWkN1mKyTQrvYWi6TA6XnKdzDJHy7ZLpWpjZi7F5+Pg+Vg=="
+    },
+    "@resvg/resvg-js-linux-x64-gnu@2.6.0": {
+      "integrity": "sha512-n3zC8DWsvxC1AwxpKFclIPapDFibs5XdIRoV/mcIlxlh0vseW1F49b97F33BtJQRmlntsqqN6GMMqx8byB7B+Q=="
+    },
+    "@resvg/resvg-js-linux-x64-musl@2.6.0": {
+      "integrity": "sha512-n4tasK1HOlAxdTEROgYA1aCfsEKk0UOFDNd/AQTTZlTmCbHKXPq+O8npaaKlwXquxlVK8vrkcWbksbiGqbCAcw=="
+    },
+    "@resvg/resvg-js-win32-arm64-msvc@2.6.0": {
+      "integrity": "sha512-X2+EoBJFwDI5LDVb51Sk7ldnVLitMGr9WwU/i21i3fAeAXZb3hM16k67DeTy16OYkT2dk/RfU1tP1wG+rWbz2Q=="
+    },
+    "@resvg/resvg-js-win32-ia32-msvc@2.6.0": {
+      "integrity": "sha512-L7oevWjQoUgK5W1fCKn0euSVemhDXVhrjtwqpc7MwBKKimYeiOshO1Li1pa8bBt5PESahenhWgdB6lav9O0fEg=="
+    },
+    "@resvg/resvg-js-win32-x64-msvc@2.6.0": {
+      "integrity": "sha512-8lJlghb+Unki5AyKgsnFbRJwkEj9r1NpwyuBG8yEJiG1W9eEGl03R3I7bsVa3haof/3J1NlWf0rzSa1G++A2iw=="
+    },
+    "@resvg/resvg-js@2.6.0": {
+      "integrity": "sha512-Tf3YpbBKcQn991KKcw/vg7vZf98v01seSv6CVxZBbRkL/xyjnoYB6KgrFL6zskT1A4dWC/vg77KyNOW+ePaNlA==",
+      "dependencies": [
+        "@resvg/resvg-js-android-arm-eabi",
+        "@resvg/resvg-js-android-arm64",
+        "@resvg/resvg-js-darwin-arm64",
+        "@resvg/resvg-js-darwin-x64",
+        "@resvg/resvg-js-linux-arm-gnueabihf",
+        "@resvg/resvg-js-linux-arm64-gnu",
+        "@resvg/resvg-js-linux-arm64-musl",
+        "@resvg/resvg-js-linux-x64-gnu",
+        "@resvg/resvg-js-linux-x64-musl",
+        "@resvg/resvg-js-win32-arm64-msvc",
+        "@resvg/resvg-js-win32-ia32-msvc",
+        "@resvg/resvg-js-win32-x64-msvc"
+      ]
+    },
+    "@sapphire/async-queue@1.5.5": {
+      "integrity": "sha512-cvGzxbba6sav2zZkH8GPf2oGk9yYoD5qrNWdu9fRehifgnFZJMV+nuy2nON2roRO4yQQ+v7MK/Pktl/HgfsUXg=="
+    },
+    "@sapphire/shapeshift@4.0.0": {
+      "integrity": "sha512-d9dUmWVA7MMiKobL3VpLF8P2aeanRTu6ypG2OIaEv/ZHH/SUQ2iHOVyi5wAPjQ+HmnMuL0whK9ez8I/raWbtIg==",
+      "dependencies": [
+        "fast-deep-equal",
+        "lodash"
+      ]
+    },
+    "@sapphire/snowflake@3.5.3": {
+      "integrity": "sha512-jjmJywLAFoWeBi1W7994zZyiNWPIiqRRNAmSERxyg93xRGzNYvGjlZ0gR6x0F4gPRi2+0O6S71kOZYyr3cxaIQ=="
+    },
+    "@types/node@22.5.4": {
+      "integrity": "sha512-FDuKUJQm/ju9fT/SeX/6+gBzoPzlVCzfzmGkwKvRHQVxi4BntVbyIwf6a4Xn62mrvndLiml6z/UBXIdEVjQLXg==",
+      "dependencies": [
+        "undici-types"
+      ]
+    },
+    "@types/ws@8.5.13": {
+      "integrity": "sha512-osM/gWBTPKgHV8XkTunnegTRIsvF6owmf5w+JtAfOw472dptdm0dlGv4xCt6GwQRcC2XVOvvRE/0bAoQcL2QkA==",
+      "dependencies": [
+        "@types/node"
+      ]
+    },
+    "@vladfrangu/async_event_emitter@2.4.6": {
+      "integrity": "sha512-RaI5qZo6D2CVS6sTHFKg1v5Ohq/+Bo2LZ5gzUEwZ/WkHhwtGTCB/sVLw8ijOkAUxasZ+WshN/Rzj4ywsABJ5ZA=="
+    },
+    "discord-api-types@0.37.100": {
+      "integrity": "sha512-a8zvUI0GYYwDtScfRd/TtaNBDTXwP5DiDVX7K5OmE+DRT57gBqKnwtOC5Ol8z0mRW8KQfETIgiB8U0YZ9NXiCA=="
+    },
+    "discord-api-types@0.37.83": {
+      "integrity": "sha512-urGGYeWtWNYMKnYlZnOnDHm8fVRffQs3U0SpE8RHeiuLKb/u92APS8HoQnPTFbnXmY1vVnXjXO4dOxcAn3J+DA=="
+    },
+    "discord-api-types@0.37.97": {
+      "integrity": "sha512-No1BXPcVkyVD4ZVmbNgDKaBoqgeQ+FJpzZ8wqHkfmBnTZig1FcH3iPPersiK1TUIAzgClh2IvOuVUYfcWLQAOA=="
+    },
+    "discord.js@14.16.3": {
+      "integrity": "sha512-EPCWE9OkA9DnFFNrO7Kl1WHHDYFXu3CNVFJg63bfU7hVtjZGyhShwZtSBImINQRWxWP2tgo2XI+QhdXx28r0aA==",
+      "dependencies": [
+        "@discordjs/builders",
+        "@discordjs/collection@1.5.3",
+        "@discordjs/formatters",
+        "@discordjs/rest",
+        "@discordjs/util",
+        "@discordjs/ws",
+        "@sapphire/snowflake",
+        "discord-api-types@0.37.100",
+        "fast-deep-equal",
+        "lodash.snakecase",
+        "tslib",
+        "undici"
+      ]
+    },
+    "fast-deep-equal@3.1.3": {
+      "integrity": "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q=="
+    },
+    "lodash.snakecase@4.1.1": {
+      "integrity": "sha512-QZ1d4xoBHYUeuouhEq3lk3Uq7ldgyFXGBhg04+oRLnIz8o9T65Eh+8YdroUwn846zchkA9yDsDl5CVVaV2nqYw=="
+    },
+    "lodash@4.17.21": {
+      "integrity": "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
+    },
+    "magic-bytes.js@1.10.0": {
+      "integrity": "sha512-/k20Lg2q8LE5xiaaSkMXk4sfvI+9EGEykFS4b0CHHGWqDYU0bGUFSwchNOMA56D7TCs9GwVTkqe9als1/ns8UQ=="
+    },
+    "ts-mixer@6.0.4": {
+      "integrity": "sha512-ufKpbmrugz5Aou4wcr5Wc1UUFWOLhq+Fm6qa6P0w0K5Qw2yhaUoiWszhCVuNQyNwrlGiscHOmqYoAox1PtvgjA=="
+    },
+    "tslib@2.8.1": {
+      "integrity": "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="
+    },
+    "undici-types@6.19.8": {
+      "integrity": "sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw=="
+    },
+    "undici@6.19.8": {
+      "integrity": "sha512-U8uCCl2x9TK3WANvmBavymRzxbfFYG+tAu+fgx3zxQy3qdagQqBLwJVrdyO1TBfUXvfKveMKJZhpvUYoOjM+4g=="
+    },
+    "ws@8.18.0": {
+      "integrity": "sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw=="
+    }
+  },
+  "redirects": {
+    "https://esm.sh/v128/@types/react@~18.3/index.d.ts": "https://esm.sh/v128/@types/react@18.2.38/index.d.ts"
+  },
+  "remote": {
+    "https://deno.land/std@0.150.0/media_types/_util.ts": "ce9b4fc4ba1c447dafab619055e20fd88236ca6bdd7834a21f98bd193c3fbfa1",
+    "https://deno.land/std@0.150.0/media_types/mod.ts": "2d4b6f32a087029272dc59e0a55ae3cc4d1b27b794ccf528e94b1925795b3118",
+    "https://deno.land/std@0.150.0/media_types/vendor/mime-db.v1.52.0.ts": "724cee25fa40f1a52d3937d6b4fbbfdd7791ff55e1b7ac08d9319d5632c7f5af",
+    "https://deno.land/std@0.84.0/_util/assert.ts": "2f868145a042a11d5ad0a3c748dcf580add8a0dbc0e876eaa0026303a5488f58",
+    "https://deno.land/std@0.84.0/_util/os.ts": "e282950a0eaa96760c0cf11e7463e66babd15ec9157d4c9ed49cc0925686f6a7",
+    "https://deno.land/std@0.84.0/path/_constants.ts": "1247fee4a79b70c89f23499691ef169b41b6ccf01887a0abd131009c5581b853",
+    "https://deno.land/std@0.84.0/path/_interface.ts": "1fa73b02aaa24867e481a48492b44f2598cd9dfa513c7b34001437007d3642e4",
+    "https://deno.land/std@0.84.0/path/_util.ts": "f4fa69aa3cbbd8568763bfc43c7236875015ba343602d8bafd332b4b4243681b",
+    "https://deno.land/std@0.84.0/path/common.ts": "eaf03d08b569e8a87e674e4e265e099f237472b6fd135b3cbeae5827035ea14a",
+    "https://deno.land/std@0.84.0/path/glob.ts": "4a524c1c9da3e79a9fdabdc6e850cd9e41bdf31e442856ffa19c5b123268ca95",
+    "https://deno.land/std@0.84.0/path/mod.ts": "4465dc494f271b02569edbb4a18d727063b5dbd6ed84283ff906260970a15d12",
+    "https://deno.land/std@0.84.0/path/posix.ts": "1408f8ba482a4dc5fc0a7cd7be28bbbff9608d2b3b5ffdcf288ae1228d959add",
+    "https://deno.land/std@0.84.0/path/separator.ts": "8fdcf289b1b76fd726a508f57d3370ca029ae6976fcde5044007f062e643ff1c",
+    "https://deno.land/std@0.84.0/path/win32.ts": "6ca052f54500f00cd7a5172fde62900626ab620dcd5bdcf4e6f5695d001ddef6",
+    "https://deno.land/std@0.99.0/_util/assert.ts": "2f868145a042a11d5ad0a3c748dcf580add8a0dbc0e876eaa0026303a5488f58",
+    "https://deno.land/std@0.99.0/_util/os.ts": "e282950a0eaa96760c0cf11e7463e66babd15ec9157d4c9ed49cc0925686f6a7",
+    "https://deno.land/std@0.99.0/path/_constants.ts": "1247fee4a79b70c89f23499691ef169b41b6ccf01887a0abd131009c5581b853",
+    "https://deno.land/std@0.99.0/path/_interface.ts": "1fa73b02aaa24867e481a48492b44f2598cd9dfa513c7b34001437007d3642e4",
+    "https://deno.land/std@0.99.0/path/_util.ts": "2e06a3b9e79beaf62687196bd4b60a4c391d862cfa007a20fc3a39f778ba073b",
+    "https://deno.land/std@0.99.0/path/common.ts": "eaf03d08b569e8a87e674e4e265e099f237472b6fd135b3cbeae5827035ea14a",
+    "https://deno.land/std@0.99.0/path/glob.ts": "314ad9ff263b895795208cdd4d5e35a44618ca3c6dd155e226fb15d065008652",
+    "https://deno.land/std@0.99.0/path/mod.ts": "4465dc494f271b02569edbb4a18d727063b5dbd6ed84283ff906260970a15d12",
+    "https://deno.land/std@0.99.0/path/posix.ts": "f56c3c99feb47f30a40ce9d252ef6f00296fa7c0fcb6dd81211bdb3b8b99ca3b",
+    "https://deno.land/std@0.99.0/path/separator.ts": "8fdcf289b1b76fd726a508f57d3370ca029ae6976fcde5044007f062e643ff1c",
+    "https://deno.land/std@0.99.0/path/win32.ts": "77f7b3604e0de40f3a7c698e8a79e7f601dc187035a1c21cb1e596666ce112f8",
+    "https://deno.land/x/media_types@v2.7.1/db.ts": "1d95aa3fc1fe076638550640609394f0e157b18b430800e419aa7ece5c151d9c",
+    "https://deno.land/x/media_types@v2.7.1/deps.ts": "cd4c31e4b5ed8c4d8c61bd2fb38a82d68d3fd2dcf6d43f22511cbe6d9d310e51",
+    "https://deno.land/x/media_types@v2.7.1/mod.ts": "d63583b978d32eff8b76e1ae5d83cba2fb27baa90cc1bcb0ad15a06122ea8c19",
+    "https://deno.land/x/sentry@8.37.1/index.mjs": "6cd490ca8bbdc6cafa17d67d21ed523074d7efb98ac69419ec7d4262b44f04da",
+    "https://deno.land/x/static_files@1.1.6/mod.ts": "8a9bb05599e53864c54eb22931fe98507818517e0d69f26e099a1d8f4ef2b638",
+    "https://deno.land/x/static_files@1.1.6/src/deps.ts": "fb62be7a780339157bf692a619d6d02ea9662490deca275f488f9f9db917fc4a",
+    "https://deno.land/x/static_files@1.1.6/src/types.ts": "ef201288626294e9e1b8ee85cdfe2cdfb282e4d78af445df1726050dfa0c0988",
+    "https://deno.land/x/static_files@1.1.6/src/utils.ts": "9e6172dc97fed01e70a6b063c5afff40e20fe726b3bae0c5f0a962bad74b7107",
+    "https://deno.land/x/xhr@0.3.0/mod.ts": "094aacd627fd9635cd942053bf8032b5223b909858fa9dc8ffa583752ff63b20",
+    "https://esm.sh/@aws-sdk/client-s3@3.688.0": "c4e142a3723f43867601f8d04f5f7c7fb5632fa3402ba1ae15c8b22ae6e30b66",
+    "https://esm.sh/cron@3.1.9": "1b5e99525038955038dd83f66186abdc2c22f8d7489aba2ee3472a41bf499e81",
+    "https://esm.sh/date-fns@4.1.0": "706bdf86a944798c9c6f9234e4c1b98d953d7ba5aae63be6c13b1993dbcd345a",
+    "https://esm.sh/dotenv@16.4.5": "77e8664859d6d6571494d51800c6005be175757d90dae403c025c34941d22664",
+    "https://esm.sh/env-var@7.5.0": "cf24566cd5b43147e9cb4e20bdbfcfaa24d60a44de9d38206dcadeed62581fbc",
+    "https://esm.sh/react@18.3.1": "52480d4c00855e4f76843caa4f2818eb001671523740cbf064cbd108721c29c8",
+    "https://esm.sh/remeda@2.17.0": "ae5d212449ba5db26dd30c468a77837fc78bc8955424d93e233e0b8d70cecb9a",
+    "https://esm.sh/satori@0.11.3": "f01ed3864ba4868ec0ecc1b55e89bd1a37a025787fec184a9f8f2c93ccc26589",
+    "https://esm.sh/ts-pattern@5.5.0": "4749f31a0132fd183900156d8ab39cec1748d47aa889c432196aa1a9da81d24a",
+    "https://esm.sh/twisted@1.61.4": "da2c5c696dbe329ac54e91dbce22e18a145e9e338ee81716027eabc6d9a19343",
+    "https://esm.sh/twisted@1.61.4/dist/constants/champions.js": "7136a8dba6300d82c939fd97c968b99f65d82c975cf08eb58139ef8950413b67",
+    "https://esm.sh/twisted@1.61.4/dist/models-dto/index.js": "e3e1c7b91f7458cfeee3f5f838f3e5b9990fb9bd9464f3d83a091e9bb3d438cf",
+    "https://esm.sh/uuid@11.0.3": "f0b428d61031ed71d806607515ae9d4cedf5fbf75f8bc5b2874c922b2f5fdbc5",
+    "https://esm.sh/v135/axios@1.7.7/denonext/axios.mjs": "0931b4db5361e65d30bb506281e4a9496a53efd252bade667e3a415cb5360117",
+    "https://esm.sh/v135/axios@1.7.7/denonext/lib/adapters/http.js": "cce6244540ab1c83e95f49e6ee9f5eb24eb0475a767279f0b162619c75b07f3f",
+    "https://esm.sh/v135/axios@1.7.7/denonext/lib/adapters/xhr.js": "bc133696d8000dc1e72f348d73a3e87d2e57f32e94b7b49431c39cb0a52c0f87",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/adapters/adapters.js": "5aeb91a56b46dd42982d931d5a7df808d2b4d91c53681437fa4bed70e8f2f84f",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/adapters/fetch.js": "0fb50f3af6ef00de281810260680f13be856ba87dfe14612439e1e9239555075",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/axios.js": "6ff5c752d86e8430bda7dc9833d41ef6de5264686e0d858658dbbeb763881142",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/cancel/CancelToken.js": "f0dcc5967f184e85ecc30e2ad733176d43c5874f726ab67eeb8de411e78a4ee0",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/cancel/CanceledError.js": "6273fd7a43b9cc2834fc8cbfa8260584abb51daf530808ef075c4463dfdcb496",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/cancel/isCancel.js": "48dc7f25a3791ac326c9b6816ffee7b01370d4135f0c9e1489e14b2af2caf479",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/core/Axios.js": "1ed329231c00aedb7e75e87b1d91c258a89033c7af3d0b6732816166df21f917",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/core/AxiosError.js": "29a00cb2acffc97035a5d835a97ece9fde37c036d5c92531e24be417cb233a8c",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/core/AxiosHeaders.js": "97dd96bb60e9d615423a37fcbad2a6feebdb4d21824476fbd602083283bd6ab4",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/core/InterceptorManager.js": "a45083116e832136c50537231189c6f09412b9b7f8fc32e8ed203fc4a8344856",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/core/buildFullPath.js": "ca8b27cab82c9ff6d4321396504fb561c0e3377429768ed967e2406c7022d8bf",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/core/dispatchRequest.js": "12c5fe73223394b4d0ddbc3a8d2a8aaf5ad7908eebe77cb24e50493dd3f522ec",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/core/mergeConfig.js": "ada85c11ef7cace3c89bf624e7dbe3a1b5a2d4280b114143a035a637de1c8099",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/core/settle.js": "9fe91a92cf0a8d238b491282f402b6d886b6362ae769eb10141143bb1034f7f4",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/core/transformData.js": "28888b95458624681c07e61673dec3b8a8f95f67bfbaf6e9d71720f7b53ee7d1",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/defaults.js": "cde047b7c3b1ed983454076ba1c047c300188c93e4a61298c41681e1949ab053",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/defaults/transitional.js": "705429c13cfe019f1736e73e52a241cacdcc70369b3f7f0da153260e47089725",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/env/data.js": "06931e05997449b0a99883cc3cd42405526a83fe175bdda0d9fb489f21915b94",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/AxiosTransformStream.js": "4a03a0b9b82c424e6e3f5c2bc38ac1c54812fec66ea57f68c825b229dfe2ddbe",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/AxiosURLSearchParams.js": "6a1999e877c359f1dc483783243646e716f3c0b5c3d9498f807240fa790c77da",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/HttpStatusCode.js": "abd36be755430554347ecce03c22cff0dc70d3cf37a47573536dba388f2863d0",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/ZlibHeaderTransformStream.js": "ce9acc5966726d51a9753ae256bd740c7d9f2100ab8d8e144c9430970b4b2889",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/bind.js": "801848c830a68e6fe00a1b46e2e03585b722b5e4ac8e07524e0c6675972bce52",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/buildURL.js": "e7c304b55122dd93f76313eca21d5a8a2b7512f6c7cb8d1dcb74e2546e87b300",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/callbackify.js": "ff293e198e8a201d786e8f0a114c0bf5302cc93bd00ea3cde0cde9544279c4f4",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/combineURLs.js": "dacbd51a3acbba587f92aa631ccafefe19419d4981f3bc6aea408728750e847b",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/composeSignals.js": "f973355d33c667a9aea7f2bfe0d16bd14682eedba4c2dda2c90d3ac0af7153f6",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/cookies.js": "5f26f9160a58929bd3b7756ea2667ecfcea578af95a42eceaf671ababee33cae",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/formDataToJSON.js": "b77b11300a0612c9b9f32e8b9516e9e57ac18eb5f06fa44a652f139e91c17ca5",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/formDataToStream.js": "44f4c1cadf3ab4a1d9357c0fe59f934d634b931150a4630a58fe65e7d1d56199",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/fromDataURI.js": "5ace7f694f75020fa10d95e6cdd012724d78e6e51bc0e4e0e5386f2766983ada",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/isAbsoluteURL.js": "28402ac669cf2947b401cbe77e04300cb70abd7bbbc06635116d08034482fbb2",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/isAxiosError.js": "2f5621891b9c458f61a116aeb39f7c6e8b7eb21a96f5beb39e401307bd3a416a",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/isURLSameOrigin.js": "fb02eec978fd91124fbbbc24ade85b388edc898529c350907b141cf2f2dedfc0",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/parseHeaders.js": "af9ba5c95a989cb66909671c8cf186ac660514f44d7382cdd911a53a559acf6f",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/parseProtocol.js": "98c119ddc32b4ffa261c090aa57ead8bf4496bc00d94befb505c2623a07c446f",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/progressEventReducer.js": "1e2a16377120c485c2bb84be9d6318039976c74fb1159a53160aa7d3ff77a8e8",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/readBlob.js": "30c66bcd4a979f924324fb6828ac70caee590e720c219412bbac0b9dbc09a198",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/resolveConfig.js": "ac879cf39d2b6cd48cac78437da67dfce6bfe99c29ebdf92934e5b41191a983a",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/speedometer.js": "e0c9a1ce04424d9a2c0a735b26df8f0bba4796473cab08e8e2a5904a48fe8694",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/spread.js": "7a0c56835637cbf571ffa924ecc872aaea890f302e7591d4b1bd33a9e7583854",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/throttle.js": "99e6f187d8e7931c6fd8dc4750712bc0b754d53e9e9f2982ea3ffd0e348646c1",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/toFormData.js": "6693d139198b8f3ac8b8401a326d34c4ba96484b702dfc8bbfe3eeecea699335",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/toURLEncodedForm.js": "0fe63afb93904ff8d854b292bcc229f1795d757a07f60bdb2c315d773e3776ed",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/trackStream.js": "8c1477c96c3ce04e25303f4aca5b230f7cf3fb781b56ead2dc5b5effc51f6618",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/helpers/validator.js": "06b062b3010e6ed790a9592833c1a656bcacd11859a882e68108a28d1a4766d8",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/platform.js": "8af2f1d9adfcbc3aaa372b86f8e0caf223b2dcac60cd6504d454ee12347f309f",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/platform/common/utils.js": "edbbe243692e82a826ea9c903ff4471b30f96051596f72c2ebeadfddf442a50d",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/platform/node.js": "c759c37c26031934acdc656338830cb2fb23c7cd3cd0725cfce946e74ade2565",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/platform/node/classes/FormData.js": "ae46e9816ebafc1392f4441be1d50e5c7b7943e689af93cf3c15731a52f3bef6",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/platform/node/classes/URLSearchParams.js": "8bc5d9a38bf76dd841adfe42bfcf5a54b44c23d8854e784f7e6510b5c3ae5b4f",
+    "https://esm.sh/v135/axios@1.7.7/denonext/unsafe/utils.js": "df0c84d6666c1e7a50bf6ec3cdc8269bdf4aafeec7c7abcbf29955225c6bcedd",
+    "https://esm.sh/v135/debug@4.3.4/denonext/debug.mjs": "d2ebf776ea77aa7df1b4460eb2a4aab245a9d5b19f11fa1db25f756b350bae9d",
+    "https://esm.sh/v135/dotenv@16.4.5/denonext/dotenv.mjs": "045a9ca4189443de0e08850721f73dd0369cd03ecb8fac8eeee1b547da74ee6b",
+    "https://esm.sh/v135/env-var@7.5.0/denonext/env-var.mjs": "7fcae4c8ed1e4475f71f118719a49688dea990a9ecc1bc64af69c0b186144037",
+    "https://esm.sh/v135/follow-redirects@1.15.6/denonext/follow-redirects.mjs": "8d4143928da5d8aa39ddfaece648196c2f831e30edd5882c986392e934e2bb13",
+    "https://esm.sh/v135/form-data@4.0.0/denonext/form-data.mjs": "48e84ac3b590bc364839367938d7e48ca37615a0c66e56dcc7356c3172ec7790",
+    "https://esm.sh/v135/http-status-codes@2.3.0/denonext/http-status-codes.mjs": "04299091e8d899a763602b2dc7f05ec9941e21a0dc2b2a31dc1ded11e94da79e",
+    "https://esm.sh/v135/lodash@4.17.21/denonext/lodash.mjs": "f04a5db09228738fd8cd06b6d1eaf3463b1b639d1529cf11673c3ac7bda1b1a8",
+    "https://esm.sh/v135/ms@2.1.2/denonext/ms.mjs": "aa4dc45ba72554c5011168f8910cc646c37af53cfff1a15a4decced838b8eb14",
+    "https://esm.sh/v135/promise-queue@2.2.5/denonext/promise-queue.mjs": "86fa0fadfeb3d66de5a040d338018538da2ba6c12b75a115d23821f55faa2cc7",
+    "https://esm.sh/v135/proxy-from-env@1.1.0/denonext/proxy-from-env.mjs": "5a2113ba20eb6fc83d6d68efd3aa65c4b61f05611da20339b14d165807eccfd7",
+    "https://esm.sh/v135/remeda@2.17.0/denonext/remeda.mjs": "49d013c2c7133d6c9fae05d073e46b8f06fe45c0f500d0401553fde972da2938",
+    "https://esm.sh/v135/ts-pattern@5.5.0/denonext/ts-pattern.mjs": "9a46f2455924bd77697a93b7928b3bd3227af3838b849214e3fbf6552175df63",
+    "https://esm.sh/v135/twisted@1.61.4/denonext/dist/models-dto.js": "1e02a078367b6c4c70dc3c1261c791b81fc97d877b2847f95cefb64fafb44f57",
+    "https://esm.sh/v135/twisted@1.61.4/denonext/twisted.mjs": "a99adab2ffe52664f7321f4d53d8054fe761bebdc7218d3ee5b872a816fea6f6",
+    "https://esm.sh/v135/type-fest@4.26.1/denonext/source/simplify.d.js": "789a7439f4fb0c9ad48ada84b394acb28b13d6c7f0bc8f621de1999bc52cf446",
+    "https://esm.sh/v135/type-fest@4.26.1/denonext/source/union-to-intersection.d.js": "9325ddc517db9f251fa695785237ace51d4683e961e1f05f6699109999d3a51f",
+    "https://esm.sh/v135/type-fest@4.26.1/source/simplify.d": "530e43550361b3fd8e3e9063931ddd41d10e6bdebbe363f88460bc765962f14f",
+    "https://esm.sh/v135/type-fest@4.26.1/source/union-to-intersection.d": "d4f77621cf7d487dd9f3f51da0c9cb34c73a52d9d6363183089ba71760c5987f",
+    "https://esm.sh/v135/zod@3.23.8/denonext/zod.mjs": "b3707b03ddc01aab11b740436ab23c0fcc8d15fed072be20085c1fd611016b61",
+    "https://esm.sh/zod@3.23.8": "728819c1f651800179a5a80daf24b3e54b2ddea87828bd10e63875a604bcb94e"
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/assert@1.0.7",
+      "jsr:@std/encoding@1.0.5",
+      "npm:discord.js@14.16.3"
+    ]
+  }
+}
