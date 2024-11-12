@@ -13,8 +13,8 @@ export async function getCurrentGame(
   player: PlayerConfigEntry,
 ): Promise<undefined | CurrentGameInfoDTO> {
   try {
-    const response = await api.Spectator.activeGame(
-      player.league.leagueAccount.id,
+    const response = await api.SpectatorV5.activeGame(
+      player.league.leagueAccount.puuid,
       Constants.Regions[player.league.leagueAccount.region],
     );
     if (response instanceof SpectatorNotAvailableDTO) {

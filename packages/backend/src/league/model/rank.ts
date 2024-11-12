@@ -8,16 +8,17 @@ import { SummonerLeagueDto } from "twisted/dist/models-dto/index.js";
 import { filter, first, pipe } from "remeda";
 
 const solo = "RANKED_SOLO_5x5";
-const flex = "RANKED_TEAM_5x5";
+const flex = "RANKED_FLEX_SR";
 
 export function getDto(
   dto: SummonerLeagueDto[],
   queue: string,
 ): SummonerLeagueDto | undefined {
   return pipe(
+    dto,
     filter((entry: SummonerLeagueDto) => entry.queueType === queue),
-    first,
-  )(dto);
+    first(),
+  );
 }
 
 export function getRank(

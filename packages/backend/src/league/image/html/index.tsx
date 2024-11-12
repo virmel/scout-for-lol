@@ -1,9 +1,22 @@
 import satori from "satori";
-import { Resvg } from "npm:@resvg/resvg-js@2.6.0";
+import { init } from "satori/wasm";
+import { Resvg } from "@resvg/resvg-js";
 import React from "react";
 import { loadFonts } from "../assets/index.ts";
 import { CompletedMatch } from "@discord/data";
 import { Report } from "./report.tsx";
+
+import cacheDir from "cache_dir/mod.ts";
+import initYoga from "yoga-wasm-web";
+
+// https://github.com/anasrar/satori-resvg
+const wasm = await Deno.readFile(
+  `${cacheDir()}/deno/npm/registry.npmjs.org/yoga-wasm-web/0.3.3/dist/yoga.wasm`
+);
+const yoga = await (
+  initYoga as unknown as (wasm: Uint8Array) => Promise<unknown>
+)(wasm);
+init(yoga);
 
 export async function matchToImage(match: CompletedMatch) {
   const svg = await matchToSvg(match);
