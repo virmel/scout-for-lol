@@ -48,8 +48,7 @@ export function getPlayersInGame(
 ) {
   const playersInGame = flatMap(state.gamesStarted, (game) => game.players);
   return filter(players, (player) =>
-    some(
-      playersInGame,
+    playersInGame.some(
       (matchPlayer) =>
         matchPlayer.player.league.leagueAccount.accountId ===
           player.league.leagueAccount.accountId,
@@ -61,9 +60,8 @@ export function getPlayersNotInGame(
   state: ApplicationState,
 ) {
   const playersInGame = flatMap(state.gamesStarted, (game) => game.players);
-  return reject(players, (player) =>
-    some(
-      playersInGame,
+  return filter(players, (player) =>
+    !playersInGame.some(
       (matchPlayer) =>
         matchPlayer.player.league.leagueAccount.accountId ===
           player.league.leagueAccount.accountId,

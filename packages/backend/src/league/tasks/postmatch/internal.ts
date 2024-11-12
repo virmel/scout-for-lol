@@ -20,8 +20,7 @@ import {
 import { getState, setState } from "../../model/state.ts";
 import { toMatch } from "../../model/match.ts";
 import { assert } from "@std/assert";
-import { filter, first, pipe } from "remeda";
-import { difference, map } from "remeda";
+import { differenceWith, filter, first, map, pipe } from "remeda";
 
 export async function checkMatch(game: LoadingScreenState) {
   try {
@@ -126,10 +125,10 @@ export async function checkPostMatchInternal(
 
       console.log("calculating new state");
       const newState = getState();
-      const newMatches = difference(
+      const newMatches = differenceWith(
         newState.gamesStarted,
         map(finishedGames, (game) => game[0]),
-        (state) => state.uuid,
+        (left, right) => left.uuid === right.uuid,
       );
 
       console.log("saving state files");

@@ -9,11 +9,7 @@ const rest = new REST({ version: "10" }).setToken(Configuration.discordToken);
 
 try {
   if (updateCommands) {
-    const commands = [
-      karmaCommand.toJSON(),
-      musicCommand.toJSON(),
-      customsCommand.toJSON(),
-    ];
+    const commands: unknown[] = [];
     console.log(commands);
     await rest.put(Routes.applicationCommands(Configuration.applicationId), {
       body: commands,

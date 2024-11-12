@@ -11,7 +11,7 @@ import { renderTeam } from "./team.tsx";
 import { round } from "remeda";
 
 export function Report({ match }: { match: CompletedMatch }) {
-  const minutes = round(match.durationInSeconds / 60);
+  const minutes = round(0)(match.durationInSeconds / 60);
 
   if (!match.teams.red || !match.teams.blue) {
     throw new Error(

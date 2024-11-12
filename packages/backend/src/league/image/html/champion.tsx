@@ -21,11 +21,12 @@ export function renderChampion(
   const damagePercent = round((champion.damage / damageMax) * 100);
 
   const summs = map(champion.spells, (spell) => {
-    const name = pipe(summoner.data)
-      .pipe(pickBy((summoner) => summoner.key === spell.toString()))
-      .pipe(keys())
-      .pipe(first())
-      .value();
+    const name = pipe(
+      summoner.data,
+      pickBy((summoner) => summoner.key === spell.toString()),
+      keys(),
+      first()
+    );
 
     if (name === undefined) {
       throw new Error(`Summoner spell ${spell} not found`);

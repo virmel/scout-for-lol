@@ -1,4 +1,4 @@
-import { assertSnapshot } from "std/testing/snapshot.ts";
+import { assertSnapshot } from "@std/testing/snapshot";
 import { PlayerConfigSchema } from "./index.ts";
 
 Deno.test("beta", async (t) => {

@@ -16,7 +16,7 @@ import { filter, first, map, pipe } from "remeda";
 function findParticipant(
   puuid: string,
   participants: MatchV5DTOs.ParticipantDto[],
-): MatchV5DTOs.ParticipantDto {
+): MatchV5DTOs.ParticipantDto | undefined {
   return pipe(
     participants,
     filter((participant) => participant.puuid === puuid),
@@ -33,7 +33,10 @@ export function getOutcome(participant: MatchV5DTOs.ParticipantDto) {
     .exhaustive();
 }
 
-function getLaneOpponent(player: Champion, opponents: Champion[]): Champion {
+function getLaneOpponent(
+  player: Champion,
+  opponents: Champion[],
+): Champion | undefined {
   return pipe(
     opponents,
     filter((opponent) => opponent.lane === player.lane),
@@ -58,6 +61,12 @@ export function toMatch(
     player.config.league.leagueAccount.puuid,
     matchDto.info.participants,
   );
+  if (participant === undefined) {
+    console.debug("Player PUUID:", player.config.league.leagueAccount.puuid);
+    console.debug("Match Participants:", matchDto.info.participants);
+    throw new Error("participant not found");
+  }
+
   const champion = participantToChampion(participant);
   const team = parseTeam(participant.teamId);
   const teams = getTeams(matchDto.info.participants);

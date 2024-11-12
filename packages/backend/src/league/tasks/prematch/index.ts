@@ -13,7 +13,7 @@ import { getRanks } from "../../model/rank.ts";
 import { getPlayerConfigs } from "../../playerConfig.ts";
 import { getState, setState } from "../../model/state.ts";
 import { getCurrentGame } from "../../api/index.ts";
-import { chain, concat, filter, groupBy, map, reject, some, zip } from "remeda";
+import { filter, groupBy, map, mapValues, pipe, values, zip } from "remeda";
 
 export async function checkPreMatch() {
   const players = await getPlayerConfigs();
@@ -27,63 +27,66 @@ export async function checkPreMatch() {
   );
 
   console.log("filtering players not in game");
-  const playersInGame = chain(playersNotInGame)
-    .pipe(zip(playerStatus))
-    .pipe(filter(([_player, game]) => game != undefined))
-    .value() as [PlayerConfigEntry, CurrentGameInfoDTO][];
+  const playersInGame = pipe(
+    playersNotInGame,
+    zip(playerStatus),
+    filter(([_player, game]) => game != undefined),
+  ) as [PlayerConfigEntry, CurrentGameInfoDTO][];
 
   console.log("removing games already seen");
-  const newGames = reject(
+  const newGames = filter(
     playersInGame,
     ([_player, game]) =>
-      chain(getState().gamesStarted)
-        .pipe(map((game) => game.matchId))
-        .pipe(some((candidate) => candidate === game.gameId))
-        .value(),
+      !pipe(
+        getState().gamesStarted,
+        map((game) => game.matchId),
+        (matchIds) => matchIds.some((candidate) => candidate === game.gameId),
+      ),
+  );
+
+  const promises = pipe(
+    newGames,
+    groupBy(([_player, game]) => game.gameId),
+    mapValues(async (games) => {
+      const players = map(games, ([player, _game]) => player);
+      const game = games[0][1];
+
+      const queueType = parseQueueType(game.gameQueueConfigId);
+
+      // record the rank of each player before the game
+      const playersWithRank = await Promise.all(
+        map(players, async (player): Promise<LoadingScreenPlayer> => {
+          const rank = await getRanks(player);
+          if (queueType === "solo") {
+            return { player, rank: rank.solo };
+          } else if (queueType === "flex") {
+            return { player, rank: rank.flex };
+          } else {
+            return { player, rank: undefined };
+          }
+        }),
+      );
+
+      console.log("creating new state entries");
+      const entry: LoadingScreenState = {
+        added: new Date(game.gameStartTime),
+        matchId: game.gameId,
+        uuid: uuid.v4(),
+        players: playersWithRank,
+        queue: queueType,
+      };
+
+      const message = createDiscordMessage(players, game, queueType);
+      await send(message);
+
+      console.log("saving state");
+      setState({
+        ...getState(),
+        gamesStarted: [...getState().gamesStarted, entry],
+      });
+    }),
   );
 
   console.log("sending messages");
-  await Promise.all(
-    chain(newGames)
-      .pipe(groupBy(([_player, game]) => game.gameId))
-      .pipe(map(async (games) => {
-        const players = map(games, ([player, _game]) => player);
-        const game = games[0][1];
-
-        const queueType = parseQueueType(game.gameQueueConfigId);
-
-        // record the rank of each player before the game
-        const playersWithRank = await Promise.all(
-          map(players, async (player): Promise<LoadingScreenPlayer> => {
-            const rank = await getRanks(player);
-            if (queueType === "solo") {
-              return { player, rank: rank.solo };
-            } else if (queueType === "flex") {
-              return { player, rank: rank.flex };
-            } else {
-              return { player, rank: undefined };
-            }
-          }),
-        );
-
-        console.log("creating new state entries");
-        const entry: LoadingScreenState = {
-          added: new Date(game.gameStartTime),
-          matchId: game.gameId,
-          uuid: uuid.v4(),
-          players: playersWithRank,
-          queue: queueType,
-        };
-
-        const message = createDiscordMessage(players, game, queueType);
-        await send(message);
-
-        console.log("saving state");
-        setState({
-          ...getState(),
-          gamesStarted: concat(getState().gamesStarted, entry),
-        });
-      }))
-      .value(),
-  );
+  await Promise.all(values(promises));
 }
