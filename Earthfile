@@ -7,16 +7,16 @@ ci:
   ARG git_sha=$EARTHLY_GIT_SHORT_HASH
   ARG --required version
   BUILD +check
-  BUILD +build
+  # BUILD +build
   BUILD ./packages/backend+image --version=$version --git_sha=$git_sha
-  IF [ $EARTHLY_CI = "true" ]
-    BUILD ./packages/frontend+deploy --stage=prod --git_sha=$git_sha
-  ELSE
-    BUILD ./packages/frontend+deploy --stage=dev --git_sha=$git_sha
-  END
+  # IF [ $EARTHLY_CI = "true" ]
+  #   BUILD ./packages/frontend+deploy --stage=prod --git_sha=$git_sha
+  # ELSE
+  #   BUILD ./packages/frontend+deploy --stage=dev --git_sha=$git_sha
+  # END
 
-build:
-  BUILD ./packages/frontend+build
+# build:
+#   BUILD ./packages/frontend+build
 
 check:
   # BUILD ./packages/backend+check
