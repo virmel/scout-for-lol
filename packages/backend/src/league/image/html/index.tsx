@@ -7,7 +7,7 @@ import { CompletedMatch } from "@discord/data";
 import { Report } from "./report.tsx";
 
 import cacheDir from "cache_dir/mod.ts";
-import initYoga from "yoga-wasm-web";
+import initYoga, { type Yoga } from "yoga-wasm-web";
 
 // https://github.com/anasrar/satori-resvg
 const wasm = await Deno.readFile(
@@ -16,7 +16,7 @@ const wasm = await Deno.readFile(
 const yoga = await (
   initYoga as unknown as (wasm: Uint8Array) => Promise<unknown>
 )(wasm);
-init(yoga);
+init(yoga as Yoga);
 
 export async function matchToImage(match: CompletedMatch) {
   const svg = await matchToSvg(match);

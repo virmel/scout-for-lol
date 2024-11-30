@@ -1,19 +1,20 @@
-import {
-  MessageCreateOptions,
-  MessagePayload,
-  type TextChannel,
-} from "discord.js";
-import configuration from "../../configuration.ts";
-import client from "../../discord/client.ts";
+import { type Message, MessageCreateOptions, MessagePayload } from "discord.js";
 
 export async function send(
   options: string | MessagePayload | MessageCreateOptions,
-) {
-  const channel = await client.channels.fetch(
-    configuration.leagueChannelId,
-  ) as TextChannel;
-  if (!channel) {
-    throw new Error("invalid channel");
-  }
-  return channel.send(options);
+): Promise<Message<true> | Message<false>> {
+  // const channel = await client.channels.fetch(
+  //   configuration.leagueChannelId,
+  // ) as TextChannel;
+  // if (!channel) {
+  //   throw new Error("invalid channel");
+  // }
+  // return channel.send(options);
+  console.log(`Sending message: ${options}`);
+  const promise = new Promise<Message<true> | Message<false>>(
+    (resolve, _reject) => {
+      resolve({} as Message<true>);
+    },
+  );
+  return promise;
 }
