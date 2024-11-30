@@ -3,10 +3,13 @@
   "remote": {
     "https://esm.sh/remeda@2.17.0": "ae5d212449ba5db26dd30c468a77837fc78bc8955424d93e233e0b8d70cecb9a",
     "https://esm.sh/ts-pattern@5.5.0": "4749f31a0132fd183900156d8ab39cec1748d47aa889c432196aa1a9da81d24a",
+    "https://esm.sh/v135/remeda@2.17.0/denonext/remeda.mjs": "49d013c2c7133d6c9fae05d073e46b8f06fe45c0f500d0401553fde972da2938",
+    "https://esm.sh/v135/ts-pattern@5.5.0/denonext/ts-pattern.mjs": "9a46f2455924bd77697a93b7928b3bd3227af3838b849214e3fbf6552175df63",
     "https://esm.sh/v135/type-fest@4.26.1/denonext/source/simplify.d.js": "789a7439f4fb0c9ad48ada84b394acb28b13d6c7f0bc8f621de1999bc52cf446",
     "https://esm.sh/v135/type-fest@4.26.1/denonext/source/union-to-intersection.d.js": "9325ddc517db9f251fa695785237ace51d4683e961e1f05f6699109999d3a51f",
     "https://esm.sh/v135/type-fest@4.26.1/source/simplify.d": "530e43550361b3fd8e3e9063931ddd41d10e6bdebbe363f88460bc765962f14f",
     "https://esm.sh/v135/type-fest@4.26.1/source/union-to-intersection.d": "d4f77621cf7d487dd9f3f51da0c9cb34c73a52d9d6363183089ba71760c5987f",
+    "https://esm.sh/v135/zod@3.23.8/denonext/zod.mjs": "b3707b03ddc01aab11b740436ab23c0fcc8d15fed072be20085c1fd611016b61",
     "https://esm.sh/zod@3.23.8": "728819c1f651800179a5a80daf24b3e54b2ddea87828bd10e63875a604bcb94e"
   },
   "workspace": {
