@@ -15,8 +15,5 @@ export default {
   port: env.get("PORT").default("8000").asPortNumber(),
   discordToken: env.get("DISCORD_TOKEN").required().asString(),
   applicationId: env.get("APPLICATION_ID").required().asString(),
-  guildId: env.get("GUILD_ID").required().asString(),
-  dataDir: env.get("DATA_DIR").required().asString(),
   riotApiToken: env.get("RIOT_API_TOKEN").required().asString(),
-  leagueChannelId: env.get("LEAGUE_CHANNEL_ID").required().asString(),
 };
