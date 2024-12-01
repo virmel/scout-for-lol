@@ -1,5 +1,4 @@
-import satori from "satori";
-import { init } from "satori/wasm";
+import satori, { init } from "satori/wasm";
 import { Resvg } from "@resvg/resvg-js";
 import React from "react";
 import { loadFonts } from "../assets/index.ts";

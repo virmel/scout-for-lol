@@ -18,7 +18,7 @@ export function renderChampion(
     1
   );
   const lane = champion.lane ? laneToString(champion.lane) : "?";
-  const damagePercent = round((champion.damage / damageMax) * 100);
+  const damagePercent = round((champion.damage / damageMax) * 100, 2);
 
   const summs = map(champion.spells, (spell) => {
     const name = pipe(
@@ -136,7 +136,7 @@ export function renderChampion(
           {champion.gold.toLocaleString()} gold
         </span>
         <span>
-          {round(champion.gold / durationInMinutes).toLocaleString()} / min
+          {round(champion.gold / durationInMinutes, 2).toLocaleString()} / min
         </span>
       </div>
     </div>
