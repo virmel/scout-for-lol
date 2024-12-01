@@ -1,6 +1,6 @@
 import { matchToSvg } from "./index.tsx";
 import { MatchV5DTOs } from "twisted/dist/models-dto/index.js";
-import { assertSnapshot } from "std/testing/snapshot.ts";
+import { assertSnapshot } from "@std/testing/snapshot";
 import { toMatch } from "../../model/match.ts";
 
 const testdataPath = new URL("testdata/match.json", import.meta.url);
@@ -15,6 +15,7 @@ Deno.test("image matches", async (t) => {
       config: {
         name: "name",
         league: {
+          alts: [],
           leagueAccount: {
             puuid:
               "XtEsV464OFaO3c0_q9REa6wYF0HpC2LK4laLnyM7WhfAVeuDz9biieJ5ZRD049AUCBjLjyBeeezTaw",

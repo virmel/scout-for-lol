@@ -1,8 +1,9 @@
 import { type Message, MessageCreateOptions, MessagePayload } from "discord.js";
 
-export async function send(
+export function send(
   options: string | MessagePayload | MessageCreateOptions,
 ): Promise<Message<true> | Message<false>> {
+  // TODO
   // const channel = await client.channels.fetch(
   //   configuration.leagueChannelId,
   // ) as TextChannel;

@@ -3,20 +3,6 @@
   "tasks": [
     {
       "type": "deno",
-      "command": "run",
-      "args": ["--watch", "-A", "build.ts"],
-      "problemMatcher": ["$deno"],
-      "group": "build",
-      "label": "deno: build",
-      "presentation": {
-        "reveal": "always",
-        "panel": "new"
-      },
-      "runOptions": { "runOn": "folderOpen" },
-      "isBackground": true
-    },
-    {
-      "type": "deno",
       "command": "test",
       "args": ["-A", "--unstable-ffi", "--watch"],
       "problemMatcher": ["$deno-test"],

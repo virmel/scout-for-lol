@@ -6,7 +6,7 @@ import {
 } from "../../../../../data/src/model/index.ts";
 import { send } from "../../discord/channel.ts";
 import { checkPostMatchInternal } from "./internal.ts";
-import { assertSnapshot } from "std/testing/snapshot.ts";
+import { assertSnapshot } from "@std/testing/snapshot";
 import { MessageCreateOptions, MessagePayload } from "discord.js";
 import { Message } from "discord.js";
 
@@ -23,6 +23,7 @@ Deno.test("postmatch", async (t) => {
           player: {
             name: "name",
             league: {
+              alts: [],
               leagueAccount: {
                 puuid:
                   "XtEsV464OFaO3c0_q9REa6wYF0HpC2LK4laLnyM7WhfAVeuDz9biieJ5ZRD049AUCBjLjyBeeezTaw",
@@ -62,6 +63,7 @@ Deno.test("postmatch", async (t) => {
       config: {
         name: "name",
         league: {
+          alts: [],
           leagueAccount: {
             puuid:
               "XtEsV464OFaO3c0_q9REa6wYF0HpC2LK4laLnyM7WhfAVeuDz9biieJ5ZRD049AUCBjLjyBeeezTaw",

@@ -3,9 +3,10 @@
     "check": "deno check src/index.ts",
     "check:watch": "deno run -A https://deno.land/x/denon/denon.ts check",
     "run": "deno run -A --unstable-ffi src/index.ts",
-    "test:update": "deno test -A --unstable-ffi -- --update"
+    "test:update": "deno test --allow-all -- --update"
   },
   "imports": {
+    "@std/testing": "jsr:@std/testing@1.0.4",
     "@deno/cache-dir": "jsr:@deno/cache-dir@0.14.0",
     "@discord/data": "../data/src/index.ts",
     "dotenv": "https://esm.sh/dotenv@16.4.5",
