@@ -6,17 +6,18 @@ import { loadFonts } from "../assets/index.ts";
 import { CompletedMatch } from "@discord/data";
 import { Report } from "./report.tsx";
 
-import cacheDir from "cache_dir/mod.ts";
-import initYoga, { type Yoga } from "yoga-wasm-web";
+import { createCache, DenoDir } from "@deno/cache-dir";
+import initYoga from "yoga-wasm-web";
+createCache();
 
 // https://github.com/anasrar/satori-resvg
 const wasm = await Deno.readFile(
-  `${cacheDir()}/deno/npm/registry.npmjs.org/yoga-wasm-web/0.3.3/dist/yoga.wasm`
+  `${
+    new DenoDir().root
+  }/npm/registry.npmjs.org/yoga-wasm-web/0.3.3/dist/yoga.wasm`
 );
-const yoga = await (
-  initYoga as unknown as (wasm: Uint8Array) => Promise<unknown>
-)(wasm);
-init(yoga as Yoga);
+const yoga = await initYoga(wasm);
+init(yoga);
 
 export async function matchToImage(match: CompletedMatch) {
   const svg = await matchToSvg(match);

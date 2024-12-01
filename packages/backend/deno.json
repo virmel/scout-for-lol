@@ -6,6 +6,7 @@
     "test:update": "deno test -A --unstable-ffi -- --update"
   },
   "imports": {
+    "@deno/cache-dir": "jsr:@deno/cache-dir@0.14.0",
     "@discord/data": "../data/src/index.ts",
     "dotenv": "https://esm.sh/dotenv@16.4.5",
     "env-var": "https://esm.sh/env-var@7.5.0",
