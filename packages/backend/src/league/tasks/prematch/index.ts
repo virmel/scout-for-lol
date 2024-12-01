@@ -16,7 +16,7 @@ import { getCurrentGame } from "../../api/index.ts";
 import { filter, groupBy, map, mapValues, pipe, values, zip } from "remeda";
 
 export async function checkPreMatch() {
-  const players = await getPlayerConfigs();
+  const players = getPlayerConfigs();
 
   console.log("filtering out players in game");
   const playersNotInGame = getPlayersNotInGame(players, getState());
