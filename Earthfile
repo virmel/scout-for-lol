@@ -60,7 +60,9 @@ deploy:
   RUN sed -i "s/\"shepherdjerred\/scout-for-lol\/beta\": \".*\"/\"shepherdjerred\/scout-for-lol\/beta\": \"$version\"/" cdk8s/src/versions/versions.ts
   # make the PR
   RUN git add .
+  RUN git checkout -b scout/$version
   RUN git commit -m "chore: update scout-for-lol version to $version"
+  RUN git push --set-upstream origin scout/$version
   RUN --push --secret GH_TOKEN gh pr create --title "chore: update scout-for-lol version to $version" --body "This PR updates the scout-for-lol version to $version" --base main --head scout-for-lol:main
   # enable auto-merge
   RUN --push --secret GH_TOKEN gh pr merge --auto --squash
