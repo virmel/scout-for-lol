@@ -26,7 +26,10 @@ export function createDiscordMessage(
 
   // TODO: call API to get proper champion name
   const messages = map(participants, (participant) => {
-    const championName = getChampionName(participant.participant.championId);
+    // TODO: can be removed after https://github.com/Sansossio/twisted/issues/128
+    const championName = participant.participant.championId === 893
+      ? "Aurora"
+      : getChampionName(participant.participant.championId);
     return `${participant.player.name} started a ${queueType} game as ${
       championName.replaceAll("_", " ").toLowerCase().replace(/\b\w/g, (char) =>
         char.toUpperCase())
