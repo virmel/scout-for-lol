@@ -30,7 +30,6 @@
       "mkhl.shfmt",
       "redhat.vscode-yaml",
       "arahata.linter-actionlint",
-      "dbaeumer.vscode-eslint",
       "bradlc.vscode-tailwindcss",
       "lightyen.tailwindcss-intellisense-twin",
       "denoland.vscode-deno",

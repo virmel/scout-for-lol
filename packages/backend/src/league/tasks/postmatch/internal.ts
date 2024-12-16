@@ -19,7 +19,6 @@ import {
 } from "@discord/data";
 import { getState, setState } from "../../model/state.ts";
 import { toMatch } from "../../model/match.ts";
-import { assert } from "@std/assert";
 import { differenceWith, filter, first, map, pipe } from "remeda";
 
 export async function checkMatch(game: LoadingScreenState) {
@@ -64,6 +63,7 @@ async function createMatchObj(
   const player = pipe(
     match.info.participants,
     filter((participant) =>
+      // TODO: why are we grabbing player zero? -- I think it's because I was halfway through adding multi-player support e.g. for flex and duo queue
       participant.puuid === state.players[0].player.league.leagueAccount.puuid
     ),
     first(),
@@ -78,9 +78,6 @@ async function createMatchObj(
   }
 
   const fullPlayer = await getPlayerFn(state.players[0].player);
-
-  // it should be impossible for this to be undefined after a game
-  assert(fullPlayer.ranks.solo != undefined);
 
   // TODO use correct rank
   return toMatch(

@@ -11,7 +11,27 @@
       "program": "${workspaceFolder}/src/league/tasks/prematch/oneshot.ts",
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "deno",
-      "runtimeArgs": ["run", "--unstable", "--inspect-wait", "--allow-all"],
+      "runtimeArgs": [
+        "run",
+        "--unstable",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229
+    },
+    {
+      "request": "launch",
+      "name": "dev script",
+      "type": "node",
+      "program": "${workspaceFolder}/src/dev.ts",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "deno",
+      "runtimeArgs": [
+        "run",
+        "--unstable",
+        "--inspect-wait",
+        "--allow-all"
+      ],
       "attachSimplePort": 9229
     }
   ]

@@ -22,7 +22,7 @@ export const CompletedMatchSchema = z.strictObject({
     lane: LaneSchema.optional(),
     laneOpponent: ChampionSchema.optional(),
     rankBeforeMatch: RankSchema.optional(),
-    rankAfterMatch: RankSchema,
+    rankAfterMatch: RankSchema.optional(),
   }),
   teams: z.strictObject({
     red: RosterSchema,

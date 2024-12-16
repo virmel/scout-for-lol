@@ -34,7 +34,7 @@ export const LoadingScreenStateSchema = z.strictObject({
   // the match id from the Riot API
   matchId: z.number(),
   queue: QueueTypeSchema.optional(),
-  players: z.array(LoadingScreenPlayerSchema),
+  players: z.array(LoadingScreenPlayerSchema).nonempty(),
 });
 
 export type ApplicationState = z.infer<typeof ApplicationStateSchema>;

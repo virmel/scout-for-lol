@@ -55,7 +55,7 @@ export function toMatch(
   player: Player,
   matchDto: MatchV5DTOs.MatchDto,
   rankBeforeMatch: Rank | undefined,
-  rankAfterMatch: Rank,
+  rankAfterMatch: Rank | undefined,
 ): CompletedMatch {
   const participant = findParticipant(
     player.config.league.leagueAccount.puuid,

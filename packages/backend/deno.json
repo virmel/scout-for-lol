@@ -51,5 +51,19 @@
     "querystring": "node:querystring",
     "https": "node:https",
     "http2": "node:http2"
+  },
+  "compilerOptions": {
+    "strict": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "checkJs": true
   }
 }
