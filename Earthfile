@@ -64,6 +64,6 @@ deploy:
   RUN git commit -m "chore: update scout-for-lol version to $version"
   RUN --secret GH_TOKEN gh auth setup-git
   # RUN git push --set-upstream origin scout/$version
-  RUN --push --secret GH_TOKEN gh pr create --title "chore: update scout-for-lol version to $version" --body "This PR updates the scout-for-lol version to $version" --base main --head scout-for-lol:main
+  RUN --push --secret GH_TOKEN gh pr create --title "chore: update scout-for-lol version to $version" --body "This PR updates the scout-for-lol version to $version" --base main
   # enable auto-merge
   RUN --push --secret GH_TOKEN gh pr merge --auto --squash
