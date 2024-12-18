@@ -4,7 +4,6 @@ import { z } from "zod";
 import { api } from "../../api/api.ts";
 import {
   AttachmentBuilder,
-  type Embed,
   EmbedBuilder,
   Message,
   MessageCreateOptions,
@@ -54,7 +53,9 @@ async function getImage(
   const image = await matchToImage(match);
   const attachment = new AttachmentBuilder(image).setName("match.png");
   const embed = {
-    image: `attachment://${attachment.name}`,
+    image: {
+      url: `attachment://${attachment.name}`,
+    },
   };
   return [attachment, new EmbedBuilder(embed)];
 }

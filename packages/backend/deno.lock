@@ -4,14 +4,18 @@
     "jsr:@deno/cache-dir@0.14.0": "0.14.0",
     "jsr:@deno/graph@0.86": "0.86.3",
     "jsr:@std/assert@1.0.7": "1.0.7",
+    "jsr:@std/assert@^1.0.7": "1.0.7",
     "jsr:@std/bytes@^1.0.2": "1.0.4",
     "jsr:@std/encoding@1.0.5": "1.0.5",
     "jsr:@std/fmt@^1.0.3": "1.0.3",
+    "jsr:@std/fs@^1.0.5": "1.0.6",
     "jsr:@std/fs@^1.0.6": "1.0.6",
     "jsr:@std/internal@^1.0.5": "1.0.5",
     "jsr:@std/io@0.225": "0.225.0",
     "jsr:@std/path@^1.0.8": "1.0.8",
+    "jsr:@std/testing@1.0.4": "1.0.4",
     "npm:@resvg/resvg-js@2.6.2": "2.6.2",
+    "npm:@types/node@*": "22.5.4",
     "npm:discord.js@14.16.3": "14.16.3",
     "npm:satori@0.11.3": "0.11.3",
     "npm:yoga-wasm-web@0.3.3": "0.3.3"
@@ -22,7 +26,7 @@
       "dependencies": [
         "jsr:@deno/graph",
         "jsr:@std/fmt",
-        "jsr:@std/fs",
+        "jsr:@std/fs@^1.0.6",
         "jsr:@std/io",
         "jsr:@std/path"
       ]
@@ -46,7 +50,10 @@
       "integrity": "97765c16aa32245ff4e2204ecf7d8562496a3cb8592340a80e7e554e0bb9149f"
     },
     "@std/fs@1.0.6": {
-      "integrity": "42b56e1e41b75583a21d5a37f6a6a27de9f510bcd36c0c85791d685ca0b85fa2"
+      "integrity": "42b56e1e41b75583a21d5a37f6a6a27de9f510bcd36c0c85791d685ca0b85fa2",
+      "dependencies": [
+        "jsr:@std/path"
+      ]
     },
     "@std/internal@1.0.5": {
       "integrity": "54a546004f769c1ac9e025abd15a76b6671ddc9687e2313b67376125650dc7ba"
@@ -59,6 +66,15 @@
     },
     "@std/path@1.0.8": {
       "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
+    },
+    "@std/testing@1.0.4": {
+      "integrity": "ca1368d720b183f572d40c469bb9faf09643ddd77b54f8b44d36ae6b94940576",
+      "dependencies": [
+        "jsr:@std/assert@^1.0.7",
+        "jsr:@std/fs@^1.0.5",
+        "jsr:@std/internal",
+        "jsr:@std/path"
+      ]
     }
   },
   "npm": {
