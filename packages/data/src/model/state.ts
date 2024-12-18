@@ -5,7 +5,13 @@ import { PlayerConfig, PlayerConfigEntrySchema } from "./playerConfig.ts";
 import { filter, flatMap } from "remeda";
 
 export type QueueType = z.infer<typeof QueueTypeSchema>;
-export const QueueTypeSchema = z.enum(["solo", "flex", "aram", "urf"]);
+export const QueueTypeSchema = z.enum([
+  "solo",
+  "flex",
+  "aram",
+  "urf",
+  "quickplay",
+]);
 
 // from https://static.developer.riotgames.com/docs/lol/queues.json
 export function parseQueueType(input: number): QueueType | undefined {
@@ -14,8 +20,12 @@ export function parseQueueType(input: number): QueueType | undefined {
     .with(420, () => "solo")
     .with(440, () => "flex")
     .with(450, () => "aram")
+    .with(490, () => "quickplay")
     .with(1900, () => "urf")
-    .otherwise(() => undefined);
+    .otherwise(() => {
+      console.error(`unknown queue type: ${input}`);
+      return undefined;
+    });
 }
 
 export type LoadingScreenPlayer = z.infer<typeof LoadingScreenPlayerSchema>;
