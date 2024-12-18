@@ -1627,6 +1627,6 @@ snapshot[`should be able to get champion data 1`] = `
     },
   },
   type: "summoner",
-  version: "14.23.1",
+  version: "14.24.1",
 }
 `;

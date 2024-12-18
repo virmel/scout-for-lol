@@ -38,5 +38,6 @@ Deno.test("image matches", async (t) => {
     { division: 1, tier: "gold", lp: 4, wins: 50, losses: 30 },
   );
   const svg = await matchToSvg(matchObj);
+
   await assertSnapshot(t, svg);
 });
