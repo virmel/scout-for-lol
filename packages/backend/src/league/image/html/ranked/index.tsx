@@ -55,7 +55,6 @@ export function RankedBadge({
   newRank: Rank;
 }) {
   const badge = images[newRank.tier];
-  Deno.writeTextFileSync("badge.txt", badge);
 
   const showPromoted = wasPromoted(oldRank, newRank);
   const showDemoted = wasDemoted(oldRank, newRank);
