@@ -14,6 +14,7 @@ import { getPlayerConfigs } from "../../playerConfig.ts";
 import { getState, setState } from "../../model/state.ts";
 import { getCurrentGame } from "../../api/index.ts";
 import { filter, groupBy, map, mapValues, pipe, values, zip } from "remeda";
+import { database } from "../../../../database.ts";
 
 export async function checkPreMatch() {
   const players = getPlayerConfigs();
@@ -77,7 +78,19 @@ export async function checkPreMatch() {
       };
 
       const message = createDiscordMessage(players, game, queueType);
-      await send(message);
+      
+      // figure out what channels to send the message to
+      // server, see if they have a player in the game
+      const servers = values(database.servers).filter((server) =>
+        server.players.some((player) =>
+          players.some((p) => p.league.leagueAccount.id === player)
+        )
+      );
+
+      const promises = servers.map((server) => {
+        return send(message, server.channel);
+      });
+      Promise.all(promises);
 
       console.log("saving state");
       setState({

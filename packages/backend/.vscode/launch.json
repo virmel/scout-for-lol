@@ -21,6 +21,21 @@
     },
     {
       "request": "launch",
+      "name": "start",
+      "type": "node",
+      "program": "${workspaceFolder}/src/index.ts",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "deno",
+      "runtimeArgs": [
+        "run",
+        "--unstable",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229
+    },
+    {
+      "request": "launch",
       "name": "dev script",
       "type": "node",
       "program": "${workspaceFolder}/src/dev.ts",

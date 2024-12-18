@@ -8,7 +8,6 @@ Sentry.init({
 
 import "./discord/index.ts";
 import { startCronJobs } from "./league/cron.ts";
-import "./server/index.ts";
 import configuration from "./configuration.ts";
 
 startCronJobs();

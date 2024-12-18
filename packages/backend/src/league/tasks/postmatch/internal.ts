@@ -4,6 +4,7 @@ import { z } from "zod";
 import { api } from "../../api/api.ts";
 import {
   AttachmentBuilder,
+  type Embed,
   EmbedBuilder,
   Message,
   MessageCreateOptions,
@@ -19,7 +20,8 @@ import {
 } from "@discord/data";
 import { getState, setState } from "../../model/state.ts";
 import { toMatch } from "../../model/match.ts";
-import { differenceWith, filter, first, map, pipe } from "remeda";
+import { differenceWith, filter, first, map, pipe, values } from "remeda";
+import { database } from "../../../../database.ts";
 
 export async function checkMatch(game: LoadingScreenState) {
   try {
@@ -51,8 +53,10 @@ async function getImage(
 ): Promise<[AttachmentBuilder, EmbedBuilder]> {
   const image = await matchToImage(match);
   const attachment = new AttachmentBuilder(image).setName("match.png");
-  const embed = new EmbedBuilder().setImage(`attachment://${attachment.name}`);
-  return [attachment, embed];
+  const embed = {
+    image: `attachment://${attachment.name}`,
+  };
+  return [attachment, new EmbedBuilder(embed)];
 }
 
 async function createMatchObj(
@@ -96,6 +100,7 @@ export async function checkPostMatchInternal(
   ) => Promise<MatchV5DTOs.MatchDto | undefined>,
   sendFn: (
     message: string | MessagePayload | MessageCreateOptions,
+    channelId: string,
   ) => Promise<Message<true> | Message<false>>,
   getPlayerFn: (playerConfig: PlayerConfigEntry) => Promise<Player>,
 ) {
@@ -118,7 +123,19 @@ export async function checkPostMatchInternal(
       const matchObj = await createMatchObj(state, matchDto, getPlayerFn);
 
       const [attachment, embed] = await getImage(matchObj);
-      await sendFn({ embeds: [embed], files: [attachment] });
+
+      // figure out what channels to send the message to
+      // server, see if they have a player in the game
+      const servers = values(database.servers).filter((server) =>
+        server.players.some((player) =>
+          matchObj.player.playerConfig.league.leagueAccount.id === player
+        )
+      );
+
+      const promises = servers.map((server) => {
+        return sendFn({ embeds: [embed], files: [attachment] }, server.channel);
+      });
+      Promise.all(promises);
 
       console.log("calculating new state");
       const newState = getState();
