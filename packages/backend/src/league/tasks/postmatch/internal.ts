@@ -20,7 +20,7 @@ import {
 import { getState, setState } from "../../model/state.ts";
 import { toMatch } from "../../model/match.ts";
 import { differenceWith, filter, first, map, pipe, values } from "remeda";
-import { database } from "../../../../database.ts";
+import { database } from "../../../database.ts";
 
 export async function checkMatch(game: LoadingScreenState) {
   try {
