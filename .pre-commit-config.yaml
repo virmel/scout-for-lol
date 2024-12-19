@@ -13,9 +13,17 @@ repos:
       - id: deno-lint
   - repo: local
     hooks:
-      - id: check
-        name: run deno check
-        entry: bash -c 'cd cdk8s/ && deno check src/app.ts'
+      - id: check-backend
+        name: run deno check on backend
+        entry: bash -c 'cd packages/backend/ && deno check src/index.ts'
+        language: system
+        types: [ts]
+        pass_filenames: false
+  - repo: local
+    hooks:
+      - id: check-data
+        name: run deno check on data
+        entry: bash -c 'cd packages/data/ && deno check src/index.ts'
         language: system
         types: [ts]
         pass_filenames: false

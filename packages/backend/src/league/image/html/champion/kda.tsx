@@ -13,8 +13,9 @@ export function Kda({
   assists: number;
   highlight: boolean;
 }) {
-  const kdaRatio =
-    deaths === 0 ? kills + deaths : round((kills + assists) / deaths, 2);
+  const kdaRatio = deaths === 0
+    ? kills + deaths
+    : round((kills + assists) / deaths, 2);
   return (
     <div
       style={{

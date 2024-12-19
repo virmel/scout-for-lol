@@ -1,6 +1,6 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/universal:2",
-    "features": {
-        "ghcr.io/devcontainers-community/features/deno": {}
-    },
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "postStartCommand": "pre-commit install && pre-commit install -t commit-msg && (cd packages/backend/ && deno cache src/index.ts)"
 }

@@ -2,7 +2,7 @@ import "react";
 import { palette } from "../../assets/colors.ts";
 import { latestVersion } from "../../../dataDragon/version.ts";
 import React from "react";
-import { pipe, take, map, last } from "remeda";
+import { last, map, pipe, take } from "remeda";
 
 const dimension = 120;
 

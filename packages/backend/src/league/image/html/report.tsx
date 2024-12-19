@@ -94,10 +94,12 @@ export function Report({ match }: { match: CompletedMatch }) {
               <span>Losses: {match.player.losses}</span>
             </div>
           </div>
-         {match.player.rankAfterMatch && <RankedBadge
-            oldRank={match.player.rankBeforeMatch}
-            newRank={match.player.rankAfterMatch}
-          />}
+          {match.player.rankAfterMatch && (
+            <RankedBadge
+              oldRank={match.player.rankBeforeMatch}
+              newRank={match.player.rankAfterMatch}
+            />
+          )}
         </div>
         <div
           style={{
