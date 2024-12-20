@@ -44,6 +44,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+              sh 'earthly --secret GH_TOKEN=$GITHUB_TOKEN --sat=lamport --org=sjerred --ci +ci --version=1.0.$BUILD_NUMBER --git_sha=$GIT_COMMIT';
+            }
+        }
+        stage('Publish') {
+            when {
+                expression {
+                    return env.BRANCH_NAME == 'main'
+                }
+            }
+            steps {
               sh 'echo $GITHUB_TOKEN | docker login ghcr.io -u GITHUB_USERNAME --password-stdin'
               sh 'earthly --secret GH_TOKEN=$GITHUB_TOKEN --sat=lamport --org=sjerred --ci --push +ci --version=1.0.$BUILD_NUMBER --git_sha=$GIT_COMMIT';
             }
