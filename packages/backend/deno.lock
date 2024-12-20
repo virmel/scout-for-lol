@@ -525,7 +525,9 @@
     "https://esm.sh/v135/type-fest@4.26.1/source/union-to-intersection.d": "d4f77621cf7d487dd9f3f51da0c9cb34c73a52d9d6363183089ba71760c5987f",
     "https://esm.sh/v135/uuid@11.0.3/denonext/uuid.mjs": "fbc8dffa2cd47b0e09e0fae496e0ff05f4bc2814a487a62a45fdc540d076ec5f",
     "https://esm.sh/v135/zod@3.23.8/denonext/zod.mjs": "b3707b03ddc01aab11b740436ab23c0fcc8d15fed072be20085c1fd611016b61",
-    "https://esm.sh/zod@3.23.8": "728819c1f651800179a5a80daf24b3e54b2ddea87828bd10e63875a604bcb94e"
+    "https://esm.sh/v135/zod@3.24.1/denonext/zod.mjs": "267cf807d908327192aa402850ce2cf1c199c02b097f4c521272a42538dad53a",
+    "https://esm.sh/zod@3.23.8": "728819c1f651800179a5a80daf24b3e54b2ddea87828bd10e63875a604bcb94e",
+    "https://esm.sh/zod@3.24.1": "c6bc4bbea04826432b2b4e66b77316c0fa90d1132e879dd0193c90f9114436c4"
   },
   "workspace": {
     "dependencies": [
