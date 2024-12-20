@@ -22,7 +22,7 @@
     "discord.js": "npm:discord.js@14.16.3",
     "dns": "node:dns",
     "dns/promises": "node:dns/promises",
-    "dotenv": "https://esm.sh/dotenv@16.4.5",
+    "dotenv": "https://esm.sh/dotenv@16.4.7",
     "env-var": "https://esm.sh/env-var@7.5.0",
     "events": "node:events",
     "fs": "node:fs",
