@@ -3,8 +3,7 @@
   "specifiers": {
     "jsr:@deno/cache-dir@0.14.0": "0.14.0",
     "jsr:@deno/graph@0.86": "0.86.3",
-    "jsr:@std/assert@1.0.7": "1.0.7",
-    "jsr:@std/assert@^1.0.7": "1.0.7",
+    "jsr:@std/assert@1.0.9": "1.0.9",
     "jsr:@std/bytes@^1.0.2": "1.0.4",
     "jsr:@std/encoding@1.0.5": "1.0.5",
     "jsr:@std/fmt@^1.0.3": "1.0.3",
@@ -33,8 +32,8 @@
     "@deno/graph@0.86.3": {
       "integrity": "e7974e83aafb4b110c80bd0b2249491e53429b011c741939bcbd68ce74c3985d"
     },
-    "@std/assert@1.0.7": {
-      "integrity": "64ce9fac879e0b9f3042a89b3c3f8ccfc9c984391af19e2087513a79d73e28c3",
+    "@std/assert@1.0.9": {
+      "integrity": "a9f0c611a869cc791b26f523eec54c7e187aab7932c2c8e8bea0622d13680dcd",
       "dependencies": [
         "jsr:@std/internal"
       ]
@@ -366,6 +365,7 @@
     "https://deno.land/std@0.150.0/media_types/mod.ts": "2d4b6f32a087029272dc59e0a55ae3cc4d1b27b794ccf528e94b1925795b3118",
     "https://deno.land/std@0.150.0/media_types/vendor/mime-db.v1.52.0.ts": "724cee25fa40f1a52d3937d6b4fbbfdd7791ff55e1b7ac08d9319d5632c7f5af",
     "https://deno.land/x/sentry@8.37.1/index.mjs": "6cd490ca8bbdc6cafa17d67d21ed523074d7efb98ac69419ec7d4262b44f04da",
+    "https://deno.land/x/sentry@8.44.0/index.mjs": "6702480ae1b7615d18dfebef72253d3d6dd9be78582424fcd811ffd3d2a853ab",
     "https://deno.land/x/xhr@0.3.0/mod.ts": "094aacd627fd9635cd942053bf8032b5223b909858fa9dc8ffa583752ff63b20",
     "https://esm.sh/cron@3.1.9": "1b5e99525038955038dd83f66186abdc2c22f8d7489aba2ee3472a41bf499e81",
     "https://esm.sh/cron@3.3.1": "61b46230e045ad6ab3cafb0f4d936a1816077995839c1c6bc536566c7368ff82",
@@ -374,6 +374,7 @@
     "https://esm.sh/env-var@7.5.0": "cf24566cd5b43147e9cb4e20bdbfcfaa24d60a44de9d38206dcadeed62581fbc",
     "https://esm.sh/react@19.0.0": "cdff7a8ec5c74ed8da35679db202c7443b03eca6bd8becb5b0cd53335fc81c1e",
     "https://esm.sh/remeda@2.17.0": "ae5d212449ba5db26dd30c468a77837fc78bc8955424d93e233e0b8d70cecb9a",
+    "https://esm.sh/remeda@2.17.4": "ff32a8d4f23fbf71b52762b7d0883feb11a2be5b10d4eaab0bd08e94cecec16b",
     "https://esm.sh/stable/react@19.0.0/denonext/react.mjs": "79056e5ef2a1c9601ae005ce23828f148d5e47291a65c573b275e19f19fa282f",
     "https://esm.sh/ts-pattern@5.5.0": "4749f31a0132fd183900156d8ab39cec1748d47aa889c432196aa1a9da81d24a",
     "https://esm.sh/twisted@1.61.4": "54b8593046260b28ddabf2e84dc257e833fe7e84fc04fa6405580019aac46bb6",
@@ -567,6 +568,7 @@
     "https://esm.sh/v135/promise-queue@2.2.5/denonext/promise-queue.mjs": "86fa0fadfeb3d66de5a040d338018538da2ba6c12b75a115d23821f55faa2cc7",
     "https://esm.sh/v135/proxy-from-env@1.1.0/denonext/proxy-from-env.mjs": "5a2113ba20eb6fc83d6d68efd3aa65c4b61f05611da20339b14d165807eccfd7",
     "https://esm.sh/v135/remeda@2.17.0/denonext/remeda.mjs": "49d013c2c7133d6c9fae05d073e46b8f06fe45c0f500d0401553fde972da2938",
+    "https://esm.sh/v135/remeda@2.17.4/denonext/remeda.mjs": "2ff5758e4d0d95452e4d4f0b190200874340cc7084de4075c6b7472937d70928",
     "https://esm.sh/v135/ts-pattern@5.5.0/denonext/ts-pattern.mjs": "9a46f2455924bd77697a93b7928b3bd3227af3838b849214e3fbf6552175df63",
     "https://esm.sh/v135/twisted@1.61.4/denonext/dist/constants/champions.js": "85888bfac788db1d118a1476b6269d304276bc2bd65428e923b09f964438413f",
     "https://esm.sh/v135/twisted@1.61.4/denonext/dist/models-dto.js": "1e02a078367b6c4c70dc3c1261c791b81fc97d877b2847f95cefb64fafb44f57",
@@ -578,6 +580,10 @@
     "https://esm.sh/v135/type-fest@4.26.1/denonext/source/union-to-intersection.d.js": "9325ddc517db9f251fa695785237ace51d4683e961e1f05f6699109999d3a51f",
     "https://esm.sh/v135/type-fest@4.26.1/source/simplify.d": "530e43550361b3fd8e3e9063931ddd41d10e6bdebbe363f88460bc765962f14f",
     "https://esm.sh/v135/type-fest@4.26.1/source/union-to-intersection.d": "d4f77621cf7d487dd9f3f51da0c9cb34c73a52d9d6363183089ba71760c5987f",
+    "https://esm.sh/v135/type-fest@4.29.0/denonext/source/simplify.d.js": "6f32ad748868501c20679052fe606ce62d77b246c63be0961231bf8374a2582e",
+    "https://esm.sh/v135/type-fest@4.29.0/denonext/source/union-to-intersection.d.js": "64d50fcea4257154d257c5c0a2ff787b1b86f2b602a1549e36f06fabd4880152",
+    "https://esm.sh/v135/type-fest@4.29.0/source/simplify.d": "dfee48aa037e7a99c7c1717f7cdb59204dbbcd11af0afd75bfb7455d6c890310",
+    "https://esm.sh/v135/type-fest@4.29.0/source/union-to-intersection.d": "983b6e90fb07b942b5339a7fcba022bf815bfdf25df6cbae61e7d321c785e377",
     "https://esm.sh/v135/uuid@11.0.3/denonext/uuid.mjs": "fbc8dffa2cd47b0e09e0fae496e0ff05f4bc2814a487a62a45fdc540d076ec5f",
     "https://esm.sh/v135/zod@3.23.8/denonext/zod.mjs": "b3707b03ddc01aab11b740436ab23c0fcc8d15fed072be20085c1fd611016b61",
     "https://esm.sh/v135/zod@3.24.1/denonext/zod.mjs": "267cf807d908327192aa402850ce2cf1c199c02b097f4c521272a42538dad53a",
@@ -588,7 +594,7 @@
     "dependencies": [
       "jsr:@db/sqlite@0.12.0",
       "jsr:@deno/cache-dir@0.14.0",
-      "jsr:@std/assert@1.0.7",
+      "jsr:@std/assert@1.0.9",
       "jsr:@std/encoding@1.0.5",
       "jsr:@std/testing@1.0.6",
       "npm:@resvg/resvg-js@2.6.2",
