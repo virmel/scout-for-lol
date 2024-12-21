@@ -1,4 +1,4 @@
-import { ApplicationState } from "@discord/data";
+import { ApplicationState } from "@scout/data";
 
 let state: ApplicationState = { gamesStarted: [] };
 

@@ -6,7 +6,7 @@ import {
   type LoadingScreenState,
   parseQueueType,
   PlayerConfigEntry,
-} from "@discord/data";
+} from "@scout/data";
 import { createDiscordMessage } from "./discord.ts";
 import { send } from "../../discord/channel.ts";
 import { getRanks } from "../../model/rank.ts";

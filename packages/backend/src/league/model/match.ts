@@ -5,8 +5,8 @@ import {
   parseQueueType,
   Player,
   Rank,
-} from "@discord/data";
-import { parseTeam } from "@discord/data";
+} from "@scout/data";
+import { parseTeam } from "@scout/data";
 import { MatchV5DTOs } from "twisted/dist/models-dto/index.js";
 import { participantToChampion } from "./champion.ts";
 import { match } from "ts-pattern";

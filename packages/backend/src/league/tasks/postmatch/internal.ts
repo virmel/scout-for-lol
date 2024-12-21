@@ -16,7 +16,7 @@ import {
   LoadingScreenState,
   Player,
   PlayerConfigEntry,
-} from "@discord/data";
+} from "@scout/data";
 import { getState, setState } from "../../model/state.ts";
 import { toMatch } from "../../model/match.ts";
 import { differenceWith, filter, first, map, pipe, values } from "remeda";

@@ -1,4 +1,4 @@
-import { PlayerConfig } from "@discord/data";
+import { PlayerConfig } from "@scout/data";
 
 export function getPlayerConfigs(): PlayerConfig {
   return [

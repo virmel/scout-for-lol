@@ -1,7 +1,7 @@
-import { parseDivision, Ranks } from "@discord/data";
-import { PlayerConfigEntry } from "@discord/data";
-import { Rank } from "@discord/data";
-import { TierSchema } from "@discord/data";
+import { parseDivision, Ranks } from "@scout/data";
+import { PlayerConfigEntry } from "@scout/data";
+import { Rank } from "@scout/data";
+import { TierSchema } from "@scout/data";
 import { api } from "../api/api.ts";
 import { Constants } from "twisted";
 import { SummonerLeagueDto } from "twisted/dist/models-dto/index.js";

@@ -1,5 +1,5 @@
-import { Champion } from "@discord/data";
-import { parseLane } from "@discord/data";
+import { Champion } from "@scout/data";
+import { parseLane } from "@scout/data";
 import { MatchV5DTOs } from "twisted/dist/models-dto/index.js";
 
 export function participantToChampion(

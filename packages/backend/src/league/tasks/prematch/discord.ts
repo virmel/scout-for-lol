@@ -1,8 +1,8 @@
 import { getChampionName } from "twisted/dist/constants/champions.js";
 import { CurrentGameInfoDTO } from "twisted/dist/models-dto/index.js";
 import { findParticipant } from "../../api/index.ts";
-import { PlayerConfigEntry } from "@discord/data";
-import { QueueType } from "@discord/data";
+import { PlayerConfigEntry } from "@scout/data";
+import { QueueType } from "@scout/data";
 import { map } from "remeda";
 
 export function createDiscordMessage(

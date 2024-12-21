@@ -4,6 +4,9 @@
       "path": "packages/backend"
     },
     {
+      "path": "packages/report"
+    },
+    {
       "path": "packages/data"
     },
     {

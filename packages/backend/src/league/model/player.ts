@@ -1,5 +1,5 @@
-import { Player } from "@discord/data";
-import { PlayerConfigEntry } from "@discord/data";
+import { Player } from "@scout/data";
+import { PlayerConfigEntry } from "@scout/data";
 import { getRanks } from "./rank.ts";
 
 export async function getPlayer(
