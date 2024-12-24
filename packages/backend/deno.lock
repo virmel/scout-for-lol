@@ -5,14 +5,17 @@
     "jsr:@deno/graph@0.86": "0.86.5",
     "jsr:@std/assert@1.0.10": "1.0.10",
     "jsr:@std/assert@1.0.9": "1.0.9",
+    "jsr:@std/assert@^1.0.10": "1.0.10",
     "jsr:@std/assert@^1.0.9": "1.0.9",
     "jsr:@std/bytes@^1.0.2": "1.0.4",
     "jsr:@std/encoding@1.0.5": "1.0.5",
     "jsr:@std/fmt@^1.0.3": "1.0.3",
     "jsr:@std/fs@^1.0.6": "1.0.8",
+    "jsr:@std/fs@^1.0.8": "1.0.8",
     "jsr:@std/internal@^1.0.5": "1.0.5",
     "jsr:@std/io@0.225": "0.225.0",
     "jsr:@std/path@^1.0.8": "1.0.8",
+    "jsr:@std/testing@1.0.8": "1.0.8",
     "npm:@resvg/resvg-js@2.6.2": "2.6.2",
     "npm:@types/node@*": "22.5.4",
     "npm:discord.js@14.16.3": "14.16.3",
@@ -25,7 +28,7 @@
       "dependencies": [
         "jsr:@deno/graph",
         "jsr:@std/fmt",
-        "jsr:@std/fs",
+        "jsr:@std/fs@^1.0.6",
         "jsr:@std/io",
         "jsr:@std/path"
       ]
@@ -71,6 +74,15 @@
     },
     "@std/path@1.0.8": {
       "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
+    },
+    "@std/testing@1.0.8": {
+      "integrity": "ceef535808fb7568e91b0f8263599bd29b1c5603ffb0377227f00a8ca9fe42a2",
+      "dependencies": [
+        "jsr:@std/assert@^1.0.10",
+        "jsr:@std/fs@^1.0.8",
+        "jsr:@std/internal",
+        "jsr:@std/path"
+      ]
     }
   },
   "npm": {
