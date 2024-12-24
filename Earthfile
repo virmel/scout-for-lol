@@ -6,6 +6,7 @@ ci:
   ARG EARTHLY_GIT_SHORT_HASH
   ARG git_sha=$EARTHLY_GIT_SHORT_HASH
   ARG --required version
+  BUILD +pre-commit
   BUILD +check
   # BUILD +build
   WAIT
@@ -19,11 +20,8 @@ ci:
   # after the backend is built and pushed, update homelab
   BUILD +deploy --stage=beta --version=$version
 
-# build:
-#   BUILD ./packages/frontend+build
-
 check:
-  # BUILD ./packages/backend+check
+  BUILD ./packages/backend+check
   BUILD ./packages/data+check
 
 deno:
@@ -62,10 +60,27 @@ deploy:
   RUN git add .
   RUN git checkout -b scout/$version
   RUN git commit -m "chore: update scout-for-lol version to $version"
-  RUN --secret GH_TOKEN gh auth setup-git
+  RUN --push --secret GH_TOKEN gh auth setup-git
   RUN --push --secret GH_TOKEN git push --set-upstream origin scout/$version
   RUN --push --secret GH_TOKEN gh pr create --title "chore: update scout-for-lol version to $version" --body "This PR updates the scout-for-lol version to $version" --base main --head scout/$version
   # enable auto-merge
   RUN --push --secret GH_TOKEN gh pr merge --auto --rebase
   # TODO: notify sentry of release
   # https://docs.sentry.io/product/releases/setup/
+
+pre-commit:
+  FROM python
+  WORKDIR /workspace
+  RUN curl -fsSL https://deno.land/install.sh | sh
+  ENV DENO_INSTALL="/root/.deno"
+  ENV PATH="$DENO_INSTALL/bin:$PATH"
+  RUN pip install pre-commit
+
+  COPY --dir .pre-commit-config.yaml .
+  # init a dummy git repo because pre-commit requires it
+  RUN git init
+  CACHE ~/.cache/pre-commit
+  RUN pre-commit install-hooks
+
+  COPY . .
+  RUN pre-commit run --all-files

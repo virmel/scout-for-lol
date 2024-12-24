@@ -9,7 +9,7 @@ import {
   MessageCreateOptions,
   MessagePayload,
 } from "discord.js";
-import { matchToImage } from "../../image/html/index.tsx";
+import { matchToImage } from "@scout/report";
 import {
   ApplicationState,
   CompletedMatch,

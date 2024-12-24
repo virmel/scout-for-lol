@@ -1,6 +1,6 @@
 import React from "react";
 import { palette } from "../assets/colors.ts";
-import { latestVersion } from "../../dataDragon/version.ts";
+import { latestVersion } from "../dataDragon/version.ts";
 import { last, map, pipe, take } from "remeda";
 
 const dimension = 120;

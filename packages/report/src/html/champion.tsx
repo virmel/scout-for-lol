@@ -3,19 +3,19 @@ import { renderItems } from "./item.tsx";
 import { palette } from "../assets/colors.ts";
 import { laneToString } from "@scout/data";
 import { Champion } from "@scout/data";
-import { summoner } from "../../dataDragon/summoner.ts";
+import { summoner } from "../dataDragon/summoner.ts";
 import { first, keys, map, pickBy, pipe, round } from "remeda";
 
 export function renderChampion(
   champion: Champion,
   highlight: boolean,
   durationInMinutes: number,
-  damageMax: number
+  damageMax: number,
 ) {
   const items = renderItems(champion.items, champion.visionScore);
   const kdaRatio = round(
     (champion.kills + champion.assists) / champion.deaths,
-    1
+    1,
   );
   const lane = champion.lane ? laneToString(champion.lane) : "?";
   const damagePercent = round((champion.damage / damageMax) * 100, 2);
@@ -25,7 +25,7 @@ export function renderChampion(
       summoner.data,
       pickBy((summoner) => summoner.key === spell.toString()),
       keys(),
-      first()
+      first(),
     );
 
     if (name === undefined) {

@@ -5,6 +5,7 @@ deps:
   WORKDIR /workspace/packages/backend
 
   COPY ../data+src/ /workspace/packages/data/
+  COPY ../report+src/ /workspace/packages/report/
 
   # download and cache dependencies
   CACHE --persist $DENO_DIR
