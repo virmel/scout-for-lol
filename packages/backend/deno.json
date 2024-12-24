@@ -32,7 +32,7 @@
     "querystring": "node:querystring",
     "readline": "node:readline",
     "readline/promises": "node:readline/promises",
-    "remeda": "https://esm.sh/remeda@2.17.4",
+    "remeda": "https://esm.sh/remeda@2.18.0",
     "sentry/": "https://deno.land/x/sentry@8.45.1/",
     "stream": "node:stream",
     "stream/consumers": "node:stream/consumers",
