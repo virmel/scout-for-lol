@@ -18,7 +18,7 @@ import {
   PlayerConfigEntry,
 } from "@scout/data";
 import { getState, setState } from "../../model/state.ts";
-import { toMatch } from "../../model/match.ts";
+import { toMatch } from "@scout/data";
 import { differenceWith, filter, first, map, pipe, values } from "remeda";
 import { database } from "../../../database.ts";
 

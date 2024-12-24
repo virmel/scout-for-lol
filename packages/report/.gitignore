@@ -1,7 +1,7 @@
 .env
 *.env
 *.png
-!src/league/image/html/**/*.png
+!src/html/**/*.png
 chats.json
 state.json
 matches

@@ -25,6 +25,8 @@
     "remeda": "https://esm.sh/remeda@2.18.0",
     "satori": "npm:satori@0.12.0",
     "ts-pattern": "https://esm.sh/ts-pattern@5.6.0",
+    "twisted": "https://esm.sh/twisted@1.61.5",
+    "twisted/": "https://esm.sh/twisted@1.61.5/",
     "yoga-wasm-web": "npm:yoga-wasm-web@0.3.3",
     "zod": "https://esm.sh/zod@3.24.1"
   },

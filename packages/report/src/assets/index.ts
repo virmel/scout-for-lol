@@ -1,6 +1,6 @@
 import { Font } from "satori";
 
-const fontPath = "src/league/image/assets/fonts";
+const fontPath = "src/assets/fonts";
 
 export const font = {
   title: "Beaufort for LOL",

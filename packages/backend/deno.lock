@@ -473,6 +473,7 @@
     "https://esm.sh/v135/twisted@1.61.5/denonext/dist/constants/champions.js": "483ac8e5f6a6346be93f42e97ecae5b87b7f602c621ee7c3ec89590222fb4343",
     "https://esm.sh/v135/twisted@1.61.5/denonext/dist/models-dto.js": "1bd23da02999e607eeada8375ceb2b9574aae920a69c934c0f2013ae2a5d1eb7",
     "https://esm.sh/v135/twisted@1.61.5/denonext/twisted.mjs": "cd440c9409856d12c6d01618278de0d061ddd41dd5ae5874c91f298557a7e9c1",
+    "https://esm.sh/v135/twisted@1.61.5/dist/models-dto/index.js": "e1337e86c637de1b8b17d57b180ebd8229462a3205e66cb404fb7fe302df6a92",
     "https://esm.sh/v135/type-fest@4.29.0/denonext/source/simplify.d.js": "6f32ad748868501c20679052fe606ce62d77b246c63be0961231bf8374a2582e",
     "https://esm.sh/v135/type-fest@4.29.0/denonext/source/union-to-intersection.d.js": "64d50fcea4257154d257c5c0a2ff787b1b86f2b602a1549e36f06fabd4880152",
     "https://esm.sh/v135/type-fest@4.29.0/source/simplify.d": "dfee48aa037e7a99c7c1717f7cdb59204dbbcd11af0afd75bfb7455d6c890310",

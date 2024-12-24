@@ -1,7 +1,7 @@
 import { matchToSvg } from "./index.tsx";
 import { MatchV5DTOs } from "twisted/dist/models-dto/index.js";
 import { assertSnapshot } from "@std/testing/snapshot";
-import { toMatch } from "../../model/match.ts";
+import { toMatch } from "@scout/data";
 
 const testdataPath = new URL("testdata/match.json", import.meta.url);
 
