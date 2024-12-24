@@ -55,7 +55,7 @@ deploy:
   RUN git fetch --depth=2
   RUN git checkout main
   # make the edit
-  RUN sed -i "s/\"shepherdjerred\/scout-for-lol\/beta\": \".*\"/\"shepherdjerred\/scout-for-lol\/beta\": \"$version\"/" cdk8s/src/versions/versions.ts
+  RUN sed -i "s/\"shepherdjerred\/scout-for-lol\/beta\": \".*\"/\"shepherdjerred\/scout-for-lol\/beta\": \"$version\"/" cdk8s/src/versions.ts
   # make the PR
   RUN git add .
   RUN git checkout -b scout/$version
