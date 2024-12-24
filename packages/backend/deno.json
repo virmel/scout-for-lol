@@ -39,7 +39,7 @@
     "stream/promises": "node:stream/promises",
     "stream/web": "node:stream/web",
     "tls": "node:tls",
-    "ts-pattern": "https://esm.sh/ts-pattern@5.5.0",
+    "ts-pattern": "https://esm.sh/ts-pattern@5.6.0",
     "twisted": "https://esm.sh/twisted@1.61.5",
     "twisted/": "https://esm.sh/twisted@1.61.5/",
     "url": "node:url",
