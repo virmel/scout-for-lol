@@ -13,7 +13,6 @@
     "jsr:@std/internal@^1.0.5": "1.0.5",
     "jsr:@std/io@0.225": "0.225.0",
     "jsr:@std/path@^1.0.8": "1.0.8",
-    "jsr:@std/testing@1.0.6": "1.0.6",
     "npm:@resvg/resvg-js@2.6.2": "2.6.2",
     "npm:@types/node@*": "22.5.4",
     "npm:discord.js@14.16.3": "14.16.3",
@@ -72,15 +71,6 @@
     },
     "@std/path@1.0.8": {
       "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
-    },
-    "@std/testing@1.0.6": {
-      "integrity": "9192ded2d34065f4c959fdc1921fe836770abb9194410c2cc8a0fff4eff5c893",
-      "dependencies": [
-        "jsr:@std/assert@^1.0.9",
-        "jsr:@std/fs",
-        "jsr:@std/internal",
-        "jsr:@std/path"
-      ]
     }
   },
   "npm": {
@@ -489,7 +479,7 @@
       "jsr:@deno/cache-dir@0.15.0",
       "jsr:@std/assert@1.0.10",
       "jsr:@std/encoding@1.0.5",
-      "jsr:@std/testing@1.0.6",
+      "jsr:@std/testing@1.0.8",
       "npm:@resvg/resvg-js@2.6.2",
       "npm:discord.js@14.16.3",
       "npm:satori@0.12.0",
