@@ -1,4 +1,4 @@
-import { assert } from "std/_util/asserts.ts";
+import { assert } from "@std/assert";
 import configuration from "./configuration.ts";
 
 // health check used by Docker

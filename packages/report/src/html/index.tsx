@@ -1,7 +1,7 @@
 import satori, { init } from "satori/wasm";
 import { Resvg } from "@resvg/resvg-js";
 import React from "react";
-import { loadFonts } from "../assets/index.ts";
+import { fonts } from "../assets/index.ts";
 import { CompletedMatch } from "@scout/data";
 import { Report } from "./report.tsx";
 
@@ -13,7 +13,7 @@ createCache();
 const wasm = await Deno.readFile(
   `${
     new DenoDir().root
-  }/npm/registry.npmjs.org/yoga-wasm-web/0.3.3/dist/yoga.wasm`,
+  }/npm/registry.npmjs.org/yoga-wasm-web/0.3.3/dist/yoga.wasm`
 );
 const yoga = await initYoga(wasm);
 init(yoga);
@@ -25,7 +25,6 @@ export async function matchToImage(match: CompletedMatch) {
 }
 
 export async function matchToSvg(match: CompletedMatch) {
-  const fonts = await loadFonts();
   const svg = await satori(<Report match={match} />, {
     width: 4760,
     height: 3500,
