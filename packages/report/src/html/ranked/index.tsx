@@ -22,12 +22,15 @@ const images: Record<Tier, string> = z
       await Promise.all(
         TierSchema.options.map(async (tier): Promise<[Tier, string]> => {
           const image = await Deno.readFile(
-            new URL(`assets/Rank=${tier}.png`, import.meta.url)
+            new URL(
+              `assets/Rank=${tier.charAt(0).toUpperCase() + tier.slice(1)}.png`,
+              import.meta.url,
+            ),
           );
           return [tier, encodeBase64(image)];
-        })
-      )
-    )
+        }),
+      ),
+    ),
   );
 
 export function RankedBadge({

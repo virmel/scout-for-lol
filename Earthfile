@@ -6,23 +6,17 @@ ci:
   ARG EARTHLY_GIT_SHORT_HASH
   ARG git_sha=$EARTHLY_GIT_SHORT_HASH
   ARG --required version
-  BUILD +pre-commit
   BUILD +check
-  # BUILD +build
   WAIT
     BUILD ./packages/backend+image --version=$version --git_sha=$git_sha
   END
-    # IF [ $EARTHLY_CI = "true" ]
-    #   BUILD ./packages/frontend+deploy --stage=prod --git_sha=$git_sha
-    # ELSE
-    #   BUILD ./packages/frontend+deploy --stage=dev --git_sha=$git_sha
-    # END
-  # after the backend is built and pushed, update homelab
   BUILD +deploy --stage=beta --version=$version
 
 check:
   BUILD ./packages/backend+check
+  BUILD ./packages/report+check
   BUILD ./packages/data+check
+  BUILD +pre-commit
 
 deno:
   FROM denoland/deno

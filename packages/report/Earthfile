@@ -1,30 +1,23 @@
 VERSION 0.8
-
-deno-node:
-  ARG NODE_MAJOR=20
-  FROM ../../+deno
-  RUN apt update
-  RUN apt install -y ca-certificates curl gnupg
-  RUN mkdir -p /etc/apt/keyrings
-  RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
-  RUN echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
-  RUN apt update
-  RUN apt install nodejs -y
-  RUN npm install -g npm
-
-build:
-  FROM +deno-node
-  COPY . packages/report/
-  WORKDIR packages/report
-  RUN deno task build
-  SAVE ARTIFACT dist
+FROM ../../+deno
 
 src:
-  FROM +deno-node
-  COPY . .
+  COPY src .
   SAVE ARTIFACT *
 
+deps:
+  WORKDIR /workspace/packages/report
+
+  COPY ../data+deps/ /workspace/packages/data/
+
+  # download and cache dependencies
+  CACHE --persist $DENO_DIR
+  COPY --dir deno* src .
+  RUN deno cache src/index.ts
+
 check:
-  FROM +src
+  FROM +deps
+  CACHE $DENO_DIR
   RUN deno check src/index.ts
   RUN deno lint
+  RUN deno test -A --unstable

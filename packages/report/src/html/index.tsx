@@ -13,7 +13,7 @@ createCache();
 const wasm = await Deno.readFile(
   `${
     new DenoDir().root
-  }/npm/registry.npmjs.org/yoga-wasm-web/0.3.3/dist/yoga.wasm`
+  }/npm/registry.npmjs.org/yoga-wasm-web/0.3.3/dist/yoga.wasm`,
 );
 const yoga = await initYoga(wasm);
 init(yoga);
