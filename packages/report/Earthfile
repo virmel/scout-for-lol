@@ -8,7 +8,7 @@ src:
 deps:
   WORKDIR /workspace/packages/report
 
-  COPY ../data+deps/ /workspace/packages/data/
+  COPY ../data+src/ /workspace/packages/data/src/
 
   # download and cache dependencies
   CACHE --persist $DENO_DIR
