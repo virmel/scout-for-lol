@@ -33,7 +33,7 @@
       "bradlc.vscode-tailwindcss",
       "lightyen.tailwindcss-intellisense-twin",
       "denoland.vscode-deno",
-      "glehmann.earthlyls"
+      "glehmann.earthlyls",
     ]
   },
   "settings": {

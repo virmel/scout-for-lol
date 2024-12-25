@@ -12,36 +12,34 @@ import { encodeBase64 } from "@std/encoding";
 
 const images: Record<Tier, string> = {
   iron: encodeBase64(
-    await Deno.readFile(new URL("assets/Rank=Iron.png", import.meta.url)),
+    await Deno.readFile(new URL("assets/Rank=Iron.png", import.meta.url))
   ),
   bronze: encodeBase64(
-    await Deno.readFile(new URL("assets/Rank=Bronze.png", import.meta.url)),
+    await Deno.readFile(new URL("assets/Rank=Bronze.png", import.meta.url))
   ),
   silver: encodeBase64(
-    await Deno.readFile(new URL("assets/Rank=Silver.png", import.meta.url)),
+    await Deno.readFile(new URL("assets/Rank=Silver.png", import.meta.url))
   ),
   gold: encodeBase64(
-    await Deno.readFile(new URL("assets/Rank=Gold.png", import.meta.url)),
+    await Deno.readFile(new URL("assets/Rank=Gold.png", import.meta.url))
   ),
   platinum: encodeBase64(
-    await Deno.readFile(new URL("assets/Rank=Platinum.png", import.meta.url)),
+    await Deno.readFile(new URL("assets/Rank=Platinum.png", import.meta.url))
   ),
   emerald: encodeBase64(
-    await Deno.readFile(new URL("assets/Rank=Emerald.png", import.meta.url)),
+    await Deno.readFile(new URL("assets/Rank=Emerald.png", import.meta.url))
   ),
   diamond: encodeBase64(
-    await Deno.readFile(new URL("assets/Rank=Diamond.png", import.meta.url)),
+    await Deno.readFile(new URL("assets/Rank=Diamond.png", import.meta.url))
   ),
   master: encodeBase64(
-    await Deno.readFile(new URL("assets/Rank=Master.png", import.meta.url)),
+    await Deno.readFile(new URL("assets/Rank=Master.png", import.meta.url))
   ),
   grandmaster: encodeBase64(
-    await Deno.readFile(
-      new URL("assets/Rank=Grandmaster.png", import.meta.url),
-    ),
+    await Deno.readFile(new URL("assets/Rank=Grandmaster.png", import.meta.url))
   ),
   challenger: encodeBase64(
-    await Deno.readFile(new URL("assets/Rank=Challenger.png", import.meta.url)),
+    await Deno.readFile(new URL("assets/Rank=Challenger.png", import.meta.url))
   ),
 };
 
