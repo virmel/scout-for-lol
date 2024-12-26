@@ -19,7 +19,7 @@ build:
   ARG --required version
 
   BUILD ./packages/backend+image --version=$version --git_sha=$git_sha
-  BUILD ./packages/report+dnt.build
+  BUILD ./packages/report+dnt.build --version=$version
 
 check:
   BUILD ./packages/backend+check
