@@ -58,6 +58,7 @@
     "twisted/": "https://esm.sh/twisted@1.61.5/",
     "url": "node:url",
     "uuid": "https://esm.sh/uuid@11.0.3",
+    "which_runtime": "https://deno.land/x/which_runtime@0.2.0/mod.ts",
     "yoga-wasm-web": "npm:yoga-wasm-web@0.3.3",
     "zod": "https://esm.sh/zod@3.24.1"
   },

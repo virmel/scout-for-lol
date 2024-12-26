@@ -21,3 +21,37 @@ check:
   RUN deno check src/index.ts
   RUN deno lint
   RUN deno test -A --unstable
+  BUILD ./test/+test
+
+deno-node:
+  ARG NODE_MAJOR=22
+  FROM ../../+deno
+  RUN apt update
+  RUN apt install -y ca-certificates curl gnupg
+  RUN mkdir -p /etc/apt/keyrings
+  RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+  RUN echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
+  RUN apt update
+  RUN apt install nodejs -y
+  RUN npm install -g npm
+
+dnt.deps:
+  FROM +deno-node
+  WORKDIR /workspace/packages/report
+
+  COPY ../data+src/ /workspace/packages/data/src/
+
+  # download and cache dependencies
+  CACHE --persist $DENO_DIR
+  COPY --dir deno* src .
+  RUN deno cache src/index.ts
+
+dnt.build:
+  FROM +dnt.deps
+  COPY src build.ts .
+  RUN ./build.ts
+  SAVE ARTIFACT npm/
+
+dnt.publish:
+  FROM +dnt.build
+  RUN npm publish

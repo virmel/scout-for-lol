@@ -6,11 +6,20 @@ ci:
   ARG EARTHLY_GIT_SHORT_HASH
   ARG git_sha=$EARTHLY_GIT_SHORT_HASH
   ARG --required version
+
   BUILD +check
   WAIT
-    BUILD ./packages/backend+image --version=$version --git_sha=$git_sha
+    BUILD +build
   END
   BUILD +deploy --stage=beta --version=$version
+
+build:
+  ARG EARTHLY_GIT_SHORT_HASH
+  ARG git_sha=$EARTHLY_GIT_SHORT_HASH
+  ARG --required version
+
+  BUILD ./packages/backend+image --version=$version --git_sha=$git_sha
+  BUILD ./packages/report+dnt.build
 
 check:
   BUILD ./packages/backend+check

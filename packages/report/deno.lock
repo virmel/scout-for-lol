@@ -6,6 +6,7 @@
     "jsr:@deno/cache-dir@~0.10.3": "0.10.3",
     "jsr:@deno/dnt@0.41.3": "0.41.3",
     "jsr:@deno/graph@0.86": "0.86.5",
+    "jsr:@deno/graph@~0.73.1": "0.73.1",
     "jsr:@std/assert@0.223": "0.223.0",
     "jsr:@std/assert@0.226": "0.226.0",
     "jsr:@std/assert@1.0.10": "1.0.10",
@@ -19,6 +20,7 @@
     "jsr:@std/fmt@^1.0.3": "1.0.3",
     "jsr:@std/fs@0.223": "0.223.0",
     "jsr:@std/fs@1": "1.0.8",
+    "jsr:@std/fs@1.0.8": "1.0.8",
     "jsr:@std/fs@^1.0.6": "1.0.8",
     "jsr:@std/fs@^1.0.8": "1.0.8",
     "jsr:@std/fs@~0.229.3": "0.229.3",
@@ -45,6 +47,7 @@
     "@deno/cache-dir@0.10.3": {
       "integrity": "eb022f84ecc49c91d9d98131c6e6b118ff63a29e343624d058646b9d50404776",
       "dependencies": [
+        "jsr:@deno/graph@~0.73.1",
         "jsr:@std/fmt@0.223",
         "jsr:@std/fs@0.223",
         "jsr:@std/io@0.223",
@@ -54,7 +57,7 @@
     "@deno/cache-dir@0.15.0": {
       "integrity": "2a2b87cf1c79892e7b3569fb9d2f8c2ab4a82a8e6d5f7bf8e5fb327b4b6b4169",
       "dependencies": [
-        "jsr:@deno/graph",
+        "jsr:@deno/graph@0.86",
         "jsr:@std/fmt@^1.0.3",
         "jsr:@std/fs@^1.0.6",
         "jsr:@std/io@0.225",
@@ -71,6 +74,9 @@
         "jsr:@std/path@1",
         "jsr:@ts-morph/bootstrap"
       ]
+    },
+    "@deno/graph@0.73.1": {
+      "integrity": "cd69639d2709d479037d5ce191a422eabe8d71bb68b0098344f6b07411c84d41"
     },
     "@deno/graph@0.86.5": {
       "integrity": "2bef0dde35fc4ee3627c9dd05ad44d4f97e9da54a74d71f6a06b089226fd12c0"
@@ -349,6 +355,7 @@
     "https://deno.land/std@0.150.0/media_types/_util.ts": "ce9b4fc4ba1c447dafab619055e20fd88236ca6bdd7834a21f98bd193c3fbfa1",
     "https://deno.land/std@0.150.0/media_types/mod.ts": "2d4b6f32a087029272dc59e0a55ae3cc4d1b27b794ccf528e94b1925795b3118",
     "https://deno.land/std@0.150.0/media_types/vendor/mime-db.v1.52.0.ts": "724cee25fa40f1a52d3937d6b4fbbfdd7791ff55e1b7ac08d9319d5632c7f5af",
+    "https://deno.land/x/which_runtime@0.2.0/mod.ts": "3e8f1ddb3a043818264a8035c0132aaf72d94977d45cd23ecfb03b2156f06126",
     "https://deno.land/x/xhr@0.3.0/mod.ts": "094aacd627fd9635cd942053bf8032b5223b909858fa9dc8ffa583752ff63b20",
     "https://esm.sh/react@19.0.0": "cdff7a8ec5c74ed8da35679db202c7443b03eca6bd8becb5b0cd53335fc81c1e",
     "https://esm.sh/remeda@2.18.0": "b26e3dfdcbef42e2dd64296d9de14e6e14747382375832a38d66bf4e6cb80f4f",
@@ -437,6 +444,7 @@
       "jsr:@deno/dnt@0.41.3",
       "jsr:@std/assert@1.0.10",
       "jsr:@std/encoding@1.0.5",
+      "jsr:@std/fs@1.0.8",
       "jsr:@std/testing@1.0.8",
       "npm:@resvg/resvg-js@2.6.2",
       "npm:satori@0.12.0",

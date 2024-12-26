@@ -1,5 +1,6 @@
 #!/usr/bin/env -S deno run -A
 import { build, emptyDir } from "@deno/dnt";
+import { copySync } from "@std/fs";
 
 await emptyDir("./npm");
 
@@ -34,13 +35,15 @@ await build({
       "@resvg/resvg-js": "^2.6.2",
       "ts-pattern": "^5.6.0",
       "remeda": "^2.18.0",
+      "yoga-wasm-web": "^0.3.3",
     },
   },
   importMap: "deno.json",
   filterDiagnostic(diagnostic) {
     if (
       diagnostic.file?.fileName.includes("@std/assert") ||
-      diagnostic.file?.fileName.includes("@std/io")
+      diagnostic.file?.fileName.includes("@std/io") ||
+      diagnostic.file?.fileName.includes("@std/testing")
     ) {
       return false; // ignore all diagnostics in this file
     }
@@ -48,8 +51,7 @@ await build({
     return true;
   },
   postBuild() {
-    // steps to run after building and before running the tests
-    // Deno.copyFileSync("LICENSE", "npm/LICENSE");
-    // Deno.copyFileSync("README.md", "npm/README.md");
+    copySync("src/assets/fonts", "npm/esm/report/src/assets/fonts");
+    copySync("src/html/ranked/assets", "npm/esm/report/src/html/ranked/assets");
   },
 });

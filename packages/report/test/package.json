@@ -1,0 +1,19 @@
+{
+  "name": "@scout-for-lol/test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest",
+    "test:ci": "vitest run"
+  },
+  "author": "",
+  "license": "",
+  "description": "",
+  "dependencies": {
+    "@scout-for-lol/report": "file:../npm",
+    "twisted": "^1.61.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8",
+    "yoga-wasm-web": "^0.3.3"
+  }
+}

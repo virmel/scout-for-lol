@@ -4,19 +4,27 @@ import React from "react";
 import { fonts } from "../assets/index.ts";
 import { CompletedMatch } from "@scout/data";
 import { Report } from "./report.tsx";
+import { isDeno } from "which_runtime";
 
 import { createCache, DenoDir } from "@deno/cache-dir";
 import initYoga from "yoga-wasm-web";
-createCache();
 
-// https://github.com/anasrar/satori-resvg
-const wasm = await Deno.readFile(
-  `${
-    new DenoDir().root
-  }/npm/registry.npmjs.org/yoga-wasm-web/0.3.3/dist/yoga.wasm`,
-);
-const yoga = await initYoga(wasm);
-init(yoga);
+if (isDeno) {
+  createCache();
+
+  // https://github.com/anasrar/satori-resvg
+  const wasm = await Deno.readFile(
+    `${new DenoDir().root
+      // TODO: make sure this matches up with what's in the deno.json
+    }/npm/registry.npmjs.org/yoga-wasm-web/0.3.3/dist/yoga.wasm`,
+  );
+  const yoga = await initYoga(wasm);
+  init(yoga);
+} else {
+  const wasm = await Deno.readFile(`node_modules/yoga-wasm-web/dist/yoga.wasm`);
+  const yoga = await initYoga(wasm);
+  init(yoga);
+}
 
 export async function matchToImage(match: CompletedMatch) {
   const svg = await matchToSvg(match);
