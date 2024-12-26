@@ -13,31 +13,12 @@ await build({
   },
   test: false,
   scriptModule: false,
-  package: {
-    // package.json properties
-    name: "@scout-for-lol/report",
-    version: Deno.args[0],
-    description: "",
-    license: "",
-    repository: {
-      type: "git",
-      url: "git+https://github.com/username/repo.git",
-    },
-    bugs: {
-      url: "https://github.com/username/repo/issues",
-    },
-    dependencies: {
-      "react": "^19.0.0",
-      "@types/react": "^19.0.0",
-      "twisted": "^1.61.5",
-      "zod": "^3.24.1",
-      "satori": "^0.12.0",
-      "@resvg/resvg-js": "^2.6.2",
-      "ts-pattern": "^5.6.0",
-      "remeda": "^2.18.0",
-      "yoga-wasm-web": "^0.3.3",
-    },
-  },
+  package: JSON.parse(
+    Deno.readTextFileSync("package.json").replace(
+      "$VERSION",
+      Deno.env.get("VERSION") || "???",
+    ),
+  ),
   importMap: "deno.json",
   filterDiagnostic(diagnostic) {
     if (

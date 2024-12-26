@@ -48,7 +48,7 @@ dnt.deps:
 
 dnt.build:
   FROM +dnt.deps
-  COPY src build.ts .
+  COPY src build.ts package.json .
   RUN ./build.ts
   SAVE ARTIFACT npm/
 
