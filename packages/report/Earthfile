@@ -47,11 +47,16 @@ dnt.deps:
   RUN deno cache src/index.ts
 
 dnt.build:
+  ARG --required version
   FROM +dnt.deps
-  COPY src build.ts package.json .
+  COPY README.md src build.ts package.json .
   RUN ./build.ts
   SAVE ARTIFACT npm/
 
 dnt.publish:
-  FROM +dnt.build
-  RUN npm publish
+  ARG --required version
+  FROM node:lts
+  WORKDIR /workspace
+  COPY (+dnt.build/npm --version=$version) .
+  COPY .npmrc .
+  RUN --secret NPM_TOKEN npm publish --access=public

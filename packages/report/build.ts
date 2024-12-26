@@ -16,7 +16,7 @@ await build({
   package: JSON.parse(
     Deno.readTextFileSync("package.json").replace(
       "$VERSION",
-      Deno.env.get("VERSION") || "???",
+      Deno.env.get("version") || "???",
     ),
   ),
   importMap: "deno.json",
@@ -34,5 +34,9 @@ await build({
   postBuild() {
     copySync("src/assets/fonts", "npm/esm/report/src/assets/fonts");
     copySync("src/html/ranked/assets", "npm/esm/report/src/html/ranked/assets");
+    Deno.copyFileSync(
+      "README.md",
+      "npm/README.md",
+    );
   },
 });

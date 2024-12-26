@@ -7,7 +7,7 @@ deps:
   COPY package.json package-lock.json .
   RUN npm ci
   RUN rm node_modules/@scout-for-lol/report
-  COPY ../+dnt.build/npm/ node_modules/@scout-for-lol/report
+  COPY (../+dnt.build/npm/ --version=1.0.0) node_modules/@scout-for-lol/report
 
 test:
   FROM +deps
