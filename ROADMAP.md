@@ -1,5 +1,11 @@
 # ROADMAP
 
+There seems to be a fair bit of coupling. Examples:
+
+- Some parts of the app are not runnable without config, resvg, React, Discord,
+  etc.
+- Unrelated concerns should be runnable
+
 ## Misc
 
 - [x] Fix KDA ratio
@@ -17,7 +23,7 @@
       database
 - [ ] Store match objects in S3
 - [ ] Store generated images in S3
-- [ ] Use correct username in generated images
+- [x] Use correct username in generated images
 - [ ] Support unranked queue types
   - Currently it will show LP stats/promos, etc.
 

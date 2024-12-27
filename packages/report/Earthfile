@@ -50,6 +50,7 @@ dnt.build:
   ARG --required version
   FROM +dnt.deps
   COPY README.md src build.ts package.json .
+  # TODO: cache node dependencies
   RUN ./build.ts
   SAVE ARTIFACT npm/ AS LOCAL .
 
