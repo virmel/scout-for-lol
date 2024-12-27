@@ -7,8 +7,7 @@ import {
 import { send } from "../../discord/channel.ts";
 import { checkPostMatchInternal } from "./internal.ts";
 import { assertSnapshot } from "@std/testing/snapshot";
-import { MessageCreateOptions, MessagePayload } from "discord.js";
-import { Message } from "discord.js";
+import { Message, MessageCreateOptions, MessagePayload } from "discord.js";
 
 const testdataPath = new URL("testdata/match.json", import.meta.url);
 
@@ -49,7 +48,7 @@ Deno.test("postmatch", async (t) => {
   ): Promise<Message<true> | Message<false>> => {
     await assertSnapshot(t, message);
     return Promise.resolve({} as Message<true> | Message<false>);
-  }) as (typeof send);
+  }) satisfies typeof send;
   const checkMatchFn = async () => {
     const exampleMatch = JSON.parse(
       (await Deno.readTextFile(testdataPath)).toString(),

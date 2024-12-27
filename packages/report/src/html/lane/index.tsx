@@ -1,38 +1,27 @@
 import React from "react";
-import { Lane } from "@scout/data";
-import { encodeBase64 } from "std/encoding/base64.ts";
+import { type Lane, LaneSchema } from "@scout/data";
+import { encodeBase64 } from "@std/encoding";
+import { z } from "zod";
 
-const images: Record<Lane | "unknown", string> = {
-  top: encodeBase64(
-    (await Deno.readFile(new URL("assets/top.png", import.meta.url)))
-      .toString(),
-  ).toString(),
-  jungle: encodeBase64(
-    (
-      await Deno.readFile(new URL("assets/jungle.png", import.meta.url))
-    ).toString(),
-  ).toString(),
-  middle: encodeBase64(
-    (
-      await Deno.readFile(new URL("assets/middle.png", import.meta.url))
-    ).toString(),
-  ).toString(),
-  adc: encodeBase64(
-    (
-      await Deno.readFile(new URL("assets/bottom.png", import.meta.url))
-    ).toString(),
-  ).toString(),
-  support: encodeBase64(
-    (
-      await Deno.readFile(new URL("assets/support.png", import.meta.url))
-    ).toString(),
-  ).toString(),
-  unknown: encodeBase64(
-    (
-      await Deno.readFile(new URL("assets/unknown.png", import.meta.url))
-    ).toString(),
-  ).toString(),
-};
+const images: Record<Lane | "unknown", string> = z
+  .record(z.union([LaneSchema, z.literal("unknown")]), z.string())
+  .refine((obj): obj is Required<typeof obj> =>
+    [...LaneSchema.options, "unknown" as const].every((key) => obj[key] != null)
+  )
+  .parse(
+    Object.fromEntries(
+      await Promise.all(
+        [...LaneSchema.options, "unknown" as const].map(
+          async (lane): Promise<[Lane | "unknown", string]> => {
+            const image = await Deno.readFile(
+              new URL(`assets/${lane}.png`, import.meta.url),
+            );
+            return [lane, encodeBase64(image)];
+          },
+        ),
+      ),
+    ),
+  );
 
 export function Lane({ lane }: { lane: Lane | undefined }) {
   return (

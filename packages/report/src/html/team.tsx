@@ -1,5 +1,5 @@
 import React from "react";
-import { renderChampion } from "./champion.tsx";
+import { renderChampion } from "./champion/champion.tsx";
 import { palette } from "../assets/colors.ts";
 import { font } from "../assets/index.ts";
 import { Roster } from "@scout/data";

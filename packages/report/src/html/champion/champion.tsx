@@ -2,8 +2,8 @@ import "react";
 import { renderItems } from "./item.tsx";
 import { palette } from "../../assets/colors.ts";
 import { Champion } from "@scout/data";
-import { summoner } from "../../../dataDragon/summoner.ts";
-import { latestVersion } from "../../../dataDragon/version.ts";
+import { summoner } from "../../dataDragon/summoner.ts";
+import { latestVersion } from "../../dataDragon/version.ts";
 import { CreepScore } from "./creepScore.tsx";
 import { Gold } from "./gold.tsx";
 import { Damage } from "./damage.tsx";
@@ -91,7 +91,7 @@ export function renderChampion(
       />
       <Damage
         value={champion.damage}
-        percent={damagePercent()}
+        percent={damagePercent}
         highlight={highlight}
       />
       <Gold value={champion.gold} durationInMinutes={durationInMinutes} />

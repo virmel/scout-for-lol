@@ -1,5 +1,11 @@
 # ROADMAP
 
+## Misc
+
+- [x] Fix KDA ratio
+- [x] Fix image width
+- [x] Show CS
+
 ## MVP
 
 - [ ] Store player configs and database in either Postgres or sqlite

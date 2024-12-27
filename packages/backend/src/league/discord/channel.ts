@@ -10,6 +10,7 @@ export async function send(
   options: string | MessagePayload | MessageCreateOptions,
   channelId: string,
 ): Promise<Message<true> | Message<false>> {
+  // TODO: check if the channel is a text channel
   const channel = await client.channels.fetch(
     channelId,
   ) as TextChannel;

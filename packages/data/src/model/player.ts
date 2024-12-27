@@ -24,7 +24,10 @@ export function filterPlayersWithSoloQueueRank(
 ): PlayerWithSoloQueueRank[] {
   return flatMap(
     players,
-    (player) => player.ranks.solo ? [player as PlayerWithSoloQueueRank] : [],
+    (player) =>
+      PlayerWithSoloQueueRankSchema.safeParse(player).success
+        ? [PlayerWithSoloQueueRankSchema.parse(player)]
+        : [],
   );
 }
 

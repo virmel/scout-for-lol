@@ -113,6 +113,7 @@ export async function checkPostMatchInternal(
     state.gamesStarted,
     (gamesStarted) => gamesStarted.map((game, index) => [game, games[index]]),
     filter(([_game, match]) => match != undefined),
+    // TODO: remove this cast
   ) as [LoadingScreenState, MatchV5DTOs.MatchDto][];
 
   // TODO: send duo queue message

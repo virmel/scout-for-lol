@@ -9,8 +9,10 @@ const versions = z
     ).json(),
   );
 
-export const latestVersion = first(versions) as string;
+const firstVersion = first(versions);
 
-if (latestVersion === undefined) {
+if (firstVersion === undefined) {
   throw new Error("latest version is undefined");
 }
+
+export const latestVersion = firstVersion;
