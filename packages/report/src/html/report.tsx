@@ -5,6 +5,7 @@ import { palette } from "../assets/colors.ts";
 import { RankedBadge } from "./ranked/index.tsx";
 import { renderTeam } from "./team.tsx";
 import { round } from "remeda";
+import { font } from "../assets/index.ts";
 
 export function Report({ match }: { match: CompletedMatch }) {
   const minutes = round(match.durationInSeconds / 60, 0);
@@ -34,7 +35,7 @@ export function Report({ match }: { match: CompletedMatch }) {
           fontSize: "5rem",
           justifyContent: "center",
           alignItems: "center",
-          fontFamily: "Beaufort for LOL",
+          fontFamily: font.title,
         }}
       >
         <div

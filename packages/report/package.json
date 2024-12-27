@@ -18,7 +18,6 @@
   "homepage": "https://github.com/shepherdjerred/scout-for-lol",
   "dependencies": {
     "@resvg/resvg-js": "^2.6.2",
-    "@resvg/resvg-js-darwin-arm64": "^2.6.2",
     "@types/react": "^19.0.0",
     "react": "^19.0.0",
     "remeda": "^2.18.0",

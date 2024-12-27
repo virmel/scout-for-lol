@@ -78,10 +78,12 @@ export function RankedBadge({
               alignItems: "flex-end",
             }}
           >
-            <img
-              src={`data:image/png;base64,${badge}`}
-              style={{ width: "24rem" }}
-            />
+            {
+              <img
+                src={`data:image/png;base64,${badge}`}
+                style={{ width: "24rem" }}
+              />
+            }
             <span style={{ position: "relative", left: "-8rem", top: "-2rem" }}>
               {divisionToString(newRank.division)}
             </span>
