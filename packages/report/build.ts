@@ -34,6 +34,7 @@ await build({
   postBuild() {
     copySync("src/assets/fonts", "npm/esm/report/src/assets/fonts");
     copySync("src/html/ranked/assets", "npm/esm/report/src/html/ranked/assets");
+    copySync("src/html/lane/assets", "npm/esm/report/src/html/lane/assets");
     Deno.copyFileSync(
       "README.md",
       "npm/README.md",
