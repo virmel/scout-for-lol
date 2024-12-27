@@ -24,7 +24,7 @@ export function participantToChampion(
   dto: MatchV5DTOs.ParticipantDto,
 ): Champion {
   return {
-    summonerName: dto.riotIdName || dto.summonerName,
+    summonerName: dto.riotIdGameName ?? "???",
     championName: dto.championName,
     kills: dto.kills,
     deaths: dto.deaths,
