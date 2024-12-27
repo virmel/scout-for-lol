@@ -1,4 +1,4 @@
-import { matchToSvg, svgToPng } from "./index.tsx";
+import { matchToSvg } from "./index.tsx";
 import { MatchV5DTOs } from "twisted/dist/models-dto/index.js";
 import { assertSnapshot } from "@std/testing/snapshot";
 import { toMatch } from "@scout/data";
@@ -38,9 +38,6 @@ Deno.test("image matches", async (t) => {
     { division: 1, tier: "gold", lp: 4, wins: 50, losses: 30 },
   );
   const svg = await matchToSvg(matchObj);
-  // convert to png and save
-  const png = await svgToPng(svg);
-  await Deno.writeFile("match.png", png);
 
   await assertSnapshot(t, svg);
 });
