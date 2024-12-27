@@ -51,7 +51,7 @@ dnt.build:
   FROM +dnt.deps
   COPY README.md src build.ts package.json .
   RUN ./build.ts
-  SAVE ARTIFACT npm/
+  SAVE ARTIFACT npm/ AS LOCAL .
 
 dnt.publish:
   ARG --required version
