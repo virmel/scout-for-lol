@@ -18,7 +18,7 @@ export function Gold({
       }}
     >
       <span style={{ fontWeight: 700 }}>{value.toLocaleString()} gold</span>
-      <span>{round(value / durationInMinutes, 2).toLocaleString()} / min</span>
+      <span>{round(value / durationInMinutes, 0).toLocaleString()} / min</span>
     </div>
   );
 }

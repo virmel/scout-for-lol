@@ -11,6 +11,7 @@ There seems to be a fair bit of coupling. Examples:
 - [x] Fix KDA ratio
 - [x] Fix image width
 - [x] Show CS
+- [x] Show lane images
 
 ## MVP
 

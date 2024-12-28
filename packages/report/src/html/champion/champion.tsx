@@ -66,7 +66,7 @@ export function renderChampion(
           color: "",
         }}
       >
-        <Lane lane={champion.lane} />
+        {champion.lane && <Lane lane={champion.lane} />}
         <span style={{ fontWeight: 700, width: "10rem" }}>
           {champion.level}
         </span>
