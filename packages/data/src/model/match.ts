@@ -13,6 +13,7 @@ export const CompletedMatchSchema = z.strictObject({
   durationInSeconds: z.number().nonnegative(),
   queueType: QueueTypeSchema.optional(),
   // this field stores data specific to the player we care about
+  // TODO: it would be good to de-dupe this data w/ the teams info
   player: z.strictObject({
     playerConfig: PlayerConfigEntrySchema,
     wins: z.number().nonnegative(),

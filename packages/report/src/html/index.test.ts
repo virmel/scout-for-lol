@@ -552,3 +552,24 @@ Deno.test("surrender test", async (t) => {
 
   await assertSnapshot(t, svg);
 });
+
+Deno.test("no rank before match test", async (t) => {
+  const matchNoRankBefore = getMatch();
+  matchNoRankBefore.player.rankBeforeMatch = undefined;
+  matchNoRankBefore.player.rankAfterMatch = {
+    wins: 50,
+    losses: 30,
+    tier: "gold",
+    division: 3,
+    lp: 0,
+  };
+
+  const svg = await matchToSvg(matchNoRankBefore);
+  const png = svgToPng(svg);
+  Deno.writeFileSync(
+    new URL("__snapshots__/match_no_rank_before.png", import.meta.url),
+    png,
+  );
+
+  await assertSnapshot(t, svg);
+});

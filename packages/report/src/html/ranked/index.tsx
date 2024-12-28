@@ -44,6 +44,7 @@ export function RankedBadge({
 
   const showPromoted = wasPromoted(oldRank, newRank);
   const showDemoted = wasDemoted(oldRank, newRank);
+  const showPlacements = !oldRank && newRank;
   return (
     <div
       style={{
@@ -91,6 +92,7 @@ export function RankedBadge({
           <span style={{ position: "absolute", top: "22rem" }}>
             {showPromoted && `Promoted`}
             {showDemoted && `Demoted`}
+            {showPlacements && `Placed`}
           </span>
         </div>
       </div>

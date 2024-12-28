@@ -58,10 +58,8 @@ export async function checkPreMatch() {
       const playersWithRank = await Promise.all(
         map(players, async (player): Promise<LoadingScreenPlayer> => {
           const rank = await getRanks(player);
-          if (queueType === "solo") {
-            return { player, rank: rank.solo };
-          } else if (queueType === "flex") {
-            return { player, rank: rank.flex };
+          if (queueType === "solo" || queueType === "flex") {
+            return { player, rank: rank[queueType] };
           } else {
             return { player, rank: undefined };
           }

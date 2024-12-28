@@ -25,7 +25,7 @@ There seems to be a fair bit of coupling. Examples:
 - [ ] Store match objects in S3
 - [ ] Store generated images in S3
 - [x] Use correct username in generated images
-- [ ] Support unranked queue types
+- [x] Support unranked queue types
   - Currently it will show LP stats/promos, etc.
 
 ## Post-match

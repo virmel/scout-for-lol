@@ -16,6 +16,7 @@ import {
   LoadingScreenState,
   Player,
   PlayerConfigEntry,
+  type Rank,
 } from "@scout/data";
 import { getState, setState } from "../../model/state.ts";
 import { differenceWith, filter, first, map, pipe, values } from "remeda";
@@ -84,12 +85,19 @@ async function createMatchObj(
 
   const fullPlayer = await getPlayerFn(state.players[0].player);
 
-  // TODO use correct rank
+  let rankBeforeMatch: Rank | undefined;
+  let rankAfterMatch: Rank | undefined;
+
+  if (state.queue === "solo" || state.queue === "flex") {
+    rankBeforeMatch = state.players[0].rank;
+    rankAfterMatch = fullPlayer.ranks[state.queue];
+  }
+
   return toMatch(
     fullPlayer,
     match,
-    state.players[0].rank,
-    fullPlayer.ranks.solo,
+    rankBeforeMatch,
+    rankAfterMatch,
   );
 }
 

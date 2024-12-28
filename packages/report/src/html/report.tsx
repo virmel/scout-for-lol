@@ -80,7 +80,9 @@ export function Report({ match }: { match: CompletedMatch }) {
               }}
             >
               <span>
-                {match.player.rankAfterMatch &&
+                {/* Check both before and after a match; this handles placements */}
+                {match.player.rankBeforeMatch &&
+                  match.player.rankAfterMatch &&
                   lpDiffToString(
                     leaguePointsDelta(
                       match.player.rankBeforeMatch,
