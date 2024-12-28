@@ -1,21 +1,12 @@
 {
-  "name": "@scout-for-lol/report",
-  "version": "$VERSION",
-  "description": "Generate report images for League of Legends",
-  "license": "GPL-3.0-only",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shepherdjerred/scout-for-lol.git"
+  "author": {
+    "email": "npm@sjer.red",
+    "name": "Jerred Shepherd",
+    "url": "https://sjer.red"
   },
   "bugs": {
     "url": "https://github.com/shepherdjerred/scout-for-lol/issues"
   },
-  "author": {
-    "name": "Jerred Shepherd",
-    "email": "npm@sjer.red",
-    "url": "https://sjer.red"
-  },
-  "homepage": "https://github.com/shepherdjerred/scout-for-lol",
   "dependencies": {
     "@resvg/resvg-js": "^2.6.2",
     "@types/react": "^19.0.0",
@@ -26,8 +17,17 @@
     "yoga-wasm-web": "^0.3.3",
     "zod": "^3.24.1"
   },
+  "description": "Generate report images for League of Legends",
+  "homepage": "https://github.com/shepherdjerred/scout-for-lol",
   "keywords": [
     "league-of-legends",
     "satori"
-  ]
+  ],
+  "license": "GPL-3.0-only",
+  "name": "@scout-for-lol/report",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shepherdjerred/scout-for-lol.git"
+  },
+  "version": "$VERSION"
 }

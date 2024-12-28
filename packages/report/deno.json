@@ -13,6 +13,7 @@
     "noUnusedParameters": true,
     "strict": true
   },
+  "exclude": ["test"],
   "imports": {
     "@deno/cache-dir": "jsr:@deno/cache-dir@0.15.0",
     "@deno/dnt": "jsr:@deno/dnt@0.41.3",
@@ -36,6 +37,5 @@
     "check:watch": "deno run -A https://deno.land/x/denon/denon.ts check",
     "run": "deno run -A --unstable-ffi src/index.ts",
     "test:update": "deno test --allow-all -- --update"
-  },
-  "exclude": ["test"]
+  }
 }
