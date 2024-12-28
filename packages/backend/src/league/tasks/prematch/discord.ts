@@ -30,11 +30,19 @@ export function createDiscordMessage(
     const championName = participant.participant.championId === 893
       ? "Aurora"
       : getChampionName(participant.participant.championId);
-    return `${participant.player.name} started a ${queueType} game as ${
+    return `${participant.player.name} (${
       championName.replaceAll("_", " ").toLowerCase().replace(/\b\w/g, (char) =>
         char.toUpperCase())
-    }`;
+    })`;
   });
 
-  return messages.join("\n");
+  let messageString = messages.join(", ");
+  if (messages.length > 1) {
+    const lastCommaIndex = messageString.lastIndexOf(",");
+    messageString = `${messageString.substring(0, lastCommaIndex)}, and${
+      messageString.substring(lastCommaIndex + 1)
+    }`;
+  }
+
+  return `${messageString} started a ${queueType} game`;
 }
