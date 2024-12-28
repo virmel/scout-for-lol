@@ -12,6 +12,8 @@ There seems to be a fair bit of coupling. Examples:
 - [x] Fix image width
 - [x] Show CS
 - [x] Show lane images
+- [x] Better rank support, show message for placements
+- [x] Better duo/flex squeue support
 
 ## MVP
 
@@ -30,6 +32,6 @@ There seems to be a fair bit of coupling. Examples:
 
 ## Post-match
 
-- add champ icon
-- make vision score easier to see
-- add icons for damage, K/D/A, and gold
+- [ ] add champ icon
+- [ ] make vision score easier to see
+- [ ] add icons for damage, K/D/A, and gold

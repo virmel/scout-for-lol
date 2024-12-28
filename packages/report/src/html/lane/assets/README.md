@@ -1,4 +1,1 @@
-Copied from
-<https://developer.riotgames.com/docs/lol#working-with-lol-apis_ranked-info>
-
-TODO: use real icons here
+Copied from <https://www.communitydragon.org/>
