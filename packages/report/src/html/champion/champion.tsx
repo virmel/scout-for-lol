@@ -21,7 +21,7 @@ export function renderChampion(
 ) {
   const items = renderItems(champion.items, champion.visionScore);
 
-  const damagePercent = round((champion.damage / damageMax) * 100, 0);
+  const damagePercent = round((champion.damage / damageMax || 0) * 100, 0);
 
   const summs = map(champion.spells, (spell) => {
     const name = first(

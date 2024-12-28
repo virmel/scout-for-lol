@@ -18,7 +18,9 @@ export function CreepScore({
       }}
     >
       <span style={{ fontWeight: 700 }}>{value.toLocaleString()} CS</span>
-      <span>{round(value / durationInMinutes, 1).toLocaleString()} / min</span>
+      <span>
+        {round(value / durationInMinutes || 0, 1).toLocaleString()} / min
+      </span>
     </div>
   );
 }

@@ -1,13 +1,8 @@
 import { expect, test } from "vitest";
 import { matchToImage, toMatch } from "@scout-for-lol/report";
 import * as fs from "fs/promises";
-import { MatchV5DTOs } from "twisted/dist/models-dto/index.js";
 
 test("match snapshot", async () => {
-  const exampleMatch = JSON.parse(
-    await fs.readFile("src/testdata/match.json", "utf-8"),
-  ) as MatchV5DTOs.MatchDto;
-
   const matchObj = toMatch(
     {
       config: {

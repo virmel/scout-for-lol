@@ -54,7 +54,7 @@ function tierToLeaguePoints(tier: Tier): LeaguePoints {
 export function lpDiffToString(input: number): string {
   return match(input)
     .with(P.number.negative(), () => `${input.toLocaleString()} LP`)
-    .with(0, () => "-")
+    .with(0, () => "0 LP")
     .with(P.number.positive(), () => `+${input.toLocaleString()} LP`)
     .run();
 }
