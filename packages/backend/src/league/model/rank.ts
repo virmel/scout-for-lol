@@ -3,9 +3,9 @@ import { PlayerConfigEntry } from "@scout/data";
 import { Rank } from "@scout/data";
 import { TierSchema } from "@scout/data";
 import { api } from "../api/api.ts";
-import { Constants } from "twisted";
 import { SummonerLeagueDto } from "twisted/dist/models-dto/index.js";
 import { filter, first, pipe } from "remeda";
+import { mapRegionToEnum } from "./region.ts";
 
 const solo = "RANKED_SOLO_5x5";
 const flex = "RANKED_FLEX_SR";
@@ -45,10 +45,9 @@ export function getRank(
 }
 
 export async function getRanks(player: PlayerConfigEntry): Promise<Ranks> {
-  // TODO: get region from player
   const response = await api.League.bySummoner(
     player.league.leagueAccount.id,
-    Constants.Regions.AMERICA_NORTH,
+    mapRegionToEnum(player.league.leagueAccount.region),
   );
 
   return {

@@ -1,4 +1,3 @@
-import { Constants } from "twisted";
 import { MatchV5DTOs } from "twisted/dist/models-dto/index.js";
 import { z } from "zod";
 import { api } from "../../api/api.ts";
@@ -22,13 +21,20 @@ import { getState, setState } from "../../model/state.ts";
 import { differenceWith, filter, first, map, pipe } from "remeda";
 import { toMatch } from "../../model/match.ts";
 import { getServersSubscribedToPlayers } from "../../../database/index.ts";
+import { regionToRegionGroup } from "twisted/dist/constants/regions.js";
+import { mapRegionToEnum } from "../../model/region.ts";
 
 export async function checkMatch(game: LoadingScreenState) {
   try {
-    // TODO: get region from player
+    const region = mapRegionToEnum(
+      game.players[0].player.league.leagueAccount.region,
+    );
+
     const response = await api.MatchV5.get(
-      `NA1_${game.matchId}`,
-      Constants.RegionGroups.AMERICAS,
+      `${region}_${game.matchId}`,
+      regionToRegionGroup(
+        region,
+      ),
     );
     return response.response;
   } catch (e) {

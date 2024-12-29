@@ -17,9 +17,9 @@ There seems to be a fair bit of coupling. Examples:
 
 ## MVP
 
-- [ ] Store player configs and database in either Postgres or sqlite
-  - [ ] Setup Prisma
-- [ ] Add support for player regions
+- [x] Store player configs and database in either Postgres or sqlite
+  - [x] Setup Prisma
+- [x] Add support for player regions
 - [ ] Frontend/marketing site
 - [ ] Add commands for customizing player configs and database state
 - [ ] Track players that aren't subscribed to by any server & prune from
