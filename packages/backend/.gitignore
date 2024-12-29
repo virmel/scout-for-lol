@@ -6,3 +6,6 @@
 chats.json
 state.json
 matches
+generated
+*.sqlite
+*.sqlite-journal

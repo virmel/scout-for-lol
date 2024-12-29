@@ -10,14 +10,16 @@ import {
 import { createDiscordMessage } from "./discord.ts";
 import { send } from "../../discord/channel.ts";
 import { getRanks } from "../../model/rank.ts";
-import { getPlayerConfigs } from "../../playerConfig.ts";
 import { getState, setState } from "../../model/state.ts";
 import { getCurrentGame } from "../../api/index.ts";
 import { filter, groupBy, map, mapValues, pipe, values, zip } from "remeda";
-import { database } from "../../../database.ts";
+import {
+  getAccounts,
+  getServersSubscribedToPlayers,
+} from "../../../database/index.ts";
 
 export async function checkPreMatch() {
-  const players = getPlayerConfigs();
+  const players = await getAccounts();
 
   console.log("filtering out players in game");
   const playersNotInGame = getPlayersNotInGame(players, getState());
@@ -79,10 +81,8 @@ export async function checkPreMatch() {
 
       // figure out what channels to send the message to
       // server, see if they have a player in the game
-      const servers = values(database.servers).filter((server) =>
-        server.players.some((player) =>
-          players.some((p) => p.league.leagueAccount.id === player)
-        )
+      const servers = await getServersSubscribedToPlayers(
+        players.map((player) => player.league.leagueAccount.id),
       );
 
       const promises = servers.map((server) => {

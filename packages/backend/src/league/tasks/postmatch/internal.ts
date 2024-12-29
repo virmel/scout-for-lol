@@ -19,9 +19,9 @@ import {
   type Rank,
 } from "@scout/data";
 import { getState, setState } from "../../model/state.ts";
-import { differenceWith, filter, first, map, pipe, values } from "remeda";
-import { database } from "../../../database.ts";
+import { differenceWith, filter, first, map, pipe } from "remeda";
 import { toMatch } from "../../model/match.ts";
+import { getServersSubscribedToPlayers } from "../../../database/index.ts";
 
 export async function checkMatch(game: LoadingScreenState) {
   try {
@@ -136,10 +136,8 @@ export async function checkPostMatchInternal(
 
       // figure out what channels to send the message to
       // server, see if they have a player in the game
-      const servers = values(database.servers).filter((server) =>
-        server.players.some((player) =>
-          matchObj.player.playerConfig.league.leagueAccount.id === player
-        )
+      const servers = await getServersSubscribedToPlayers(
+        [state.players[0].player.league.leagueAccount.id],
       );
 
       const promises = servers.map((server) => {
