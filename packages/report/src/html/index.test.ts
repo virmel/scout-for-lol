@@ -1,4 +1,10 @@
-import type { CompletedMatch } from "@scout/data";
+import {
+  type CompletedMatch,
+  DiscordAccountIdSchema,
+  LeagueAccountIdSchema,
+  LeagueIdSchema,
+  LeaguePuuidSchema,
+} from "@scout/data";
 import { matchToSvg, svgToPng } from "./index.tsx";
 import { assertSnapshot } from "@std/testing/snapshot";
 
@@ -10,15 +16,16 @@ function getMatch(): CompletedMatch {
         "name": "name",
         "league": {
           "leagueAccount": {
-            "puuid":
+            "puuid": LeaguePuuidSchema.parse(
               "XtEsV464OFaO3c0_q9REa6wYF0HpC2LK4laLnyM7WhfAVeuDz9biieJ5ZRD049AUCBjLjyBeeezTaw",
-            "accountId": "accountId",
-            "id": "id",
+            ),
+            "accountId": LeagueAccountIdSchema.parse("accountId"),
+            "id": LeagueIdSchema.parse("id"),
             "region": "AMERICA_NORTH",
           },
         },
         "discordAccount": {
-          "id": "discord id",
+          "id": DiscordAccountIdSchema.parse("discord id"),
         },
       },
       "rankBeforeMatch": {

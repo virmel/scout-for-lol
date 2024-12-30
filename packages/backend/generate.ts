@@ -1,5 +1,7 @@
 #!/usr/bin/env deno --allow-write --allow-run --allow-read
 
+import { z } from "zod";
+
 // clear the `generated` folder
 try {
   await Deno.remove("./generated", { recursive: true });
@@ -11,6 +13,13 @@ try {
   }
 }
 
+// get the prisma version from deno.json
+const version = z.string().parse(
+  JSON.parse(await Deno.readTextFile("deno.json")).imports["prisma"].split(
+    "@",
+  )[1],
+);
+
 // run prisma migrate dev --name init
 const command = new Deno.Command("deno", {
   args: [
@@ -20,17 +29,20 @@ const command = new Deno.Command("deno", {
     "--allow-write",
     "--allow-sys",
     "--allow-run",
-    "npm:prisma",
-    "migrate",
-    "dev",
-    "--name",
-    "init",
+    "--allow-net",
+    `npm:prisma@${version}`,
+    "generate",
   ],
   stdout: "inherit",
   stderr: "inherit",
 });
 
 await command.output();
+
+// delete package.json, package-lock.json, and node_modules
+await Deno.remove("package.json");
+await Deno.remove("package-lock.json");
+await Deno.remove("node_modules", { recursive: true });
 
 // in the `generated` folder name all `.js` files to `.cjs` recursively
 async function renameJsToCjs(dir: string) {
@@ -40,9 +52,9 @@ async function renameJsToCjs(dir: string) {
       const newPath = fullPath.replace(".js", ".cjs");
       await Deno.rename(fullPath, newPath);
 
-      // add "// deno-lint-ignore-file" to the top of each file
+      // add "// deno-lint-ignore-file" and "// @ts-nocheck" to the top of each file
       let content = await Deno.readTextFile(newPath);
-      content = `// deno-lint-ignore-file\n${content}`;
+      content = `// deno-lint-ignore-file\n// @ts-nocheck\n${content}`;
 
       // update any require('.js') statements to look for .cjs
       content = content.replace(

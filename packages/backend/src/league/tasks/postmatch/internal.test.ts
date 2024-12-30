@@ -8,6 +8,12 @@ import { send } from "../../discord/channel.ts";
 import { checkPostMatchInternal } from "./internal.ts";
 import { assertSnapshot } from "@std/testing/snapshot";
 import { Message, MessageCreateOptions, MessagePayload } from "discord.js";
+import {
+  DiscordAccountIdSchema,
+  LeagueAccountIdSchema,
+  LeagueIdSchema,
+  LeaguePuuidSchema,
+} from "@scout/data";
 
 const testdataPath = new URL("testdata/match.json", import.meta.url);
 
@@ -23,15 +29,16 @@ Deno.test("postmatch", async (t) => {
             name: "name",
             league: {
               leagueAccount: {
-                puuid:
+                puuid: LeaguePuuidSchema.parse(
                   "XtEsV464OFaO3c0_q9REa6wYF0HpC2LK4laLnyM7WhfAVeuDz9biieJ5ZRD049AUCBjLjyBeeezTaw",
-                accountId: "accountId",
-                id: "id",
+                ),
+                accountId: LeagueAccountIdSchema.parse("accountId"),
+                id: LeagueIdSchema.parse("id"),
                 region: "AMERICA_NORTH",
               },
             },
             discordAccount: {
-              id: "discord id",
+              id: DiscordAccountIdSchema.parse("discord id"),
             },
           },
           rank: { division: 3, tier: "gold", lp: 11, wins: 10, losses: 20 },
@@ -62,15 +69,16 @@ Deno.test("postmatch", async (t) => {
         name: "name",
         league: {
           leagueAccount: {
-            puuid:
+            puuid: LeaguePuuidSchema.parse(
               "XtEsV464OFaO3c0_q9REa6wYF0HpC2LK4laLnyM7WhfAVeuDz9biieJ5ZRD049AUCBjLjyBeeezTaw",
-            accountId: "accountId",
-            id: "id",
+            ),
+            accountId: LeagueAccountIdSchema.parse("accountId"),
+            id: LeagueIdSchema.parse("id"),
             region: "AMERICA_NORTH",
           },
         },
         discordAccount: {
-          id: "discord id",
+          id: DiscordAccountIdSchema.parse("discord id"),
         },
       },
       ranks: {

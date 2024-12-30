@@ -1,11 +1,20 @@
 VERSION 0.8
 FROM ../../+deno
 
+prisma.generate:
+  FROM ../report+deno-node
+  RUN apt install -y openssl
+  COPY --dir deno.json deno.lock .
+  COPY --dir generate.ts prisma .
+  RUN deno run -A generate.ts
+  SAVE ARTIFACT generated/
+
 deps:
   WORKDIR /workspace/packages/backend
 
   COPY ../data+src/ /workspace/packages/data/src/
   COPY ../report+src/ /workspace/packages/report/src/
+  COPY +prisma.generate/ .
 
   # download and cache dependencies
   CACHE --persist $DENO_DIR
