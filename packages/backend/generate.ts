@@ -76,6 +76,7 @@ async function updateDtsImportsAndExports(dir: string) {
     const fullPath = `${dir}/${dirEntry.name}`;
     if (dirEntry.isFile && dirEntry.name.endsWith(".d.ts")) {
       let content = await Deno.readTextFile(fullPath);
+      content = `// deno-lint-ignore-file\n// @ts-nocheck\n${content}`;
       content = content.replace(
         /export \* from ['"](.+?)['"]/g,
         (_match, p1) => `export * from "${p1}.d.ts"`,

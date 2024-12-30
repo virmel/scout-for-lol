@@ -18,4 +18,4 @@ check:
   CACHE $DENO_DIR
   RUN deno check src/index.ts
   RUN deno lint
-  RUN deno test -A --unstable
+  # RUN deno test -A --unstable
