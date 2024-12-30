@@ -22,7 +22,6 @@ Deno.test("postmatch", async (t) => {
           player: {
             name: "name",
             league: {
-              alts: [],
               leagueAccount: {
                 puuid:
                   "XtEsV464OFaO3c0_q9REa6wYF0HpC2LK4laLnyM7WhfAVeuDz9biieJ5ZRD049AUCBjLjyBeeezTaw",
@@ -62,7 +61,6 @@ Deno.test("postmatch", async (t) => {
       config: {
         name: "name",
         league: {
-          alts: [],
           leagueAccount: {
             puuid:
               "XtEsV464OFaO3c0_q9REa6wYF0HpC2LK4laLnyM7WhfAVeuDz9biieJ5ZRD049AUCBjLjyBeeezTaw",

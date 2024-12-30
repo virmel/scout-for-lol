@@ -20,7 +20,7 @@ import {
 import { getState, setState } from "../../model/state.ts";
 import { differenceWith, filter, first, map, pipe } from "remeda";
 import { toMatch } from "../../model/match.ts";
-import { getServersSubscribedToPlayers } from "../../../database/index.ts";
+import { getChannelsSubscribedToPlayers } from "../../../database/index.ts";
 import { regionToRegionGroup } from "twisted/dist/constants/regions.js";
 import { mapRegionToEnum } from "../../model/region.ts";
 
@@ -142,7 +142,7 @@ export async function checkPostMatchInternal(
 
       // figure out what channels to send the message to
       // server, see if they have a player in the game
-      const servers = await getServersSubscribedToPlayers(
+      const servers = await getChannelsSubscribedToPlayers(
         [state.players[0].player.league.leagueAccount.id],
       );
 

@@ -15,7 +15,7 @@ import { getCurrentGame } from "../../api/index.ts";
 import { filter, groupBy, map, mapValues, pipe, values, zip } from "remeda";
 import {
   getAccounts,
-  getServersSubscribedToPlayers,
+  getChannelsSubscribedToPlayers,
 } from "../../../database/index.ts";
 
 export async function checkPreMatch() {
@@ -81,7 +81,7 @@ export async function checkPreMatch() {
 
       // figure out what channels to send the message to
       // server, see if they have a player in the game
-      const servers = await getServersSubscribedToPlayers(
+      const servers = await getChannelsSubscribedToPlayers(
         players.map((player) => player.league.leagueAccount.id),
       );
 

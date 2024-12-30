@@ -8,32 +8,22 @@ datasource db {
   url      = "file:./dev.sqlite"
 }
 
-model Server {
-  id            Int            @id
-  guildId       String         @unique
-  // servers will subscribe to players
-  subscriptions Subscription[]
-}
-
 model Subscription {
-  id        Int    @id
+  id        Int    @id @default(autoincrement())
   playerId  Int
-  serverId  Int
-  // this is where notifications will be sent
   channelId String
   player    Player @relation(fields: [playerId], references: [id])
-  server    Server @relation(fields: [serverId], references: [id])
 }
 
 model Player {
-  id           Int            @id
-  discordId    String?        @unique
-  accounts     Account[]
-  Subscription Subscription[]
+  id            Int            @id @default(autoincrement())
+  discordId     String?        @unique
+  accounts      Account[]
+  subscriptions Subscription[]
 }
 
 model Account {
-  id        Int    @id
+  id        Int    @id @default(autoincrement())
   accountId String @unique
   puuid     String @unique
   region    String
