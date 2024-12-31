@@ -30,6 +30,11 @@ There seems to be a fair bit of coupling. Examples:
 - [x] Support unranked queue types
   - Currently it will show LP stats/promos, etc.
 
+### Setup Flow
+
+- User adds bot to a Discord server
+- User uses commands to subscribe to players
+
 ## Post-match
 
 - [ ] add champ icon
