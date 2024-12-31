@@ -98,4 +98,5 @@ pre-commit:
   RUN pre-commit install-hooks
 
   COPY . .
+  COPY ./packages/backend+prisma.generate/ packages/backend/
   RUN pre-commit run --all-files
