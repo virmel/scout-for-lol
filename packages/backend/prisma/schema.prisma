@@ -5,7 +5,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./dev.sqlite"
+  url      = env("DATABASE_URL")
 }
 
 model Subscription {
@@ -17,15 +17,16 @@ model Subscription {
 
 model Player {
   id            Int            @id @default(autoincrement())
+  alias         String?
   discordId     String?        @unique
   accounts      Account[]
   subscriptions Subscription[]
 }
 
 model Account {
-  id        Int    @id @default(autoincrement())
-  accountId String @unique
-  puuid     String @unique
-  region    String
-  playerId  Player @relation(fields: [id], references: [id])
+  id         Int    @id @default(autoincrement())
+  summonerId String @unique
+  puuid      String @unique
+  region     String
+  playerId   Player @relation(fields: [id], references: [id])
 }

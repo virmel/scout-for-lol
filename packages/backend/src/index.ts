@@ -1,3 +1,4 @@
+import configuration from "./configuration.ts";
 import * as Sentry from "sentry/index.mjs";
 
 Sentry.init({
@@ -8,6 +9,5 @@ Sentry.init({
 
 import "./discord/index.ts";
 import { startCronJobs } from "./league/cron.ts";
-import configuration from "./configuration.ts";
 
 startCronJobs();

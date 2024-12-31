@@ -20,7 +20,6 @@ const version = z.string().parse(
   )[1],
 );
 
-// run prisma migrate dev --name init
 const command = new Deno.Command("deno", {
   args: [
     "run",

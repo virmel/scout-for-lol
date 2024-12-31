@@ -2,10 +2,12 @@
 import { PrismaClient } from "@prisma/client";
 import {
   DiscordAccountIdSchema,
+  type DiscordChannelId,
+  DiscordChannelIdSchema,
   type LeagueAccount,
-  LeagueAccountIdSchema,
-  LeagueIdSchema,
   LeaguePuuidSchema,
+  type LeagueSummonerId,
+  LeagueSummonerIdSchema,
   type PlayerConfig,
   type PlayerConfigEntry,
   RegionSchema,
@@ -15,13 +17,13 @@ import { unique } from "remeda";
 export const prisma = new PrismaClient();
 
 export async function getChannelsSubscribedToPlayers(
-  playerIds: string[],
-): Promise<{ channel: string }[]> {
+  summonerIds: LeagueSummonerId[],
+): Promise<{ channel: DiscordChannelId }[]> {
   // the accounts that are subscribed to the players
   const accounts = await prisma.account.findMany({
     where: {
-      accountId: {
-        in: playerIds,
+      summonerId: {
+        in: summonerIds,
       },
     },
     include: {
@@ -36,7 +38,7 @@ export async function getChannelsSubscribedToPlayers(
   return unique(
     accounts.flatMap((account) =>
       account.playerId.subscriptions.map((subscription) => ({
-        channel: subscription.channelId,
+        channel: DiscordChannelIdSchema.parse(subscription.channelId),
       }))
     ),
   );
@@ -52,7 +54,7 @@ export async function getAccounts(): Promise<PlayerConfig> {
   return players.flatMap((player): PlayerConfigEntry[] => {
     return player.accounts.map((account): PlayerConfigEntry => {
       return {
-        name: "none",
+        name: player.alias || "???",
         league: {
           leagueAccount: mapToAccount(account),
         },
@@ -64,15 +66,13 @@ export async function getAccounts(): Promise<PlayerConfig> {
   });
 }
 
-function mapToAccount({ id, accountId, puuid, region }: {
-  id: number;
-  accountId: string;
+function mapToAccount({ summonerId, puuid, region }: {
+  summonerId: string;
   puuid: string;
   region: string;
 }): LeagueAccount {
   return {
-    id: LeagueIdSchema.parse(id),
-    accountId: LeagueAccountIdSchema.parse(accountId),
+    summonerId: LeagueSummonerIdSchema.parse(summonerId),
     puuid: LeaguePuuidSchema.parse(puuid),
     region: RegionSchema.parse(region),
   };

@@ -9,13 +9,14 @@ CREATE TABLE "Subscription" (
 -- CreateTable
 CREATE TABLE "Player" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "alias" TEXT,
     "discordId" TEXT
 );
 
 -- CreateTable
 CREATE TABLE "Account" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "accountId" TEXT NOT NULL,
+    "summonerId" TEXT NOT NULL,
     "puuid" TEXT NOT NULL,
     "region" TEXT NOT NULL,
     CONSTRAINT "Account_id_fkey" FOREIGN KEY ("id") REFERENCES "Player" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
@@ -25,7 +26,7 @@ CREATE TABLE "Account" (
 CREATE UNIQUE INDEX "Player_discordId_key" ON "Player"("discordId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Account_accountId_key" ON "Account"("accountId");
+CREATE UNIQUE INDEX "Account_summonerId_key" ON "Account"("summonerId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Account_puuid_key" ON "Account"("puuid");

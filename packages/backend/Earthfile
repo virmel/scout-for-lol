@@ -3,10 +3,10 @@ FROM ../../+deno
 
 prisma.generate:
   # this command fails if node isn't installed
-  FROM ../report+deno-node
+  FROM ../../+deno-node
   RUN apt install -y openssl
   COPY --dir deno.json deno.lock .
-  COPY --dir generate.ts prisma .
+  COPY --dir src/database/generate.ts prisma .
   RUN deno run -A generate.ts
   # delete some files that are unneeded and that deno stuggled with
   RUN rm generated/client/runtime/edge-esm.cjs
@@ -41,7 +41,7 @@ image:
   ENV VERSION=$version
   ENV GIT_SHA=$git_sha
 
-  ENTRYPOINT deno run -A --unstable-ffi src/index.ts
+  ENTRYPOINT deno run -A src/database/migrate.ts && deno run -A --unstable-ffi src/index.ts
   HEALTHCHECK  --interval=30s --timeout=5s --start-period=5s --retries=3 CMD deno run -A /workspace/packages/backend/src/health.ts || exit 1
   SAVE IMAGE --push ghcr.io/shepherdjerred/scout-for-lol:$version
   SAVE IMAGE --push ghcr.io/shepherdjerred/scout-for-lol:$git_sha

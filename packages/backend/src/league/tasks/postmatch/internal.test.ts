@@ -10,9 +10,9 @@ import { assertSnapshot } from "@std/testing/snapshot";
 import { Message, MessageCreateOptions, MessagePayload } from "discord.js";
 import {
   DiscordAccountIdSchema,
-  LeagueAccountIdSchema,
-  LeagueIdSchema,
+  DiscordChannelIdSchema,
   LeaguePuuidSchema,
+  LeagueSummonerIdSchema,
 } from "@scout/data";
 
 const testdataPath = new URL("testdata/match.json", import.meta.url);
@@ -32,13 +32,12 @@ Deno.test("postmatch", async (t) => {
                 puuid: LeaguePuuidSchema.parse(
                   "XtEsV464OFaO3c0_q9REa6wYF0HpC2LK4laLnyM7WhfAVeuDz9biieJ5ZRD049AUCBjLjyBeeezTaw",
                 ),
-                accountId: LeagueAccountIdSchema.parse("accountId"),
-                id: LeagueIdSchema.parse("id"),
+                summonerId: LeagueSummonerIdSchema.parse("id"),
                 region: "AMERICA_NORTH",
               },
             },
             discordAccount: {
-              id: DiscordAccountIdSchema.parse("discord id"),
+              id: DiscordAccountIdSchema.parse("123456789012345678"),
             },
           },
           rank: { division: 3, tier: "gold", lp: 11, wins: 10, losses: 20 },
@@ -64,33 +63,41 @@ Deno.test("postmatch", async (t) => {
   const getPlayerFn = (
     _: PlayerConfigEntry,
   ): Promise<Player> => {
-    return Promise.resolve({
-      config: {
-        name: "name",
-        league: {
-          leagueAccount: {
-            puuid: LeaguePuuidSchema.parse(
-              "XtEsV464OFaO3c0_q9REa6wYF0HpC2LK4laLnyM7WhfAVeuDz9biieJ5ZRD049AUCBjLjyBeeezTaw",
-            ),
-            accountId: LeagueAccountIdSchema.parse("accountId"),
-            id: LeagueIdSchema.parse("id"),
-            region: "AMERICA_NORTH",
+    return Promise.resolve(
+      {
+        config: {
+          name: "name",
+          league: {
+            leagueAccount: {
+              puuid: LeaguePuuidSchema.parse(
+                "XtEsV464OFaO3c0_q9REa6wYF0HpC2LK4laLnyM7WhfAVeuDz9biieJ5ZRD049AUCBjLjyBeeezTaw",
+              ),
+              summonerId: LeagueSummonerIdSchema.parse("id"),
+              region: "AMERICA_NORTH",
+            },
+          },
+          discordAccount: {
+            id: DiscordAccountIdSchema.parse("12345678901234567"),
           },
         },
-        discordAccount: {
-          id: DiscordAccountIdSchema.parse("discord id"),
+        ranks: {
+          solo: { division: 3, tier: "gold", lp: 11, wins: 10, losses: 20 },
         },
-      },
-      ranks: {
-        solo: { division: 3, tier: "gold", lp: 11, wins: 10, losses: 20 },
-      },
-    });
+      } satisfies Player,
+    );
   };
+  const getSubscriptionsFn = () => {
+    return Promise.resolve([
+      { channel: DiscordChannelIdSchema.parse("12345678901234567") },
+    ]);
+  };
+
   await checkPostMatchInternal(
     state,
     saveMatchFn,
     checkMatchFn,
     sendFn,
     getPlayerFn,
+    getSubscriptionsFn,
   );
 });

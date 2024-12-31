@@ -60,8 +60,8 @@ export function getPlayersInGame(
   return filter(players, (player) =>
     playersInGame.some(
       (matchPlayer) =>
-        matchPlayer.player.league.leagueAccount.accountId ===
-          player.league.leagueAccount.accountId,
+        matchPlayer.player.league.leagueAccount.puuid ===
+          player.league.leagueAccount.puuid,
     ));
 }
 
@@ -73,7 +73,7 @@ export function getPlayersNotInGame(
   return filter(players, (player) =>
     !playersInGame.some(
       (matchPlayer) =>
-        matchPlayer.player.league.leagueAccount.accountId ===
-          player.league.leagueAccount.accountId,
+        matchPlayer.player.league.leagueAccount.puuid ===
+          player.league.leagueAccount.puuid,
     ));
 }

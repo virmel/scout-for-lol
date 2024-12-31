@@ -21,17 +21,18 @@ export const RegionSchema = z.enum([
   "PBE",
 ]);
 
-export const LeagueIdSchema = z.string().min(0).brand<"LeagueId">();
-export const LeagueAccountIdSchema = z.string().min(0).brand<
-  "LeagueAccountId"
+export type LeagueSummonerId = z.infer<typeof LeagueSummonerIdSchema>;
+export const LeagueSummonerIdSchema = z.string().min(0).max(63).brand<
+  "LeagueSummonerId"
 >();
-export const LeaguePuuidSchema = z.string().min(0).brand<"LeaguePuuid">();
+export type LeaguePuuid = z.infer<typeof LeaguePuuidSchema>;
+export const LeaguePuuidSchema = z.string().min(78).max(78).brand<
+  "LeaguePuuid"
+>();
 
 export type LeagueAccount = z.infer<typeof LeagueAccountSchema>;
 export const LeagueAccountSchema = z.strictObject({
-  // AKA encrypted summoner ID
-  id: LeagueIdSchema,
-  accountId: LeagueAccountIdSchema,
+  summonerId: LeagueSummonerIdSchema,
   puuid: LeaguePuuidSchema,
   region: RegionSchema,
 });

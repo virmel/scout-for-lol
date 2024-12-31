@@ -41,7 +41,7 @@ export function findParticipant(
   return pipe(
     participants,
     filter((participant) =>
-      participant.summonerId === player.league.leagueAccount.id
+      participant.summonerId === player.league.leagueAccount.summonerId
     ),
     find(() => true),
   );

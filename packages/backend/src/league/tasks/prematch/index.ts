@@ -82,7 +82,7 @@ export async function checkPreMatch() {
       // figure out what channels to send the message to
       // server, see if they have a player in the game
       const servers = await getChannelsSubscribedToPlayers(
-        players.map((player) => player.league.leagueAccount.id),
+        players.map((player) => player.league.leagueAccount.summonerId),
       );
 
       const promises = servers.map((server) => {

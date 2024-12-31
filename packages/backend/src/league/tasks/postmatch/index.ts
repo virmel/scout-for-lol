@@ -1,3 +1,4 @@
+import { getChannelsSubscribedToPlayers } from "../../../database/index.ts";
 import { send } from "../../discord/channel.ts";
 import { getPlayer } from "../../model/player.ts";
 import { getState } from "../../model/state.ts";
@@ -11,5 +12,6 @@ export async function checkPostMatch() {
     checkMatch,
     send,
     getPlayer,
+    getChannelsSubscribedToPlayers,
   );
 }

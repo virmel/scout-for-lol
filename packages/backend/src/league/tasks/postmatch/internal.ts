@@ -12,6 +12,8 @@ import { matchToImage } from "@scout/report";
 import {
   ApplicationState,
   CompletedMatch,
+  type DiscordChannelId,
+  type LeagueSummonerId,
   LoadingScreenState,
   Player,
   PlayerConfigEntry,
@@ -20,7 +22,6 @@ import {
 import { getState, setState } from "../../model/state.ts";
 import { differenceWith, filter, first, map, pipe } from "remeda";
 import { toMatch } from "../../model/match.ts";
-import { getChannelsSubscribedToPlayers } from "../../../database/index.ts";
 import { regionToRegionGroup } from "twisted/dist/constants/regions.js";
 import { mapRegionToEnum } from "../../model/region.ts";
 
@@ -118,6 +119,9 @@ export async function checkPostMatchInternal(
     channelId: string,
   ) => Promise<Message<true> | Message<false>>,
   getPlayerFn: (playerConfig: PlayerConfigEntry) => Promise<Player>,
+  getSubscriptionsFn: (
+    playerIds: LeagueSummonerId[],
+  ) => Promise<{ channel: DiscordChannelId }[]>,
 ) {
   console.log("checking match api");
   const games = await Promise.all(state.gamesStarted.map(checkFn));
@@ -142,8 +146,8 @@ export async function checkPostMatchInternal(
 
       // figure out what channels to send the message to
       // server, see if they have a player in the game
-      const servers = await getChannelsSubscribedToPlayers(
-        [state.players[0].player.league.leagueAccount.id],
+      const servers = await getSubscriptionsFn(
+        [state.players[0].player.league.leagueAccount.summonerId],
       );
 
       const promises = servers.map((server) => {
