@@ -40,6 +40,8 @@ image:
   FROM +deps
   ENV VERSION=$version
   ENV GIT_SHA=$git_sha
+  # so that migrations can run
+  COPY --dir prisma .
 
   ENTRYPOINT deno run -A src/database/migrate.ts && deno run -A --unstable-ffi src/index.ts
   HEALTHCHECK  --interval=30s --timeout=5s --start-period=5s --retries=3 CMD deno run -A /workspace/packages/backend/src/health.ts || exit 1

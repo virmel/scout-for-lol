@@ -34,6 +34,7 @@
       "lightyen.tailwindcss-intellisense-twin",
       "denoland.vscode-deno",
       "glehmann.earthlyls",
+      "prisma.prisma",
     ]
   },
   "settings": {
