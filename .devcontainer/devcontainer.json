@@ -2,5 +2,5 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "postStartCommand": "pre-commit install && pre-commit install -t commit-msg && (cd packages/backend/ && deno cache src/index.ts)"
+  "postStartCommand": "cd /workspaces/scout-for-lol && pre-commit install && pre-commit install -t commit-msg && (cd packages/backend/ && deno cache src/index.ts)"
 }
