@@ -74,7 +74,7 @@ export function renderChampion(
 
       <Names
         championName={champion.championName}
-        summonerName={champion.summonerName}
+        summonerName={champion.riotIdGameName}
         highlight={highlight}
       />
 

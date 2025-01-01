@@ -30,7 +30,9 @@ export function createDiscordMessage(
     const championName = participant.participant.championId === 893
       ? "Aurora"
       : getChampionName(participant.participant.championId);
-    return `${participant.player.name} (${
+    return `${
+      // TODO: call API to get riot ID name
+      participant.player.alias || participant.participant.summonerName} (${
       championName.replaceAll("_", " ").toLowerCase().replace(/\b\w/g, (char) =>
         char.toUpperCase())
     })`;

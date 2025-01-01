@@ -26,7 +26,7 @@ Deno.test("postmatch", async (t) => {
         matchId: 1,
         players: [{
           player: {
-            name: "name",
+            alias: "name",
             league: {
               leagueAccount: {
                 puuid: LeaguePuuidSchema.parse(
@@ -66,7 +66,7 @@ Deno.test("postmatch", async (t) => {
     return Promise.resolve(
       {
         config: {
-          name: "name",
+          alias: "name",
           league: {
             leagueAccount: {
               puuid: LeaguePuuidSchema.parse(

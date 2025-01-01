@@ -4,8 +4,11 @@ import { type Champion, parseLane } from "@scout/data";
 export function participantToChampion(
   dto: MatchV5DTOs.ParticipantDto,
 ): Champion {
+  if (!dto.riotIdGameName) {
+    throw new Error("Missing riotIdGameName");
+  }
   return {
-    summonerName: dto.riotIdGameName ?? "???",
+    riotIdGameName: dto.riotIdGameName,
     championName: dto.championName,
     kills: dto.kills,
     deaths: dto.deaths,
@@ -20,6 +23,7 @@ export function participantToChampion(
       dto.item6,
     ],
     spells: [dto.summoner1Id, dto.summoner2Id],
+    // TODO: parse runes
     runes: [],
     lane: parseLane(dto.teamPosition),
     creepScore: dto.totalMinionsKilled + dto.neutralMinionsKilled,

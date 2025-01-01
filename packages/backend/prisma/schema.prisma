@@ -13,20 +13,46 @@ model Subscription {
   playerId  Int
   channelId String
   player    Player @relation(fields: [playerId], references: [id])
+
+  // metadata
+  serverId         String
+  creatorDiscordId String
+  createdTime      DateTime
+  updatedTime      DateTime
+
+  @@unique([serverId, playerId, channelId])
 }
 
 model Player {
   id            Int            @id @default(autoincrement())
   alias         String?
-  discordId     String?        @unique
+  discordId     String
   accounts      Account[]
   subscriptions Subscription[]
+
+  // metadata
+  serverId         String
+  creatorDiscordId String
+  createdTime      DateTime
+  updatedTime      DateTime
+
+  @@unique([serverId, discordId])
 }
 
 model Account {
-  id         Int    @id @default(autoincrement())
-  summonerId String @unique
-  puuid      String @unique
+  id         Int     @id @default(autoincrement())
+  alias      String?
+  summonerId String
+  puuid      String
   region     String
-  playerId   Player @relation(fields: [id], references: [id])
+  playerId   Player  @relation(fields: [id], references: [id])
+
+  // metadata
+  serverId         String
+  creatorDiscordId String
+  createdTime      DateTime
+  updatedTime      DateTime
+
+  @@unique([serverId, summonerId])
+  @@unique([serverId, puuid])
 }

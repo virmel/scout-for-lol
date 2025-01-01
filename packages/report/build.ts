@@ -16,7 +16,7 @@ await build({
   package: JSON.parse(
     Deno.readTextFileSync("package.json").replace(
       "$VERSION",
-      Deno.env.get("version") || "???",
+      Deno.env.get("version") || "???", // TODO: throw error instea
     ),
   ),
   importMap: "deno.json",

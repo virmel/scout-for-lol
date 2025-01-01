@@ -12,7 +12,7 @@ function getMatch(): CompletedMatch {
     "queueType": "solo",
     "player": {
       "playerConfig": {
-        "name": "name",
+        "alias": "name",
         "league": {
           "leagueAccount": {
             "puuid": LeaguePuuidSchema.parse(
@@ -43,7 +43,7 @@ function getMatch(): CompletedMatch {
       "wins": 10,
       "losses": 20,
       "champion": {
-        "summonerName": "zombie villager",
+        "riotIdGameName": "zombie villager",
         "championName": "Aatrox",
         "kills": 8,
         "deaths": 9,
@@ -73,7 +73,7 @@ function getMatch(): CompletedMatch {
       "team": "blue",
       "lane": "top",
       "laneOpponent": {
-        "summonerName": "CPHS WARRIOR",
+        "riotIdGameName": "CPHS WARRIOR",
         "championName": "Garen",
         "kills": 16,
         "deaths": 7,
@@ -104,7 +104,7 @@ function getMatch(): CompletedMatch {
     "teams": {
       "blue": [
         {
-          "summonerName": "Mr Spaghetti",
+          "riotIdGameName": "Mr Spaghetti",
           "championName": "Aatrox",
           "kills": 8,
           "deaths": 9,
@@ -131,7 +131,7 @@ function getMatch(): CompletedMatch {
           "level": 16,
         },
         {
-          "summonerName": "zainji",
+          "riotIdGameName": "zainji",
           "championName": "Nocturne",
           "kills": 9,
           "deaths": 8,
@@ -158,7 +158,7 @@ function getMatch(): CompletedMatch {
           "level": 15,
         },
         {
-          "summonerName": "Neeeeeeelson",
+          "riotIdGameName": "Neeeeeeelson",
           "championName": "Akali",
           "kills": 8,
           "deaths": 2,
@@ -185,7 +185,7 @@ function getMatch(): CompletedMatch {
           "level": 16,
         },
         {
-          "summonerName": "aaronchou",
+          "riotIdGameName": "aaronchou",
           "championName": "Zeri",
           "kills": 7,
           "deaths": 10,
@@ -212,7 +212,7 @@ function getMatch(): CompletedMatch {
           "level": 14,
         },
         {
-          "summonerName": "hellorandom",
+          "riotIdGameName": "hellorandom",
           "championName": "Lulu",
           "kills": 1,
           "deaths": 4,
@@ -241,7 +241,7 @@ function getMatch(): CompletedMatch {
       ],
       "red": [
         {
-          "summonerName": "how2smo",
+          "riotIdGameName": "how2smo",
           "championName": "Garen",
           "kills": 16,
           "deaths": 7,
@@ -268,7 +268,7 @@ function getMatch(): CompletedMatch {
           "level": 18,
         },
         {
-          "summonerName": "Oroulerd",
+          "riotIdGameName": "Oroulerd",
           "championName": "Zac",
           "kills": 0,
           "deaths": 7,
@@ -295,7 +295,7 @@ function getMatch(): CompletedMatch {
           "level": 14,
         },
         {
-          "summonerName": "suggsyman",
+          "riotIdGameName": "suggsyman",
           "championName": "Viktor",
           "kills": 4,
           "deaths": 7,
@@ -322,7 +322,7 @@ function getMatch(): CompletedMatch {
           "level": 15,
         },
         {
-          "summonerName": "zombie villager",
+          "riotIdGameName": "zombie villager",
           "championName": "Yasuo",
           "kills": 9,
           "deaths": 7,
@@ -349,7 +349,7 @@ function getMatch(): CompletedMatch {
           "level": 16,
         },
         {
-          "summonerName": "sjerred",
+          "riotIdGameName": "sjerred",
           "championName": "Xerath",
           "kills": 4,
           "deaths": 5,
@@ -486,13 +486,13 @@ Deno.test("no rank test", async (t) => {
 
 Deno.test("large values test", async (t) => {
   const matchLargeValues = getMatch();
-  matchLargeValues.player.playerConfig.name = "SummonerName12345";
+  matchLargeValues.player.playerConfig.alias = "SummonerName12345";
   matchLargeValues.player.champion.championName = "Nunu & Willump";
   matchLargeValues.durationInSeconds = 3660; // 1 hour and 1 minute
   matchLargeValues.player.champion.kills = 45;
 
   matchLargeValues.teams.blue.forEach((player) => {
-    player.summonerName = "SummonerName12345";
+    player.riotIdGameName = "SummonerName12345";
     player.championName = "Nunu & Willump";
     player.kills = 45;
     player.deaths = 40;
@@ -506,7 +506,7 @@ Deno.test("large values test", async (t) => {
   });
 
   matchLargeValues.teams.red.forEach((player) => {
-    player.summonerName = "SummonerName12345";
+    player.riotIdGameName = "SummonerName12345";
     player.championName = "Nunu & Willump";
     player.kills = 45;
     player.deaths = 0;
