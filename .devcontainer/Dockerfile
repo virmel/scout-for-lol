@@ -11,6 +11,7 @@ RUN echo 'eval "$(mise activate bash --shims)"' >> ~/.bash_profile
 RUN echo 'eval "$(mise activate bash)"' >> ~/.bashrc
 
 RUN mise use -g deno@latest
+RUN mise use -g node@lts
 RUN mise use -g python@latest
 RUN mise install
 RUN mise reshim
