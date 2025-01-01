@@ -153,7 +153,7 @@ export async function checkPostMatchInternal(
       const promises = servers.map((server) => {
         return sendFn({ embeds: [embed], files: [attachment] }, server.channel);
       });
-      Promise.all(promises);
+      await Promise.all(promises);
 
       console.log("calculating new state");
       const newState = getState();
