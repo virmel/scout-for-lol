@@ -1,4 +1,4 @@
-#!/usr/bin/env deno --allow-write --allow-run --allow-read
+#!/usr/bin/env -S deno --allow-write --allow-run --allow-read
 
 import { z } from "zod";
 

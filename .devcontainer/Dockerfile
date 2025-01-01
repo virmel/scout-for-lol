@@ -10,8 +10,8 @@ RUN apt install -y mise
 RUN echo 'eval "$(mise activate bash --shims)"' >> ~/.bash_profile
 RUN echo 'eval "$(mise activate bash)"' >> ~/.bashrc
 
-RUN mise global deno@latest
-RUN mise global python@latest
+RUN mise use -g deno@latest
+RUN mise use -g python@latest
 RUN mise install
 RUN mise reshim
 

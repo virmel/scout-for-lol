@@ -7,7 +7,7 @@ prisma.generate:
   RUN apt install -y openssl
   COPY --dir deno.json deno.lock .
   COPY --dir src/database/generate.ts prisma .
-  RUN deno run -A generate.ts
+  RUN ./generate.ts
   # delete some files that are unneeded and that deno stuggled with
   RUN rm generated/client/runtime/edge-esm.cjs
   SAVE ARTIFACT generated/

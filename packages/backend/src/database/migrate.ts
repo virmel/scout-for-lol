@@ -1,4 +1,4 @@
-#!/usr/bin/env deno --allow-read --allow-run
+#!/usr/bin/env -S deno --allow-read --allow-run
 import { z } from "zod";
 
 // get the prisma version from deno.json

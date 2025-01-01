@@ -1,4 +1,4 @@
-#!/usr/bin/env deno --allow-write --allow-read --allow-env --allow-ffi
+#!/usr/bin/env -S deno --allow-write --allow-read --allow-env --allow-ffi
 // @ts-types="../../generated/client/index.d.ts"
 import { PrismaClient } from "@prisma/client";
 
