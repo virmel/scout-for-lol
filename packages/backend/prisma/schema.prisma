@@ -26,7 +26,7 @@ model Subscription {
 model Player {
   id            Int            @id @default(autoincrement())
   alias         String?
-  discordId     String
+  discordId     String?
   accounts      Account[]
   subscriptions Subscription[]
 
