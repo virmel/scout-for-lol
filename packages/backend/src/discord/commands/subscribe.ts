@@ -37,7 +37,7 @@ export const subscribeCommand = new SlashCommandBuilder()
       .setRequired(true)
   )
   .addStringOption((option) =>
-    option.setName("riotId").setDescription("The Riot ID to subscribe to")
+    option.setName("riot-id").setDescription("The Riot ID to subscribe to")
       .setRequired(true)
   )
   .addStringOption((option) =>
