@@ -4,7 +4,9 @@ import { executeUnsubscribe } from "./unsubscribe.ts";
 
 export function handleCommands(client: Client) {
   client.on("interactionCreate", async (interaction) => {
-    if (!interaction.isChatInputCommand()) return;
+    if (!interaction.isChatInputCommand()) {
+      return;
+    }
     console.log(interaction);
 
     try {

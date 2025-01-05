@@ -59,7 +59,7 @@ export async function executeSubscribe(
     const region = RegionSchema.parse(
       interaction.options.getString("region"),
     );
-    const riotId = RiotIdSchema.parse(interaction.options.getString("riotId"));
+    const riotId = RiotIdSchema.parse(interaction.options.getString("riot-id"));
     const alias = z.string().optional().parse(
       interaction.options.getString("alias"),
     );
