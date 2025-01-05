@@ -111,16 +111,15 @@ export async function executeSubscribe(
       },
     });
 
-    interaction.reply({
+    await interaction.reply({
       content:
         `Successfully subscribed to updates for ${riotId.game_name}#${riotId.tag_line}`,
       ephemeral: true,
     });
   } catch (error) {
-    interaction.reply({
+    await interaction.reply({
       content: `Error parsing input: ${error}`,
       ephemeral: true,
     });
-    return;
   }
 }
