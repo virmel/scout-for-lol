@@ -21,9 +21,6 @@ import { regionToRegionGroup } from "https://esm.sh/v135/twisted@1.61.5/dist/con
 export const subscribeCommand = new SlashCommandBuilder()
   .setName("subscribe")
   .setDescription("Replies with Pong!")
-  .addUserOption((option) =>
-    option.setName("user").setDescription("The Discord user of the player")
-  )
   .addChannelOption((option) =>
     option.setName("channel").setDescription("The channel to post updates to")
       .setRequired(true)
@@ -39,6 +36,9 @@ export const subscribeCommand = new SlashCommandBuilder()
   .addStringOption((option) =>
     option.setName("riot-id").setDescription("The Riot ID to subscribe to")
       .setRequired(true)
+  )
+  .addUserOption((option) =>
+    option.setName("user").setDescription("The Discord user of the player")
   )
   .addStringOption((option) =>
     option.setName("alias").setDescription("An alias for the player")
