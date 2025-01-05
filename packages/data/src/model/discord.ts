@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export type DiscordGuildId = z.infer<typeof DiscordGuildIdSchema>;
-export const DiscordGuildIdSchema = z.string().min(17).max(18).regex(/\d./)
+export const DiscordGuildIdSchema = z.string().min(17).max(20).regex(/\d./)
   .brand<
     "DiscordGuildId"
   >();
