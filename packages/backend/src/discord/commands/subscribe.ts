@@ -65,57 +65,64 @@ export async function executeSubscribe(
     );
     const guildId = DiscordGuildIdSchema.parse(interaction.guildId);
 
-    // lookup the user's riot account
-    const account = await riotApi.Account.getByRiotId(
-      riotId.game_name,
-      riotId.tag_line,
-      regionToRegionGroup(mapRegionToEnum(region)),
-    );
+    try {
+      // lookup the user's riot account
+      const account = await riotApi.Account.getByRiotId(
+        riotId.game_name,
+        riotId.tag_line,
+        regionToRegionGroup(mapRegionToEnum(region)),
+      );
 
-    // get summoner id
-    const leagueAccount = await api.Summoner.getByPUUID(
-      account.response.puuid,
-      mapRegionToEnum(region),
-    );
+      // get summoner id
+      const leagueAccount = await api.Summoner.getByPUUID(
+        account.response.puuid,
+        mapRegionToEnum(region),
+      );
 
-    const player = await prisma.player.create({
-      data: {
-        alias: alias,
-        discordId: user,
-        createdTime: new Date(),
-        updatedTime: new Date(),
-        creatorDiscordId: interaction.user.id,
-        serverId: guildId,
-        accounts: {
-          create: {
-            summonerId: leagueAccount.response.id,
-            puuid: account.response.puuid,
-            region: region,
-            createdTime: new Date(),
-            updatedTime: new Date(),
-            creatorDiscordId: interaction.user.id,
-            serverId: guildId,
+      const player = await prisma.player.create({
+        data: {
+          alias: alias,
+          discordId: user,
+          createdTime: new Date(),
+          updatedTime: new Date(),
+          creatorDiscordId: interaction.user.id,
+          serverId: guildId,
+          accounts: {
+            create: {
+              summonerId: leagueAccount.response.id,
+              puuid: account.response.puuid,
+              region: region,
+              createdTime: new Date(),
+              updatedTime: new Date(),
+              creatorDiscordId: interaction.user.id,
+              serverId: guildId,
+            },
           },
         },
-      },
-    });
+      });
 
-    await prisma.subscription.create({
-      data: {
-        channelId: channel,
-        playerId: player.id,
-        createdTime: new Date(),
-        updatedTime: new Date(),
-        creatorDiscordId: interaction.user.id,
-        serverId: guildId,
-      },
-    });
+      await prisma.subscription.create({
+        data: {
+          channelId: channel,
+          playerId: player.id,
+          createdTime: new Date(),
+          updatedTime: new Date(),
+          creatorDiscordId: interaction.user.id,
+          serverId: guildId,
+        },
+      });
 
-    await interaction.reply({
-      content:
-        `Successfully subscribed to updates for ${riotId.game_name}#${riotId.tag_line}`,
-      ephemeral: true,
-    });
+      await interaction.reply({
+        content:
+          `Successfully subscribed to updates for ${riotId.game_name}#${riotId.tag_line}`,
+        ephemeral: true,
+      });
+    } catch (error) {
+      await interaction.reply({
+        content: `Error processing subscription: ${error}`,
+        ephemeral: true,
+      });
+    }
   } catch (error) {
     await interaction.reply({
       content: `Error parsing input: ${error}`,

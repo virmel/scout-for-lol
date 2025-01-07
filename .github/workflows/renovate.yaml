@@ -20,6 +20,8 @@ jobs:
         uses: denoland/setup-deno@v1
         with:
           deno-version: v2.x
+      - name: Generate files
+        run: cd packages/backend && ./src/database/generate.ts
       - name: Check if packages/backend/deno.json or packages/data/deno.json has changed
         id: check_changed_files
         run: |
