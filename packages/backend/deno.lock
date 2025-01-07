@@ -2,8 +2,8 @@
   "version": "4",
   "specifiers": {
     "jsr:@db/sqlite@0.12.0": "0.12.0",
-    "jsr:@deno/cache-dir@0.15.0": "0.15.0",
-    "jsr:@deno/graph@0.86": "0.86.5",
+    "jsr:@deno/cache-dir@0.16.0": "0.16.0",
+    "jsr:@deno/graph@0.86": "0.86.7",
     "jsr:@denosaurs/plug@1": "1.0.6",
     "jsr:@std/assert@0.217": "0.217.0",
     "jsr:@std/assert@0.221": "0.221.0",
@@ -44,8 +44,8 @@
         "jsr:@std/path@0.217"
       ]
     },
-    "@deno/cache-dir@0.15.0": {
-      "integrity": "2a2b87cf1c79892e7b3569fb9d2f8c2ab4a82a8e6d5f7bf8e5fb327b4b6b4169",
+    "@deno/cache-dir@0.16.0": {
+      "integrity": "844e10e48749139331121ff172aea15fd1c687ec2efbfea782858e41cc4dd1fb",
       "dependencies": [
         "jsr:@deno/graph",
         "jsr:@std/fmt@^1.0.3",
@@ -54,8 +54,8 @@
         "jsr:@std/path@^1.0.8"
       ]
     },
-    "@deno/graph@0.86.5": {
-      "integrity": "2bef0dde35fc4ee3627c9dd05ad44d4f97e9da54a74d71f6a06b089226fd12c0"
+    "@deno/graph@0.86.7": {
+      "integrity": "fb4e5ab648d1b9d464ea55e0f70cd489251b1926e622dd83697b4e28e59c7291"
     },
     "@denosaurs/plug@1.0.6": {
       "integrity": "6cf5b9daba7799837b9ffbe89f3450510f588fafef8115ddab1ff0be9cb7c1a7",
@@ -644,7 +644,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@db/sqlite@0.12.0",
-      "jsr:@deno/cache-dir@0.15.0",
+      "jsr:@deno/cache-dir@0.16.0",
       "jsr:@std/assert@1.0.10",
       "jsr:@std/encoding@1.0.6",
       "jsr:@std/testing@1.0.8",
