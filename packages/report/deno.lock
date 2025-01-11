@@ -2,10 +2,10 @@
   "version": "4",
   "specifiers": {
     "jsr:@david/code-block-writer@^13.0.2": "13.0.3",
-    "jsr:@deno/cache-dir@0.15.0": "0.15.0",
+    "jsr:@deno/cache-dir@0.16.0": "0.16.0",
     "jsr:@deno/cache-dir@~0.10.3": "0.10.3",
     "jsr:@deno/dnt@0.41.3": "0.41.3",
-    "jsr:@deno/graph@0.86": "0.86.5",
+    "jsr:@deno/graph@0.86": "0.86.9",
     "jsr:@deno/graph@~0.73.1": "0.73.1",
     "jsr:@std/assert@0.223": "0.223.0",
     "jsr:@std/assert@0.226": "0.226.0",
@@ -63,8 +63,8 @@
         "jsr:@std/path@0.223"
       ]
     },
-    "@deno/cache-dir@0.15.0": {
-      "integrity": "2a2b87cf1c79892e7b3569fb9d2f8c2ab4a82a8e6d5f7bf8e5fb327b4b6b4169",
+    "@deno/cache-dir@0.16.0": {
+      "integrity": "844e10e48749139331121ff172aea15fd1c687ec2efbfea782858e41cc4dd1fb",
       "dependencies": [
         "jsr:@deno/graph@0.86",
         "jsr:@std/fmt@^1.0.3",
@@ -87,8 +87,8 @@
     "@deno/graph@0.73.1": {
       "integrity": "cd69639d2709d479037d5ce191a422eabe8d71bb68b0098344f6b07411c84d41"
     },
-    "@deno/graph@0.86.5": {
-      "integrity": "2bef0dde35fc4ee3627c9dd05ad44d4f97e9da54a74d71f6a06b089226fd12c0"
+    "@deno/graph@0.86.9": {
+      "integrity": "c4f353a695bcc5246c099602977dabc6534eacea9999a35a8cb24e807192e6a1"
     },
     "@std/assert@0.223.0": {
       "integrity": "eb8d6d879d76e1cc431205bd346ed4d88dc051c6366365b1af47034b0670be24"
@@ -486,7 +486,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@deno/cache-dir@0.15.0",
+      "jsr:@deno/cache-dir@0.16.0",
       "jsr:@deno/dnt@0.41.3",
       "jsr:@std/assert@1.0.10",
       "jsr:@std/encoding@1.0.6",

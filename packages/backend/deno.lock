@@ -640,6 +640,8 @@
     "https://esm.sh/v135/type-fest@4.30.2/source/simplify.d": "628458b10e498e2d5218acd3e979a897089260f33a54a19be97359eee23e4e0c",
     "https://esm.sh/v135/type-fest@4.30.2/source/union-to-intersection.d": "5c9902261f13940fa13f42704bc9ddb138e93281419f77342c0b70e9fd5c957b",
     "https://esm.sh/v135/uuid@11.0.3/denonext/uuid.mjs": "fbc8dffa2cd47b0e09e0fae496e0ff05f4bc2814a487a62a45fdc540d076ec5f",
+    "https://esm.sh/v135/zod-validation-error@3.4.0/denonext/zod-validation-error.mjs": "f04ec7905cc792667a8808542a34896db855116a6f903e27dd50dd2df3cc2d10",
+    "https://esm.sh/v135/zod@3.23.8/denonext/zod.mjs": "b3707b03ddc01aab11b740436ab23c0fcc8d15fed072be20085c1fd611016b61",
     "https://esm.sh/v135/zod@3.24.1/denonext/zod.mjs": "267cf807d908327192aa402850ce2cf1c199c02b097f4c521272a42538dad53a",
     "https://esm.sh/zod-validation-error@3.4.0": "6c44e29c48b69267648547330e62fbf95e17d5a0bc41caebe2242c15e5b3c755",
     "https://esm.sh/zod@3.24.1": "c6bc4bbea04826432b2b4e66b77316c0fa90d1132e879dd0193c90f9114436c4"

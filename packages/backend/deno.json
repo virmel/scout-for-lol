@@ -25,7 +25,6 @@
     "@total-typescript/ts-reset": "https://esm.sh/@total-typescript/ts-reset@0.6.1",
     "async_hooks": "node:async_hooks",
     "buffer": "node:buffer",
-    "cache_dir/": "https://deno.land/x/cache_dir@0.2.0/",
     "child_process": "node:child_process",
     "cron": "https://esm.sh/cron@3.3.1",
     "crypto": "node:crypto",
@@ -61,7 +60,6 @@
     "twisted/": "https://esm.sh/twisted@1.61.5/",
     "url": "node:url",
     "uuid": "https://esm.sh/uuid@11.0.3",
-    "which_runtime": "https://deno.land/x/which_runtime@0.2.0/mod.ts",
     "yoga-wasm-web": "npm:yoga-wasm-web@0.3.3",
     "zod": "https://esm.sh/zod@3.24.1",
     "zod-validation-error": "https://esm.sh/zod-validation-error@3.4.0"

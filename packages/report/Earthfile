@@ -14,6 +14,8 @@ deps:
   CACHE --persist $DENO_DIR
   COPY --dir deno* src .
   RUN deno cache src/index.ts
+  # needed for yoga-wasm-web which we load from node_modules
+  RUN deno install --node-modules-dir=auto
 
 check:
   FROM +deps
