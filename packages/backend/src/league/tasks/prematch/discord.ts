@@ -46,5 +46,7 @@ export function createDiscordMessage(
     }`;
   }
 
-  return `${messageString} started a ${queueType} game`;
+  return `${messageString} started a ${
+    queueType || game.gameQueueConfigId
+  } game`;
 }

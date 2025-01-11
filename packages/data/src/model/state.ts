@@ -11,6 +11,7 @@ export const QueueTypeSchema = z.enum([
   "aram",
   "urf",
   "quickplay",
+  "swiftplay",
 ]);
 
 // from https://static.developer.riotgames.com/docs/lol/queues.json

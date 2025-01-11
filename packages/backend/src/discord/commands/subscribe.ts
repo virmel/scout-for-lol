@@ -12,29 +12,33 @@ import {
   DiscordGuildIdSchema,
   RegionSchema,
   RiotIdSchema,
+  toReadableRegion,
 } from "@scout/data";
 import { api, riotApi } from "../../league/api/api.ts";
 import { mapRegionToEnum } from "../../league/model/region.ts";
-import { prisma } from "../../database/seed.ts";
-import { regionToRegionGroup } from "https://esm.sh/v135/twisted@1.61.5/dist/constants/regions.js";
+import { regionToRegionGroup } from "twisted/dist/constants/regions.js";
+import { prisma } from "../../database/index.ts";
+import { fromError } from "zod-validation-error";
 
 export const subscribeCommand = new SlashCommandBuilder()
   .setName("subscribe")
-  .setDescription("Replies with Pong!")
+  .setDescription("Subscribe to updates for a League of Legends account")
   .addChannelOption((option) =>
-    option.setName("channel").setDescription("The channel to post updates to")
+    option.setName("channel").setDescription("The channel to post messages to")
       .setRequired(true)
   )
   .addStringOption((option) =>
     option.setName("region").setDescription(
       "The region of the League of Legends account",
     ).addChoices(RegionSchema.options.map((region) => {
-      return { name: region, value: region };
+      return { name: toReadableRegion(region), value: region };
     }))
       .setRequired(true)
   )
   .addStringOption((option) =>
-    option.setName("riot-id").setDescription("The Riot ID to subscribe to")
+    option.setName("riot-id").setDescription(
+      "The Riot ID to subscribe to in the format of <name>#<tag>",
+    )
       .setRequired(true)
   )
   .addUserOption((option) =>
@@ -46,86 +50,115 @@ export const subscribeCommand = new SlashCommandBuilder()
   .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
   .setContexts(InteractionContextType.Guild);
 
+export const ArgsSchema = z.object({
+  channel: DiscordChannelIdSchema,
+  region: RegionSchema,
+  riotId: RiotIdSchema,
+  user: DiscordAccountIdSchema.optional(),
+  alias: z.string().optional(),
+  guildId: DiscordGuildIdSchema,
+});
+
 export async function executeSubscribe(
   interaction: ChatInputCommandInteraction,
 ) {
+  let args: z.infer<typeof ArgsSchema>;
+
   try {
-    const user = DiscordAccountIdSchema.optional().parse(
-      interaction.options.getUser("user")?.id,
+    args = ArgsSchema.parse({
+      channel: interaction.options.getChannel<ChannelType>("channel")?.id,
+      region: interaction.options.getString("region"),
+      riotId: interaction.options.getString("riot-id"),
+      user: interaction.options.getUser("user")?.id,
+      alias: interaction.options.getString("alias"),
+      guildId: interaction.guildId,
+    });
+  } catch (error) {
+    const validationError = fromError(error);
+    await interaction.reply({
+      content: validationError.toString(),
+      ephemeral: true,
+    });
+    return;
+  }
+
+  const { channel, region, riotId, user, alias, guildId } = args;
+
+  let puuid: string;
+  try {
+    const account = await riotApi.Account.getByRiotId(
+      riotId.game_name,
+      riotId.tag_line,
+      regionToRegionGroup(mapRegionToEnum(region)),
     );
-    const channel = DiscordChannelIdSchema.parse(
-      interaction.options.getChannel<ChannelType>("channel")?.id,
-    );
-    const region = RegionSchema.parse(
-      interaction.options.getString("region"),
-    );
-    const riotId = RiotIdSchema.parse(interaction.options.getString("riot-id"));
-    const alias = z.string().optional().parse(
-      interaction.options.getString("alias"),
-    );
-    const guildId = DiscordGuildIdSchema.parse(interaction.guildId);
-
-    try {
-      // lookup the user's riot account
-      const account = await riotApi.Account.getByRiotId(
-        riotId.game_name,
-        riotId.tag_line,
-        regionToRegionGroup(mapRegionToEnum(region)),
-      );
-
-      // get summoner id
-      const leagueAccount = await api.Summoner.getByPUUID(
-        account.response.puuid,
-        mapRegionToEnum(region),
-      );
-
-      const player = await prisma.player.create({
-        data: {
-          alias: alias,
-          discordId: user,
-          createdTime: new Date(),
-          updatedTime: new Date(),
-          creatorDiscordId: interaction.user.id,
-          serverId: guildId,
-          accounts: {
-            create: {
-              summonerId: leagueAccount.response.id,
-              puuid: account.response.puuid,
-              region: region,
-              createdTime: new Date(),
-              updatedTime: new Date(),
-              creatorDiscordId: interaction.user.id,
-              serverId: guildId,
-            },
-          },
-        },
-      });
-
-      await prisma.subscription.create({
-        data: {
-          channelId: channel,
-          playerId: player.id,
-          createdTime: new Date(),
-          updatedTime: new Date(),
-          creatorDiscordId: interaction.user.id,
-          serverId: guildId,
-        },
-      });
-
-      await interaction.reply({
-        content:
-          `Successfully subscribed to updates for ${riotId.game_name}#${riotId.tag_line}`,
-        ephemeral: true,
-      });
-    } catch (error) {
-      await interaction.reply({
-        content: `Error processing subscription: ${error}`,
-        ephemeral: true,
-      });
-    }
+    puuid = account.response.puuid;
   } catch (error) {
     await interaction.reply({
-      content: `Error parsing input: ${error}`,
+      content: `Error looking up Riot ID: ${error}`,
+      ephemeral: true,
+    });
+    return;
+  }
+
+  let summonerId: string;
+  try {
+    const leagueAccount = await api.Summoner.getByPUUID(
+      puuid,
+      mapRegionToEnum(region),
+    );
+    summonerId = leagueAccount.response.id;
+  } catch (error) {
+    await interaction.reply({
+      content: `Error looking up summoner ID: ${error}`,
+      ephemeral: true,
+    });
+    return;
+  }
+
+  const now = new Date();
+
+  try {
+    const player = await prisma.player.create({
+      data: {
+        alias: alias,
+        discordId: user,
+        createdTime: now,
+        updatedTime: now,
+        creatorDiscordId: interaction.user.id,
+        serverId: guildId,
+        accounts: {
+          create: {
+            summonerId,
+            puuid,
+            region,
+            createdTime: now,
+            updatedTime: now,
+            creatorDiscordId: interaction.user.id,
+            serverId: guildId,
+          },
+        },
+      },
+    });
+
+    await prisma.subscription.create({
+      data: {
+        channelId: channel,
+        playerId: player.id,
+        createdTime: now,
+        updatedTime: now,
+        creatorDiscordId: interaction.user.id,
+        serverId: guildId,
+      },
+    });
+
+    await interaction.reply({
+      content:
+        `Successfully subscribed to updates for ${riotId.game_name}#${riotId.tag_line}`,
+      ephemeral: true,
+    });
+  } catch (error) {
+    await interaction.reply({
+      content: `Error creating database records: ${error}`,
       ephemeral: true,
     });
   }

@@ -20,7 +20,7 @@ model Subscription {
   createdTime      DateTime
   updatedTime      DateTime
 
-  // @@unique([serverId, playerId, channelId])
+  @@unique([serverId, playerId, channelId])
 }
 
 model Player {
@@ -36,7 +36,7 @@ model Player {
   createdTime      DateTime
   updatedTime      DateTime
 
-  // @@unique([serverId, discordId])
+  @@unique([serverId, discordId])
 }
 
 model Account {
@@ -53,6 +53,6 @@ model Account {
   createdTime      DateTime
   updatedTime      DateTime
 
-  // @@unique([serverId, summonerId])
-  // @@unique([serverId, puuid])
+  @@unique([serverId, summonerId])
+  @@unique([serverId, puuid])
 }

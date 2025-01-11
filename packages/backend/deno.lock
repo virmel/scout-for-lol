@@ -523,6 +523,7 @@
     "https://deno.land/x/sentry@8.47.0/index.mjs": "5682d1206d54bd626ddc0ac52d9548be58a0e0f4a8496229019de8701e288977",
     "https://deno.land/x/which_runtime@0.2.0/mod.ts": "3e8f1ddb3a043818264a8035c0132aaf72d94977d45cd23ecfb03b2156f06126",
     "https://deno.land/x/xhr@0.3.0/mod.ts": "094aacd627fd9635cd942053bf8032b5223b909858fa9dc8ffa583752ff63b20",
+    "https://esm.sh/@total-typescript/ts-reset@0.6.1": "baa21fa8bb9aa10b9378ad99b2b60ece24af376d990a01e0658733970a63d3f3",
     "https://esm.sh/cron@3.3.1": "61b46230e045ad6ab3cafb0f4d936a1816077995839c1c6bc536566c7368ff82",
     "https://esm.sh/date-fns@4.1.0": "706bdf86a944798c9c6f9234e4c1b98d953d7ba5aae63be6c13b1993dbcd345a",
     "https://esm.sh/dotenv@16.4.7": "9f7922bc48d69f17e8423b76958c0ab3614036a45cc0ac0af3087e3f9bc5a22c",
@@ -540,6 +541,7 @@
     "https://esm.sh/twisted@1.61.5/dist/constants/regions.js": "a91b450fac0a2920c99491af67321a1f951bca394eee0675e77486652ad9525c",
     "https://esm.sh/twisted@1.61.5/dist/models-dto/index.js": "e1337e86c637de1b8b17d57b180ebd8229462a3205e66cb404fb7fe302df6a92",
     "https://esm.sh/uuid@11.0.3": "f0b428d61031ed71d806607515ae9d4cedf5fbf75f8bc5b2874c922b2f5fdbc5",
+    "https://esm.sh/v135/@total-typescript/ts-reset@0.6.1/denonext/ts-reset.mjs": "4beaccba6a2b1e9d1d9b43318482657968441a695589d9c7c7a54e6f65d6505d",
     "https://esm.sh/v135/axios@1.7.9/denonext/axios.mjs": "e2a06c1ed3df74af2dbd77fbef6031fc1337582d4a0ea00cbffad22d022da62a",
     "https://esm.sh/v135/axios@1.7.9/denonext/lib/adapters/http.js": "84038b46bba5fd86216cddd339905c9d7de0dbe251c5707565ad81ff28cd52f9",
     "https://esm.sh/v135/axios@1.7.9/denonext/lib/adapters/xhr.js": "9f31b990d856b35d9cb5eb366d797c2d7bbe4c07a6fe34851333c81b35853ef2",
@@ -639,6 +641,7 @@
     "https://esm.sh/v135/type-fest@4.30.2/source/union-to-intersection.d": "5c9902261f13940fa13f42704bc9ddb138e93281419f77342c0b70e9fd5c957b",
     "https://esm.sh/v135/uuid@11.0.3/denonext/uuid.mjs": "fbc8dffa2cd47b0e09e0fae496e0ff05f4bc2814a487a62a45fdc540d076ec5f",
     "https://esm.sh/v135/zod@3.24.1/denonext/zod.mjs": "267cf807d908327192aa402850ce2cf1c199c02b097f4c521272a42538dad53a",
+    "https://esm.sh/zod-validation-error@3.4.0": "6c44e29c48b69267648547330e62fbf95e17d5a0bc41caebe2242c15e5b3c755",
     "https://esm.sh/zod@3.24.1": "c6bc4bbea04826432b2b4e66b77316c0fa90d1132e879dd0193c90f9114436c4"
   },
   "workspace": {
