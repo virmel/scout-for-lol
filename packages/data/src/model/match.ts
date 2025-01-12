@@ -16,8 +16,9 @@ export const CompletedMatchSchema = z.strictObject({
   // TODO: it would be good to de-dupe this data w/ the teams info
   player: z.strictObject({
     playerConfig: PlayerConfigEntrySchema,
-    wins: z.number().nonnegative(),
-    losses: z.number().nonnegative(),
+    // TODO: maybe these should be undefined for unranked/swiftplay
+    wins: z.number().nonnegative().optional(),
+    losses: z.number().nonnegative().optional(),
     outcome: z.enum(["Victory", "Defeat", "Surrender"]),
     champion: ChampionSchema,
     team: TeamSchema,

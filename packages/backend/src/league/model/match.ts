@@ -43,15 +43,20 @@ export function toMatch(
   assert(team !== undefined);
 
   const enemyTeam = invertTeam(team);
+  const queueType = parseQueueType(matchDto.info.queueId);
 
   return {
-    queueType: parseQueueType(matchDto.info.queueId),
+    queueType,
     player: {
       playerConfig: player.config,
       rankBeforeMatch,
       rankAfterMatch,
-      wins: player.ranks.solo?.wins || 0,
-      losses: player.ranks.solo?.losses || 0,
+      wins: queueType === "solo" || queueType === "flex"
+        ? player.ranks[queueType]?.wins || undefined
+        : undefined,
+      losses: queueType === "solo" || queueType === "flex"
+        ? player.ranks[queueType]?.losses || undefined
+        : undefined,
       champion,
       outcome: getOutcome(participant),
       team: team,

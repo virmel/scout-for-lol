@@ -16,6 +16,9 @@ export function Report({ match }: { match: CompletedMatch }) {
     );
   }
 
+  const wins = match.player.wins;
+  const losses = match.player.losses;
+
   return (
     <div
       style={{
@@ -90,8 +93,12 @@ export function Report({ match }: { match: CompletedMatch }) {
                     ),
                   )}
               </span>
-              <span>Wins: {match.player.wins}</span>
-              <span>Losses: {match.player.losses}</span>
+              {wins !== undefined && losses !== undefined && (
+                <>
+                  <span>Wins: {wins}</span>
+                  <span>Losses: {losses}</span>
+                </>
+              )}
             </div>
           </div>
           {match.player.rankAfterMatch && (
