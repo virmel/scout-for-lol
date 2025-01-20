@@ -1,6 +1,11 @@
 VERSION 0.8
 FROM ubuntu:jammy
 
+lock:
+  BUILD ./packages/backend+lock
+  BUILD ./packages/report+lock
+  BUILD ./packages/data+lock
+
 ci:
   ARG EARTHLY_CI
   ARG EARTHLY_GIT_SHORT_HASH
