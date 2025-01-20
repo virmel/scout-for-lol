@@ -1,63 +1,12 @@
 {
   "version": "4",
-  "specifiers": {
-    "jsr:@std/assert@1.0.10": "1.0.10",
-    "jsr:@std/assert@^1.0.10": "1.0.10",
-    "jsr:@std/async@^1.0.9": "1.0.9",
-    "jsr:@std/data-structures@^1.0.5": "1.0.5",
-    "jsr:@std/fs@^1.0.8": "1.0.9",
-    "jsr:@std/internal@^1.0.5": "1.0.5",
-    "jsr:@std/path@^1.0.8": "1.0.8",
-    "jsr:@std/testing@1.0.8": "1.0.8"
-  },
-  "jsr": {
-    "@std/assert@1.0.10": {
-      "integrity": "59b5cbac5bd55459a19045d95cc7c2ff787b4f8527c0dd195078ff6f9481fbb3",
-      "dependencies": [
-        "jsr:@std/internal"
-      ]
-    },
-    "@std/async@1.0.9": {
-      "integrity": "c6472fd0623b3f3daae023cdf7ca5535e1b721dfbf376562c0c12b3fb4867f91"
-    },
-    "@std/data-structures@1.0.5": {
-      "integrity": "86dd5c2d6365a6ad56e9103b3a877c5d5ade238c68ae463acfe0eb0e56d40783"
-    },
-    "@std/fs@1.0.9": {
-      "integrity": "3eef7e3ed3d317b29432c7dcb3b20122820dbc574263f721cb0248ad91bad890",
-      "dependencies": [
-        "jsr:@std/path"
-      ]
-    },
-    "@std/internal@1.0.5": {
-      "integrity": "54a546004f769c1ac9e025abd15a76b6671ddc9687e2313b67376125650dc7ba"
-    },
-    "@std/path@1.0.8": {
-      "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
-    },
-    "@std/testing@1.0.8": {
-      "integrity": "ceef535808fb7568e91b0f8263599bd29b1c5603ffb0377227f00a8ca9fe42a2",
-      "dependencies": [
-        "jsr:@std/assert@^1.0.10",
-        "jsr:@std/async",
-        "jsr:@std/data-structures",
-        "jsr:@std/fs",
-        "jsr:@std/internal",
-        "jsr:@std/path"
-      ]
-    }
-  },
   "remote": {
-    "https://esm.sh/remeda@2.19.0": "718d24e624c5c1e0900223dd88ea9a7fd8087885a1ef648340241a0561a22b70",
-    "https://esm.sh/ts-pattern@5.6.0": "7abf888444efe5f68539d30842709badfc9495f86fe61a4755a4cfa004b6f834",
-    "https://esm.sh/v135/remeda@2.19.0/denonext/remeda.mjs": "8473eca3903d8517b1d9f7ebfcb019b4aaf2d1e2d082a3209142a93cd07cca3a",
-    "https://esm.sh/v135/ts-pattern@5.6.0/denonext/ts-pattern.mjs": "518a6b3f30ecd5cae77e1293e78da1ccba1387592458d9587e25dc43277909d3",
-    "https://esm.sh/v135/type-fest@4.30.2/denonext/source/simplify.d.js": "6bb4fd7ea1ef11ee180be67356c5f42eb9812d243c21257d34f2c14effb5d665",
-    "https://esm.sh/v135/type-fest@4.30.2/denonext/source/union-to-intersection.d.js": "131563cf651c20060eb48f1f7cb9f3312cbe5c56c2ff858dc693dec52d26d941",
-    "https://esm.sh/v135/type-fest@4.30.2/source/simplify.d": "628458b10e498e2d5218acd3e979a897089260f33a54a19be97359eee23e4e0c",
-    "https://esm.sh/v135/type-fest@4.30.2/source/union-to-intersection.d": "5c9902261f13940fa13f42704bc9ddb138e93281419f77342c0b70e9fd5c957b",
-    "https://esm.sh/v135/zod@3.24.1/denonext/zod.mjs": "267cf807d908327192aa402850ce2cf1c199c02b097f4c521272a42538dad53a",
-    "https://esm.sh/zod@3.24.1": "c6bc4bbea04826432b2b4e66b77316c0fa90d1132e879dd0193c90f9114436c4"
+    "https://esm.sh/remeda@2.19.0": "82bb3c58a62de1ee0303acbab815dbe6ddc625ed6305b92005c2b74c04e19c75",
+    "https://esm.sh/remeda@2.19.0/denonext/remeda.mjs": "4772fc423152a082b5bf40c83d3486a8223c38e824eef144a7cfd491597e8913",
+    "https://esm.sh/ts-pattern@5.6.0": "0200f12fddef676fdd4823ddb58f6ffc11b7c5dfe8d348b59a9b9ccb2769eec1",
+    "https://esm.sh/ts-pattern@5.6.0/denonext/ts-pattern.mjs": "ef961b0f9db560a3a1f9e1c1b8c792be6aea75c38644e2720612cbb23899f612",
+    "https://esm.sh/zod@3.24.1": "d8f5c6cf2c4ed543003211dcd9278e94544788f5cb36549ee0490dd27238fe82",
+    "https://esm.sh/zod@3.24.1/denonext/zod.mjs": "32cf72ac44d794592028cb8e423d1f0c80525c49acf01f702c7dc6195b94eda3"
   },
   "workspace": {
     "dependencies": [
