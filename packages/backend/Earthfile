@@ -21,11 +21,9 @@ deps:
   COPY ../report+src/ /workspace/packages/report/src/
   COPY +prisma.generate/ .
 
-  # download and cache dependencies
-  CACHE --persist $DENO_DIR
   COPY --dir deno* src .
   # node_modules_dir is needed for yoga-wasm-web which we load from node_modules
-  RUN deno install --frozen=true --reload --node-modules-dir=auto
+  RUN deno install --frozen=true --node-modules-dir=auto
 
 # update Deno lockfile
 lock:
@@ -36,7 +34,6 @@ lock:
 
 check:
   FROM +deps
-  CACHE $DENO_DIR
   RUN deno check src/index.ts
   RUN deno lint
   COPY test.env .env
