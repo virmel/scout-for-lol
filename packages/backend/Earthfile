@@ -10,7 +10,7 @@ prisma.generate:
   RUN ./generate.ts
   # delete some files that are unneeded and that deno stuggled with
   RUN rm generated/client/runtime/edge-esm.cjs
-  SAVE ARTIFACT generated/
+  SAVE ARTIFACT generated/ AS LOCAL generated
 
 deps:
   # for Prisma

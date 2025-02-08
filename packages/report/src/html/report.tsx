@@ -94,10 +94,15 @@ export function Report({ match }: { match: CompletedMatch }) {
                   )}
               </span>
               {wins !== undefined && losses !== undefined && (
-                <>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "2rem",
+                  }}
+                >
                   <span>Wins: {wins}</span>
                   <span>Losses: {losses}</span>
-                </>
+                </div>
               )}
             </div>
           </div>

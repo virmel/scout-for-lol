@@ -1481,7 +1481,7 @@ snapshot[`should be able to get champion data 1`] = `
       rangeBurn: "25000",
       resource: "No Cost",
       summonerLevel: 7,
-      tooltip: "After channeling for {{ channelduration }} seconds, become <keyword>Untargetable</keyword> and travel to target allied structure, minion, or ward. <br /><br />Upgrades into Unleashed Teleport at 10 minutes, which significantly increases travel speed.",
+      tooltip: "After channeling for {{ channelduration }} seconds, become <keyword>Untargetable</keyword> and travel to target allied structure, minion, or ward. <br /><br />Upgrades into Unleashed Teleport at {{ upgrademinute }} minutes, which significantly increases travel speed.",
       vars: [],
     },
     Summoner_UltBookPlaceholder: {
@@ -1654,6 +1654,6 @@ snapshot[`should be able to get champion data 1`] = `
     },
   },
   type: "summoner",
-  version: "15.1.1",
+  version: "15.3.1",
 }
 `;

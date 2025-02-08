@@ -16,6 +16,12 @@ There seems to be a fair bit of coupling. Examples:
 - [x] Better duo/flex squeue support
 - Remove use of deprecated flags (--unstable)
 
+## Bugs
+
+- [ ] Handle error gracefully when the bot doesn't have permission to post to a
+      channel
+- [ ] Duplicate messages when a user is tracked in multiple servers
+
 ## MVP
 
 - [x] Store player configs and database in either Postgres or sqlite
@@ -35,6 +41,13 @@ There seems to be a fair bit of coupling. Examples:
 
 - User adds bot to a Discord server
 - User uses commands to subscribe to players
+
+## Misc
+
+- Detect users who haven't played in a while and lower how often they are
+  refreshed
+- Prune servers where the bot no longer has permissions/where the bot has been
+  removed
 
 ## Post-match
 

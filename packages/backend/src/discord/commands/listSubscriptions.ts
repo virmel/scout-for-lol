@@ -1,0 +1,54 @@
+import { type CommandInteraction, SlashCommandBuilder } from "discord.js";
+import { prisma } from "../../database/index.ts";
+import { z } from "https://esm.sh/zod@3.24.1/index.d.ts";
+import { fromError } from "https://esm.sh/zod-validation-error@3.4.0/dist/index.js";
+
+export const listSubscriptionsCommand = new SlashCommandBuilder()
+  .setName("listsubscriptions")
+  .setDescription("Lists all users that the server is subscribed to");
+
+export async function executeListSubscriptions(
+  interaction: CommandInteraction,
+) {
+  let guildId: string;
+  try {
+    guildId = z.string().parse(interaction.guildId);
+  } catch (error) {
+    const validationError = fromError(error);
+    await interaction.reply({
+      content:
+        `This command can only be used in a server (${validationError.toString()})`,
+      ephemeral: true,
+    });
+    return;
+  }
+
+  const subscriptions = await prisma.subscription.findMany({
+    where: { serverId: guildId },
+    include: {
+      player: {
+        include: {
+          accounts: true,
+        },
+      },
+    },
+  });
+
+  if (subscriptions.length === 0) {
+    await interaction.reply("No subscriptions found for this server.");
+    return;
+  }
+
+  const subscriptionList = subscriptions
+    .map((sub) => {
+      const player = sub.player;
+      return `${player.alias || player.discordId || "Unknown"} (Summoner IDs: ${
+        player.accounts
+          .map((val) => val.summonerId)
+          .join(", ")
+      })`;
+    })
+    .join("\n");
+
+  await interaction.reply(`Subscriptions:\n${subscriptionList}`);
+}

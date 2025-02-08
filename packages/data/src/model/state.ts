@@ -9,6 +9,7 @@ export const QueueTypeSchema = z.enum([
   "solo",
   "flex",
   "aram",
+  "arurf",
   "urf",
   "quickplay",
   "swiftplay",
@@ -23,6 +24,7 @@ export function parseQueueType(input: number): QueueType | undefined {
     .with(450, () => "aram")
     .with(480, () => "swiftplay")
     .with(490, () => "quickplay")
+    .with(900, () => "arurf")
     .with(1900, () => "urf")
     .otherwise(() => {
       console.error(`unknown queue type: ${input}`);
@@ -72,10 +74,13 @@ export function getPlayersNotInGame(
   state: ApplicationState,
 ) {
   const playersInGame = flatMap(state.gamesStarted, (game) => game.players);
-  return filter(players, (player) =>
-    !playersInGame.some(
-      (matchPlayer) =>
-        matchPlayer.player.league.leagueAccount.puuid ===
-          player.league.leagueAccount.puuid,
-    ));
+  return filter(
+    players,
+    (player) =>
+      !playersInGame.some(
+        (matchPlayer) =>
+          matchPlayer.player.league.leagueAccount.puuid ===
+            player.league.leagueAccount.puuid,
+      ),
+  );
 }

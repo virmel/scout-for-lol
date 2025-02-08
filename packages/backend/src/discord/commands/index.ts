@@ -1,6 +1,7 @@
 import { type Client, MessageFlags } from "discord.js";
 import { executeSubscribe } from "./subscribe.ts";
 import { executeUnsubscribe } from "./unsubscribe.ts";
+import { executeListSubscriptions } from "./listSubscriptions.ts";
 
 export function handleCommands(client: Client) {
   client.on("interactionCreate", async (interaction) => {
@@ -14,6 +15,8 @@ export function handleCommands(client: Client) {
         await executeSubscribe(interaction);
       } else if (interaction.commandName === "unsubscribe") {
         await executeUnsubscribe(interaction);
+      } else if (interaction.commandName === "listsubscriptions") {
+        await executeListSubscriptions(interaction);
       } else {
         await interaction.reply("Unknown command");
       }
