@@ -59,7 +59,7 @@ export async function getAccounts(): Promise<PlayerConfig> {
           leagueAccount: mapToAccount(account),
         },
         discordAccount: {
-          id: DiscordAccountIdSchema.parse(player.discordId),
+          id: DiscordAccountIdSchema.nullable().parse(player.discordId),
         },
       };
     });

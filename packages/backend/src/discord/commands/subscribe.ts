@@ -24,28 +24,39 @@ export const subscribeCommand = new SlashCommandBuilder()
   .setName("subscribe")
   .setDescription("Subscribe to updates for a League of Legends account")
   .addChannelOption((option) =>
-    option.setName("channel").setDescription("The channel to post messages to")
+    option
+      .setName("channel")
+      .setDescription("The channel to post messages to")
       .setRequired(true)
   )
   .addStringOption((option) =>
-    option.setName("region").setDescription(
-      "The region of the League of Legends account",
-    ).addChoices(RegionSchema.options.map((region) => {
-      return { name: toReadableRegion(region), value: region };
-    }))
+    option
+      .setName("region")
+      .setDescription("The region of the League of Legends account")
+      .addChoices(
+        RegionSchema.options.map((region) => {
+          return { name: toReadableRegion(region), value: region };
+        })
+      )
       .setRequired(true)
   )
   .addStringOption((option) =>
-    option.setName("riot-id").setDescription(
-      "The Riot ID to subscribe to in the format of <name>#<tag>",
-    )
+    option
+      .setName("riot-id")
+      .setDescription(
+        "The Riot ID to subscribe to in the format of <name>#<tag>"
+      )
       .setRequired(true)
   )
   .addUserOption((option) =>
     option.setName("user").setDescription("The Discord user of the player")
   )
   .addStringOption((option) =>
-    option.setName("alias").setDescription("An alias for the player")
+    option
+      .setName("alias")
+      .setDescription("An alias for the player")
+      // TODO: make this optional
+      .setRequired(true)
   )
   .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
   .setContexts(InteractionContextType.Guild);
@@ -60,7 +71,7 @@ export const ArgsSchema = z.object({
 });
 
 export async function executeSubscribe(
-  interaction: ChatInputCommandInteraction,
+  interaction: ChatInputCommandInteraction
 ) {
   let args: z.infer<typeof ArgsSchema>;
 
@@ -89,7 +100,7 @@ export async function executeSubscribe(
     const account = await riotApi.Account.getByRiotId(
       riotId.game_name,
       riotId.tag_line,
-      regionToRegionGroup(mapRegionToEnum(region)),
+      regionToRegionGroup(mapRegionToEnum(region))
     );
     puuid = account.response.puuid;
   } catch (error) {
@@ -104,7 +115,7 @@ export async function executeSubscribe(
   try {
     const leagueAccount = await api.Summoner.getByPUUID(
       puuid,
-      mapRegionToEnum(region),
+      mapRegionToEnum(region)
     );
     summonerId = leagueAccount.response.id;
   } catch (error) {
@@ -152,8 +163,7 @@ export async function executeSubscribe(
     });
 
     await interaction.reply({
-      content:
-        `Successfully subscribed to updates for ${riotId.game_name}#${riotId.tag_line}`,
+      content: `Successfully subscribed to updates for ${riotId.game_name}#${riotId.tag_line}`,
       ephemeral: true,
     });
   } catch (error) {
