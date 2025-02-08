@@ -104,4 +104,6 @@ pre-commit:
 
   COPY . .
   COPY ./packages/backend+prisma.generate/ packages/backend/
+  COPY ./packages/backend+deps/node_modules/ packages/backend/node_modules
+  COPY ./packages/report+deps/node_modules/ packages/report/node_modules
   RUN pre-commit run --all-files

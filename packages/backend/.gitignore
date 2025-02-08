@@ -10,3 +10,5 @@ matches
 generated
 *.sqlite
 *.sqlite-journal
+package.json
+package-lock.json

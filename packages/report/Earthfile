@@ -13,12 +13,13 @@ deps:
   COPY --dir deno* src .
   # node_modules_dir is needed for yoga-wasm-web which we load from node_modules
   RUN deno install --frozen=true --node-modules-dir=auto
+  SAVE ARTIFACT node_modules/
 
 # update Deno lockfile
 lock:
   FROM ../../+deno
   COPY --dir deno.json .
-  RUN deno install
+  RUN deno install --node-modules-dir=auto
   SAVE ARTIFACT deno.lock AS LOCAL deno.lock
 
 check:
