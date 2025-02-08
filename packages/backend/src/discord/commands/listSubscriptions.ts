@@ -1,14 +1,14 @@
 import { type CommandInteraction, SlashCommandBuilder } from "discord.js";
 import { prisma } from "../../database/index.ts";
-import { z } from "https://esm.sh/zod@3.24.1/index.d.ts";
-import { fromError } from "https://esm.sh/zod-validation-error@3.4.0/dist/index.js";
+import { z } from "zod";
+import { fromError } from "zod-validation-error";
 
 export const listSubscriptionsCommand = new SlashCommandBuilder()
   .setName("listsubscriptions")
   .setDescription("Lists all users that the server is subscribed to");
 
 export async function executeListSubscriptions(
-  interaction: CommandInteraction,
+  interaction: CommandInteraction
 ) {
   let guildId: string;
   try {
@@ -16,8 +16,7 @@ export async function executeListSubscriptions(
   } catch (error) {
     const validationError = fromError(error);
     await interaction.reply({
-      content:
-        `This command can only be used in a server (${validationError.toString()})`,
+      content: `This command can only be used in a server (${validationError.toString()})`,
       ephemeral: true,
     });
     return;
@@ -42,11 +41,11 @@ export async function executeListSubscriptions(
   const subscriptionList = subscriptions
     .map((sub) => {
       const player = sub.player;
-      return `${player.alias || player.discordId || "Unknown"} (Summoner IDs: ${
-        player.accounts
-          .map((val) => val.summonerId)
-          .join(", ")
-      })`;
+      return `${
+        player.alias || player.discordId || "Unknown"
+      } (Summoner IDs: ${player.accounts
+        .map((val) => val.summonerId)
+        .join(", ")})`;
     })
     .join("\n");
 
