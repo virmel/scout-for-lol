@@ -36,7 +36,7 @@ export const subscribeCommand = new SlashCommandBuilder()
       .addChoices(
         RegionSchema.options.map((region) => {
           return { name: toReadableRegion(region), value: region };
-        })
+        }),
       )
       .setRequired(true)
   )
@@ -44,7 +44,7 @@ export const subscribeCommand = new SlashCommandBuilder()
     option
       .setName("riot-id")
       .setDescription(
-        "The Riot ID to subscribe to in the format of <name>#<tag>"
+        "The Riot ID to subscribe to in the format of <name>#<tag>",
       )
       .setRequired(true)
   )
@@ -71,7 +71,7 @@ export const ArgsSchema = z.object({
 });
 
 export async function executeSubscribe(
-  interaction: ChatInputCommandInteraction
+  interaction: ChatInputCommandInteraction,
 ) {
   let args: z.infer<typeof ArgsSchema>;
 
@@ -100,7 +100,7 @@ export async function executeSubscribe(
     const account = await riotApi.Account.getByRiotId(
       riotId.game_name,
       riotId.tag_line,
-      regionToRegionGroup(mapRegionToEnum(region))
+      regionToRegionGroup(mapRegionToEnum(region)),
     );
     puuid = account.response.puuid;
   } catch (error) {
@@ -115,7 +115,7 @@ export async function executeSubscribe(
   try {
     const leagueAccount = await api.Summoner.getByPUUID(
       puuid,
-      mapRegionToEnum(region)
+      mapRegionToEnum(region),
     );
     summonerId = leagueAccount.response.id;
   } catch (error) {
@@ -163,7 +163,8 @@ export async function executeSubscribe(
     });
 
     await interaction.reply({
-      content: `Successfully subscribed to updates for ${riotId.game_name}#${riotId.tag_line}`,
+      content:
+        `Successfully subscribed to updates for ${riotId.game_name}#${riotId.tag_line}`,
       ephemeral: true,
     });
   } catch (error) {
