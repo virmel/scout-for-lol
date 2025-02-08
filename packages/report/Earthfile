@@ -14,7 +14,6 @@ deps:
   # node_modules_dir is needed for yoga-wasm-web which we load from node_modules
   RUN deno install --frozen=true --node-modules-dir=auto
   SAVE ARTIFACT node_modules/
-  SAVE ARTIFACT package*.json
 
 # update Deno lockfile
 lock:
