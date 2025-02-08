@@ -12,7 +12,16 @@ import { send } from "../../discord/channel.ts";
 import { getRanks } from "../../model/rank.ts";
 import { getState, setState } from "../../model/state.ts";
 import { getCurrentGame } from "../../api/index.ts";
-import { filter, groupBy, map, mapValues, pipe, values, zip } from "remeda";
+import {
+  filter,
+  groupBy,
+  map,
+  mapValues,
+  pipe,
+  unique,
+  values,
+  zip,
+} from "remeda";
 import {
   getAccounts,
   getChannelsSubscribedToPlayers,
@@ -25,9 +34,7 @@ export async function checkPreMatch() {
   const playersNotInGame = getPlayersNotInGame(players, getState());
 
   console.log("calling spectator API");
-  const playerStatus = await Promise.all(
-    map(playersNotInGame, getCurrentGame),
-  );
+  const playerStatus = await Promise.all(map(playersNotInGame, getCurrentGame));
 
   console.log("filtering players not in game");
   const playersInGame = pipe(
@@ -81,8 +88,10 @@ export async function checkPreMatch() {
 
       // figure out what channels to send the message to
       // server, see if they have a player in the game
-      const servers = await getChannelsSubscribedToPlayers(
-        players.map((player) => player.league.leagueAccount.summonerId),
+      const servers = unique(
+        await getChannelsSubscribedToPlayers(
+          players.map((player) => player.league.leagueAccount.summonerId),
+        ),
       );
 
       const promises = servers.map((server) => {

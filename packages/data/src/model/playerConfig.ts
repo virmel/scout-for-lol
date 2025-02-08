@@ -4,7 +4,7 @@ import { DiscordSchema } from "./discord.ts";
 
 export type PlayerConfigEntry = z.infer<typeof PlayerConfigEntrySchema>;
 export const PlayerConfigEntrySchema = z.strictObject({
-  alias: z.string().optional(),
+  alias: z.string(),
   league: z.strictObject({
     leagueAccount: LeagueAccountSchema,
   }),

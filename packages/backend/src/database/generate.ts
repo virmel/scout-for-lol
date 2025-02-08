@@ -14,11 +14,13 @@ try {
 }
 
 // get the prisma version from deno.json
-const version = z.string().parse(
-  JSON.parse(await Deno.readTextFile("deno.json")).imports["prisma"].split(
-    "@",
-  )[1],
-);
+const version = z
+  .string()
+  .parse(
+    JSON.parse(await Deno.readTextFile("deno.json")).imports["prisma"].split(
+      "@",
+    )[1],
+  );
 
 const command = new Deno.Command("deno", {
   args: [
@@ -39,9 +41,35 @@ const command = new Deno.Command("deno", {
 await command.output();
 
 // delete package.json, package-lock.json, and node_modules
-await Deno.remove("package.json");
-await Deno.remove("package-lock.json");
-await Deno.remove("node_modules", { recursive: true });
+try {
+  await Deno.remove("package.json");
+} catch (error) {
+  if (error instanceof Deno.errors.NotFound) {
+    console.log("package.json does not exist, skipping removal.");
+  } else {
+    throw error;
+  }
+}
+
+try {
+  await Deno.remove("package-lock.json");
+} catch (error) {
+  if (error instanceof Deno.errors.NotFound) {
+    console.log("package-lock.json does not exist, skipping removal.");
+  } else {
+    throw error;
+  }
+}
+
+try {
+  await Deno.remove("node_modules", { recursive: true });
+} catch (error) {
+  if (error instanceof Deno.errors.NotFound) {
+    console.log("node_modules does not exist, skipping removal.");
+  } else {
+    throw error;
+  }
+}
 
 // in the `generated` folder name all `.js` files to `.cjs` recursively
 async function renameJsToCjs(dir: string) {

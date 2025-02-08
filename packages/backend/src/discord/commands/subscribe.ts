@@ -51,6 +51,7 @@ export const subscribeCommand = new SlashCommandBuilder()
   .addUserOption((option) =>
     option.setName("user").setDescription("The Discord user of the player")
   )
+  // TODO: differentiate between player and account alias
   .addStringOption((option) =>
     option
       .setName("alias")
@@ -66,7 +67,7 @@ export const ArgsSchema = z.object({
   region: RegionSchema,
   riotId: RiotIdSchema,
   user: DiscordAccountIdSchema.optional(),
-  alias: z.string().optional(),
+  alias: z.string(),
   guildId: DiscordGuildIdSchema,
 });
 
@@ -129,28 +130,56 @@ export async function executeSubscribe(
   const now = new Date();
 
   try {
-    const player = await prisma.player.create({
+    // add a new account
+    const account = await prisma.account.create({
       data: {
         alias: alias,
-        discordId: user,
-        createdTime: now,
-        updatedTime: now,
-        creatorDiscordId: interaction.user.id,
+        summonerId: summonerId,
+        puuid: puuid,
+        region: region,
         serverId: guildId,
-        accounts: {
-          create: {
-            summonerId,
-            puuid,
-            region,
-            createdTime: now,
-            updatedTime: now,
-            creatorDiscordId: interaction.user.id,
-            serverId: guildId,
+        creatorDiscordId: interaction.user.id,
+        playerId: {
+          connectOrCreate: {
+            where: {
+              serverId_alias: {
+                serverId: guildId,
+                alias: alias,
+              },
+            },
+            create: {
+              alias: alias,
+              discordId: user,
+              createdTime: now,
+              updatedTime: now,
+              creatorDiscordId: interaction.user.id,
+              serverId: guildId,
+            },
           },
         },
+        createdTime: now,
+        updatedTime: now,
       },
     });
 
+    // get the player for the account
+    const player = await prisma.account.findUnique({
+      where: {
+        id: account.id,
+      },
+      include: {
+        playerId: true,
+      },
+    });
+    if (!player) {
+      await interaction.reply({
+        content: "Error finding player for account",
+        ephemeral: true,
+      });
+      return;
+    }
+
+    // create a new subscription
     await prisma.subscription.create({
       data: {
         channelId: channel,

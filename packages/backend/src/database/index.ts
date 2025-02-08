@@ -54,7 +54,7 @@ export async function getAccounts(): Promise<PlayerConfig> {
   return players.flatMap((player): PlayerConfigEntry[] => {
     return player.accounts.map((account): PlayerConfigEntry => {
       return {
-        alias: player.alias || undefined,
+        alias: player.alias,
         league: {
           leagueAccount: mapToAccount(account),
         },
@@ -66,7 +66,11 @@ export async function getAccounts(): Promise<PlayerConfig> {
   });
 }
 
-function mapToAccount({ summonerId, puuid, region }: {
+function mapToAccount({
+  summonerId,
+  puuid,
+  region,
+}: {
   summonerId: string;
   puuid: string;
   region: string;

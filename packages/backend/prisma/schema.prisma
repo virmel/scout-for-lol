@@ -25,7 +25,7 @@ model Subscription {
 
 model Player {
   id            Int            @id @default(autoincrement())
-  alias         String?
+  alias         String
   discordId     String?
   accounts      Account[]
   subscriptions Subscription[]
@@ -36,16 +36,17 @@ model Player {
   createdTime      DateTime
   updatedTime      DateTime
 
-  @@unique([serverId, discordId])
+  @@unique([serverId, alias])
 }
 
 model Account {
-  id         Int     @id @default(autoincrement())
-  alias      String?
+  id         Int    @id @default(autoincrement())
+  alias      String
+  // TODO: store riot ID for the sake of easier understanding
   summonerId String
   puuid      String
   region     String
-  playerId   Player  @relation(fields: [id], references: [id])
+  playerId   Player @relation(fields: [id], references: [id])
 
   // metadata
   serverId         String

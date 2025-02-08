@@ -14,6 +14,7 @@ export const CompletedMatchSchema = z.strictObject({
   queueType: QueueTypeSchema.optional(),
   // this field stores data specific to the player we care about
   // TODO: it would be good to de-dupe this data w/ the teams info
+  // TODO: make this take a list of players to highlight for duo/flex support
   player: z.strictObject({
     playerConfig: PlayerConfigEntrySchema,
     // TODO: maybe these should be undefined for unranked/swiftplay

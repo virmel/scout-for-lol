@@ -33,9 +33,7 @@ export async function checkMatch(game: LoadingScreenState) {
 
     const response = await api.MatchV5.get(
       `${region}_${game.matchId}`,
-      regionToRegionGroup(
-        region,
-      ),
+      regionToRegionGroup(region),
     );
     return response.response;
   } catch (e) {
@@ -75,9 +73,11 @@ async function createMatchObj(
 ) {
   const player = pipe(
     match.info.participants,
-    filter((participant) =>
-      // TODO: why are we grabbing player zero? -- I think it's because I was halfway through adding multi-player support e.g. for flex and duo queue
-      participant.puuid === state.players[0].player.league.leagueAccount.puuid
+    filter(
+      (participant) =>
+        // TODO: why are we grabbing player zero? -- I think it's because I was halfway through adding multi-player support e.g. for flex and duo queue
+        participant.puuid ===
+          state.players[0].player.league.leagueAccount.puuid,
     ),
     first(),
   );
@@ -90,6 +90,7 @@ async function createMatchObj(
     );
   }
 
+  // TODO: support multiple players, e.g. for duo and flex queue
   const fullPlayer = await getPlayerFn(state.players[0].player);
 
   let rankBeforeMatch: Rank | undefined;
@@ -100,12 +101,7 @@ async function createMatchObj(
     rankAfterMatch = fullPlayer.ranks[state.queue];
   }
 
-  return toMatch(
-    fullPlayer,
-    match,
-    rankBeforeMatch,
-    rankAfterMatch,
-  );
+  return toMatch(fullPlayer, match, rankBeforeMatch, rankAfterMatch);
 }
 
 export async function checkPostMatchInternal(
@@ -146,9 +142,9 @@ export async function checkPostMatchInternal(
 
       // figure out what channels to send the message to
       // server, see if they have a player in the game
-      const servers = await getSubscriptionsFn(
-        [state.players[0].player.league.leagueAccount.summonerId],
-      );
+      const servers = await getSubscriptionsFn([
+        state.players[0].player.league.leagueAccount.summonerId,
+      ]);
 
       const promises = servers.map((server) => {
         return sendFn({ embeds: [embed], files: [attachment] }, server.channel);

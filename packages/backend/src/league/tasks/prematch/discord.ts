@@ -27,23 +27,32 @@ export function createDiscordMessage(
   // TODO: call API to get proper champion name
   const messages = map(participants, (participant) => {
     // TODO: can be removed after https://github.com/Sansossio/twisted/issues/128
-    const championName = participant.participant.championId === 893
-      ? "Aurora"
-      : getChampionName(participant.participant.championId);
+    let championName: string;
+    try {
+      championName = getChampionName(participant.participant.championId);
+    } catch (error) {
+      console.error(error);
+      championName = participant.participant.championId.toString();
+    }
     return `${
       // TODO: call API to get riot ID name
-      participant.player.alias || participant.participant.summonerName} (${
-      championName.replaceAll("_", " ").toLowerCase().replace(/\b\w/g, (char) =>
-        char.toUpperCase())
+      participant.player.alias} (${
+      championName
+        .replaceAll("_", " ")
+        .toLowerCase()
+        .replace(/\b\w/g, (char) => char.toUpperCase())
     })`;
   });
 
   let messageString = messages.join(", ");
   if (messages.length > 1) {
     const lastCommaIndex = messageString.lastIndexOf(",");
-    messageString = `${messageString.substring(0, lastCommaIndex)}, and${
-      messageString.substring(lastCommaIndex + 1)
-    }`;
+    messageString = `${
+      messageString.substring(
+        0,
+        lastCommaIndex,
+      )
+    }, and${messageString.substring(lastCommaIndex + 1)}`;
   }
 
   return `${messageString} started a ${
