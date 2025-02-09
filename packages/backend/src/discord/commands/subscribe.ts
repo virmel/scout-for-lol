@@ -48,9 +48,6 @@ export const subscribeCommand = new SlashCommandBuilder()
       )
       .setRequired(true)
   )
-  .addUserOption((option) =>
-    option.setName("user").setDescription("The Discord user of the player")
-  )
   // TODO: differentiate between player and account alias
   .addStringOption((option) =>
     option
@@ -58,6 +55,9 @@ export const subscribeCommand = new SlashCommandBuilder()
       .setDescription("An alias for the player")
       // TODO: make this optional
       .setRequired(true)
+  )
+  .addUserOption((option) =>
+    option.setName("user").setDescription("The Discord user of the player")
   )
   .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
   .setContexts(InteractionContextType.Guild);
