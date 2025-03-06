@@ -13,6 +13,8 @@ export const QueueTypeSchema = z.enum([
   "urf",
   "quickplay",
   "swiftplay",
+  "arena",
+  "draft pick",
 ]);
 
 // from https://static.developer.riotgames.com/docs/lol/queues.json
@@ -20,11 +22,13 @@ export function parseQueueType(input: number): QueueType | undefined {
   return match(input)
     .returnType<QueueType | undefined>()
     .with(420, () => "solo")
+    .with(400, () => "draft pick")
     .with(440, () => "flex")
     .with(450, () => "aram")
     .with(480, () => "swiftplay")
     .with(490, () => "quickplay")
     .with(900, () => "arurf")
+    .with(1700, () => "arena")
     .with(1900, () => "urf")
     .otherwise(() => {
       console.error(`unknown queue type: ${input}`);
