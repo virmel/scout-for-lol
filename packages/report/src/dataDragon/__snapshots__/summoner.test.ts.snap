@@ -14,7 +14,7 @@ snapshot[`should be able to get champion data 1`] = `
       costBurn: "0",
       costType: "No Cost",
       datavalues: {},
-      description: "Gain a 100-460 damage Shield for 2.5 seconds.",
+      description: "Gain a brief Shield.",
       effect: [
         null,
         [
@@ -114,7 +114,7 @@ snapshot[`should be able to get champion data 1`] = `
       costBurn: "0",
       costType: "No Cost",
       datavalues: {},
-      description: "Removes all disables (excluding suppression and airborne) and summoner spell debuffs affecting your champion and gives 75% Tenacity for 3 seconds.",
+      description: "Removes all disables (excluding suppression and airborne) and summoner spell debuffs affecting your champion and gives Tenacity.",
       effect: [
         null,
         [
@@ -381,7 +381,7 @@ snapshot[`should be able to get champion data 1`] = `
       costBurn: "0",
       costType: "No Cost",
       datavalues: {},
-      description: "Deals 70-410 true damage to target enemy champion over 5 seconds and reduces healing effects on them for the duration.",
+      description: "Deals true damage over time to target enemy champion and reduces healing effects on them for the duration.",
       effect: [
         null,
         [
@@ -481,7 +481,7 @@ snapshot[`should be able to get champion data 1`] = `
       costBurn: "0",
       costType: "No Cost",
       datavalues: {},
-      description: "Slows target enemy champion by 40% and reduces their damage dealt by 35% for 3 seconds.",
+      description: "Slows target enemy champion and reduces their damage dealt.",
       effect: [
         null,
         [
@@ -680,7 +680,7 @@ snapshot[`should be able to get champion data 1`] = `
       costBurn: "0",
       costType: "No Cost",
       datavalues: {},
-      description: "Gain 24 - 48% Move Speed and ignore unit collision for 10 seconds.",
+      description: "Gain Move Speed and ignore unit collision for the duration.",
       effect: [
         null,
         [
@@ -782,7 +782,7 @@ snapshot[`should be able to get champion data 1`] = `
       costBurn: "0",
       costType: "No Cost",
       datavalues: {},
-      description: "Restores 80-318 Health and grants 30% Move Speed for 1 second to you and target allied champion. This healing is halved for units recently affected by Summoner Heal.",
+      description: "Restores Health and grants Move Speed to you and target allied champion.",
       effect: [
         null,
         [
@@ -883,7 +883,7 @@ snapshot[`should be able to get champion data 1`] = `
       costBurn: "0",
       costType: "No Cost",
       datavalues: {},
-      description: "Restores 50% of your champion's maximum Mana. Also restores allies for 25% of their maximum Mana.",
+      description: "Restores your and ally champion's Mana.",
       effect: [
         null,
         [
@@ -1136,7 +1136,7 @@ snapshot[`should be able to get champion data 1`] = `
       costBurn: "0",
       costType: "No Cost",
       datavalues: {},
-      description: "Deals 600-1200 true damage to target large monster.",
+      description: "Deals true damage to a monster or minion.",
       effect: [
         null,
         [
@@ -1401,7 +1401,7 @@ snapshot[`should be able to get champion data 1`] = `
       costBurn: "0",
       costType: "No Cost",
       datavalues: {},
-      description: "After channeling for 3 seconds, become untargetable and travel to target allied structure, minion, or ward. Upgrades into Unleashed Teleport at 10 minutes, which significantly increases travel speed. ",
+      description: "After a brief channel, become untargetable and travel toan allied unit. Upgrades into Unleashed Teleport, which significantly increases travel speed. ",
       effect: [
         null,
         [
@@ -1654,6 +1654,6 @@ snapshot[`should be able to get champion data 1`] = `
     },
   },
   type: "summoner",
-  version: "15.3.1",
+  version: "15.5.1",
 }
 `;
