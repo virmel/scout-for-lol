@@ -34,7 +34,7 @@ jobs:
         run: cd packages/data/ && rm deno.lock && deno install && deno check src/index.ts
       - name: Update report Deno lockfile
         if: env.file_changed == 'true'
-        run: cd packages/report/ && rm deno.lock && mv package.json package_cp.json && deno install && mv package_cp.json package.json && deno check src/index.ts
+        run: cd packages/report/ && rm deno.lock && mv package.json package_cp.json && deno install --node-modules-dir=auto && mv package_cp.json package.json && deno check src/index.ts
       - name: Commit and push changes
         if: env.file_changed == 'true'
         run: |
