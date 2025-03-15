@@ -28,13 +28,13 @@ jobs:
           if git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | grep -qE 'packages/backend/deno.json|packages/data/deno.json|packages/report/deno.json'; then echo "file_changed=true" >> $GITHUB_ENV; else echo "file_changed=false" >> $GITHUB_ENV; fi
       - name: Update backend Deno lockfile
         if: env.file_changed == 'true'
-        run: cd packages/backend/ && rm deno.lock && deno install
+        run: cd packages/backend/ && rm deno.lock && deno install && deno check src/index.ts
       - name: Update data Deno lockfile
         if: env.file_changed == 'true'
-        run: cd packages/data/ && rm deno.lock && deno install
+        run: cd packages/data/ && rm deno.lock && deno install && deno check src/index.ts
       - name: Update report Deno lockfile
         if: env.file_changed == 'true'
-        run: cd packages/report/ && rm deno.lock && mv package.json package_cp.json && deno install && mv package_cp.json package.json
+        run: cd packages/report/ && rm deno.lock && mv package.json package_cp.json && deno install && mv package_cp.json package.json && deno check src/index.ts
       - name: Commit and push changes
         if: env.file_changed == 'true'
         run: |
