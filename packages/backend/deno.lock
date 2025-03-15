@@ -27,7 +27,7 @@
     "jsr:@std/path@^1.0.8": "1.0.8",
     "jsr:@std/testing@1.0.9": "1.0.9",
     "npm:@resvg/resvg-js@2.6.2": "2.6.2",
-    "npm:discord.js@14.17.3": "14.17.3",
+    "npm:discord.js@14.18.0": "14.18.0",
     "npm:prisma@6.4.1": "6.4.1_esbuild@0.25.1",
     "npm:satori@0.12.1": "0.12.1",
     "npm:yoga-wasm-web@0.3.3": "0.3.3"
@@ -183,7 +183,7 @@
         "discord-api-types",
         "magic-bytes.js",
         "tslib",
-        "undici@6.21.1"
+        "undici"
       ]
     },
     "@discordjs/util@1.1.1": {
@@ -433,8 +433,8 @@
     "discord-api-types@0.37.119": {
       "integrity": "sha512-WasbGFXEB+VQWXlo6IpW3oUv73Yuau1Ig4AZF/m13tXcTKnMpc/mHjpztIlz4+BM9FG9BHQkEXiPto3bKduQUg=="
     },
-    "discord.js@14.17.3": {
-      "integrity": "sha512-8/j8udc3CU7dz3Eqch64UaSHoJtUT6IXK4da5ixjbav4NAXJicloWswD/iwn1ImZEMoAV3LscsdO0zhBh6H+0Q==",
+    "discord.js@14.18.0": {
+      "integrity": "sha512-SvU5kVUvwunQhN2/+0t55QW/1EHfB1lp0TtLZUSXVHDmyHTrdOj5LRKdR0zLcybaA15F+NtdWuWmGOX9lE+CAw==",
       "dependencies": [
         "@discordjs/builders",
         "@discordjs/collection@1.5.3",
@@ -447,7 +447,7 @@
         "fast-deep-equal",
         "lodash.snakecase",
         "tslib",
-        "undici@6.19.8"
+        "undici"
       ]
     },
     "emoji-regex@10.4.0": {
@@ -576,9 +576,6 @@
     },
     "undici-types@6.20.0": {
       "integrity": "sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg=="
-    },
-    "undici@6.19.8": {
-      "integrity": "sha512-U8uCCl2x9TK3WANvmBavymRzxbfFYG+tAu+fgx3zxQy3qdagQqBLwJVrdyO1TBfUXvfKveMKJZhpvUYoOjM+4g=="
     },
     "undici@6.21.1": {
       "integrity": "sha512-q/1rj5D0/zayJB2FraXdaWxbhWiNKDvu8naDT2dl1yTlvJp4BLtOcp2a5BvgGNQpYYJzau7tf1WgKv3b+7mqpQ=="
@@ -988,7 +985,7 @@
       "jsr:@std/encoding@1.0.7",
       "jsr:@std/testing@1.0.9",
       "npm:@resvg/resvg-js@2.6.2",
-      "npm:discord.js@14.17.3",
+      "npm:discord.js@14.18.0",
       "npm:prisma@6.4.1",
       "npm:satori@0.12.1",
       "npm:yoga-wasm-web@0.3.3"
