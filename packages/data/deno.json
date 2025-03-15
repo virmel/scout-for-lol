@@ -10,5 +10,6 @@
     "check": "deno check src/index.ts",
     "check:watch": "deno run -A https://deno.land/x/denon/denon.ts check",
     "test:update": "deno test --allow-all -- --update"
-  }
+  },
+  "lock": true
 }

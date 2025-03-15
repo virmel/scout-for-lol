@@ -70,5 +70,6 @@
     "check:watch": "deno run -A https://deno.land/x/denon/denon.ts check",
     "run": "deno run -A --unstable-ffi src/index.ts",
     "test:update": "deno test --allow-all -- --update"
-  }
+  },
+  "lock": true
 }
