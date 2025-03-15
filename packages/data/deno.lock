@@ -48,8 +48,8 @@
     }
   },
   "remote": {
-    "https://esm.sh/remeda@2.21.0": "5d3946df17e0fbb6df425a5db2a5c7e96138f2c771624b8073a48290be50b919",
-    "https://esm.sh/remeda@2.21.0/denonext/remeda.mjs": "aeed27cfed40e07cf9ec93c6a6b4d5254e20640d6e1675c55641b58d0c956f0a",
+    "https://esm.sh/remeda@2.21.2": "52ac9fe1fb9e808f800e58e2c065b5dddd5b121232b8e527d4c541560bda398f",
+    "https://esm.sh/remeda@2.21.2/denonext/remeda.mjs": "0e8f73cc86f70b55586d25c9caded73e4f28c06433afaf9f6cb1994c7e02c96c",
     "https://esm.sh/ts-pattern@5.6.2": "2b50c3eefb22a25c46f75d79418cc44f2fe8f22e081e3d2762f1f9f05ed4aa3d",
     "https://esm.sh/ts-pattern@5.6.2/denonext/ts-pattern.mjs": "d22461345e05a1dc51f6fea52163619abc795b9ccc7ea3d1f631600df1bef9fc",
     "https://esm.sh/zod@3.24.2": "634dc151ffdec010f55988d783c024d926124f7e943e00c27004f73bc5543902",
