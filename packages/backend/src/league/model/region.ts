@@ -26,9 +26,7 @@ export function mapRegionToEnum(region: Region): Regions {
     .with("JAPAN", () => Regions.JAPAN)
     .with("VIETNAM", () => Regions.VIETNAM)
     .with("TAIWAN", () => Regions.TAIWAN)
-    .with("THAILAND", () => Regions.THAILAND)
     .with("SINGAPORE", () => Regions.SINGAPORE)
-    .with("PHILIPPINES", () => Regions.PHILIPPINES)
     .with("PBE", () => Regions.PBE)
     .exhaustive();
 }

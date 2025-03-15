@@ -18,9 +18,7 @@ export const RegionSchema = z.enum([
   "JAPAN",
   "VIETNAM",
   "TAIWAN",
-  "THAILAND",
   "SINGAPORE",
-  "PHILIPPINES",
   "PBE",
 ]);
 
@@ -38,9 +36,7 @@ const readableRegions: Record<Region, string> = {
   JAPAN: "Japan",
   VIETNAM: "Vietnam",
   TAIWAN: "Taiwan",
-  THAILAND: "Thailand",
   SINGAPORE: "Singapore",
-  PHILIPPINES: "Philippines",
   PBE: "Public Beta Environment",
 };
 
