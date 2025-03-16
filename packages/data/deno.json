@@ -6,10 +6,11 @@
     "ts-pattern": "https://esm.sh/ts-pattern@5.6.2",
     "zod": "https://esm.sh/zod@3.24.2"
   },
+  "lock": true,
   "tasks": {
     "check": "deno check src/index.ts",
     "check:watch": "deno run -A https://deno.land/x/denon/denon.ts check",
     "test:update": "deno test --allow-all -- --update"
   },
-  "lock": true
+  "vendor": true
 }

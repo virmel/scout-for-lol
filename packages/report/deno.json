@@ -15,7 +15,6 @@
   },
   "exclude": ["test"],
   "imports": {
-    "@types/node": "npm:@types/node@22.13.10",
     "@deno/cache-dir": "jsr:@deno/cache-dir@0.18.0",
     "@deno/dnt": "jsr:@deno/dnt@0.41.3",
     "@resvg/resvg-js": "npm:@resvg/resvg-js@2.6.2",
@@ -24,6 +23,7 @@
     "@std/encoding": "jsr:@std/encoding@1.0.6",
     "@std/fs": "jsr:@std/fs@1.0.14",
     "@std/testing": "jsr:@std/testing@1.0.9",
+    "@types/node": "npm:@types/node@22.13.10",
     "react": "https://esm.sh/react@19.0.0",
     "remeda": "https://esm.sh/remeda@2.21.2",
     "satori": "npm:satori@0.12.1",
@@ -31,11 +31,12 @@
     "yoga-wasm-web": "npm:yoga-wasm-web@0.3.3",
     "zod": "https://esm.sh/zod@3.24.2"
   },
+  "lock": true,
   "tasks": {
     "check": "deno check src/index.ts",
     "check:watch": "deno run -A https://deno.land/x/denon/denon.ts check",
     "run": "deno run -A --unstable-ffi src/index.ts",
     "test:update": "deno test --allow-all -- --update"
   },
-  "lock": true
+  "vendor": true
 }
