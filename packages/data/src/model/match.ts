@@ -17,7 +17,6 @@ export const CompletedMatchSchema = z.strictObject({
   // TODO: make this take a list of players to highlight for duo/flex support
   player: z.strictObject({
     playerConfig: PlayerConfigEntrySchema,
-    // TODO: maybe these should be undefined for unranked/swiftplay
     wins: z.number().nonnegative().optional(),
     losses: z.number().nonnegative().optional(),
     outcome: z.enum(["Victory", "Defeat", "Surrender"]),

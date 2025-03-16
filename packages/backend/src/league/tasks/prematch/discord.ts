@@ -24,9 +24,8 @@ export function createDiscordMessage(
     return { player, participant };
   });
 
-  // TODO: call API to get proper champion name
   const messages = map(participants, (participant) => {
-    // TODO: can be removed after https://github.com/Sansossio/twisted/issues/128
+    // this is to handle failures that occur when new champions are added
     let championName: string;
     try {
       championName = getChampionName(participant.participant.championId);
@@ -34,9 +33,7 @@ export function createDiscordMessage(
       console.error(error);
       championName = participant.participant.championId.toString();
     }
-    return `${
-      // TODO: call API to get riot ID name
-      participant.player.alias} (${
+    return `${participant.player.alias} (${
       championName
         .replaceAll("_", " ")
         .toLowerCase()

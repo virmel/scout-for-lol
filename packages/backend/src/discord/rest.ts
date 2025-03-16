@@ -18,7 +18,6 @@ const rest = new REST().setToken(configuration.discordToken);
       `Started refreshing ${commands.length} application (/) commands.`,
     );
 
-    // TODO: this only needs to be done once, not every time the bot starts
     const data = await rest.put(
       Routes.applicationCommands(configuration.applicationId),
       { body: commands },
