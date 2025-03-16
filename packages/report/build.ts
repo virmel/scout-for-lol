@@ -14,7 +14,7 @@ await build({
   test: false,
   scriptModule: false,
   package: JSON.parse(
-    Deno.readTextFileSync("package.json").replace(
+    Deno.readTextFileSync("./packaging/package.json").replace(
       "$VERSION",
       Deno.env.get("version") || "???", // TODO: throw error instea
     ),
