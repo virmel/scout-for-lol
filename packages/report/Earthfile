@@ -35,8 +35,7 @@ dnt.deps:
 
   COPY ../data+src/ /workspace/packages/data/src/
 
-  COPY --dir deno* src .
-  RUN deno cache src/index.ts
+  COPY --dir deno* src vendor .
 
 dnt.build:
   ARG --required version
