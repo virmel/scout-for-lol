@@ -26,7 +26,7 @@ check:
   FROM +deps
   RUN deno check src/index.ts
   RUN deno lint
-  RUN deno test -A --unstable
+  RUN deno test
   BUILD ./test/+test
 
 dnt.deps:

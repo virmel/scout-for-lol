@@ -14,7 +14,7 @@ There seems to be a fair bit of coupling. Examples:
 - [x] Show lane images
 - [x] Better rank support, show message for placements
 - [x] Better duo/flex squeue support
-- Remove use of deprecated flags (--unstable)
+- [x] Remove use of deprecated flags (--unstable)
 
 ## Bugs
 

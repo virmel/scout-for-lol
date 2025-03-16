@@ -13,9 +13,7 @@
       "runtimeExecutable": "deno",
       "runtimeArgs": [
         "run",
-        "--unstable",
         "--inspect-wait",
-        "--allow-all"
       ],
       "attachSimplePort": 9229
     },
@@ -28,9 +26,7 @@
       "runtimeExecutable": "deno",
       "runtimeArgs": [
         "run",
-        "--unstable",
         "--inspect-wait",
-        "--allow-all"
       ],
       "attachSimplePort": 9229
     },
@@ -43,9 +39,7 @@
       "runtimeExecutable": "deno",
       "runtimeArgs": [
         "run",
-        "--unstable",
         "--inspect-wait",
-        "--allow-all"
       ],
       "attachSimplePort": 9229
     }

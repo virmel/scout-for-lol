@@ -9,8 +9,9 @@
   "lock": true,
   "tasks": {
     "check": "deno check src/index.ts",
-    "check:watch": "deno run -A https://deno.land/x/denon/denon.ts check",
-    "test:update": "deno test --allow-all -- --update"
+    "check:watch": "deno run https://deno.land/x/denon/denon.ts check",
+    "test:update": "deno test -- --update"
   },
-  "vendor": true
+  "vendor": true,
+  "license": "GPL-3.0"
 }

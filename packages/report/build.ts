@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run -A
+#!/usr/bin/env -S deno run
 import { build, emptyDir } from "@deno/dnt";
 import { copySync } from "@std/fs";
 
