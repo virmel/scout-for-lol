@@ -5,6 +5,7 @@
       "type": "deno",
       "command": "test",
       "args": [
+        "--allow-all",
         "--watch"
       ],
       "problemMatcher": [

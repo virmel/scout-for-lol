@@ -69,9 +69,9 @@
   "nodeModulesDir": "none",
   "tasks": {
     "check": "deno check src/index.ts",
-    "check:watch": "deno run https://deno.land/x/denon/denon.ts check",
-    "run": "deno run src/index.ts",
-    "test:update": "deno test -- --update"
+    "check:watch": "deno run --allow-all https://deno.land/x/denon/denon.ts check",
+    "run": "deno run --allow-all src/index.ts",
+    "test:update": "deno test --allow-all -- --update"
   },
   "vendor": true,
   "license": "GPL-3.0",

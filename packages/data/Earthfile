@@ -22,4 +22,4 @@ check:
   FROM +deps
   RUN deno check src/index.ts
   RUN deno lint
-  # RUN deno test
+  # RUN deno test --allow-all

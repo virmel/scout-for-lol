@@ -37,6 +37,7 @@
     "jsr:@ts-morph/bootstrap@0.24": "0.24.0",
     "jsr:@ts-morph/common@0.24": "0.24.0",
     "npm:@resvg/resvg-js@2.6.2": "2.6.2",
+    "npm:@types/node@*": "22.12.0",
     "npm:@types/node@22.13.10": "22.13.10",
     "npm:satori@0.12.1": "0.12.1",
     "npm:yoga-wasm-web@0.3.3": "0.3.3"
@@ -248,6 +249,12 @@
       "dependencies": [
         "fflate",
         "string.prototype.codepointat"
+      ]
+    },
+    "@types/node@22.12.0": {
+      "integrity": "sha512-Fll2FZ1riMjNmlmJOdAyY5pUbkftXslB5DgEzlIuNaiWhXd00FhWxVC/r4yV/4wBb9JfImTu+jiSvXTkJ7F/gA==",
+      "dependencies": [
+        "undici-types"
       ]
     },
     "@types/node@22.13.10": {
